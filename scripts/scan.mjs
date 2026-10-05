@@ -53,7 +53,7 @@ function looksLikeSpecificVehicle(v){
 function isDirectListing(u=''){
  try{
   const url=new URL(u), h=url.hostname.toLowerCase(), p=url.pathname;
-  if(h.includes('craigslist.org')) return /^\/view\/d\//i.test(p);
+  if(h.includes('craigslist.org')) return /^\/view\/d\//i.test(p)||/\/d\/[^/]+\/\d+\.html$/i.test(p);
   if(h.includes('facebook.com')) return /^\/marketplace\/item\//i.test(p);
   if(h.includes('cars.com')) return /^\/vehicledetail\//i.test(p);
   if(h.includes('autotrader.com')) return /\/cars-for-sale\/vehicle\//i.test(p);
@@ -93,6 +93,40 @@ async function search(q){
  return JSON.parse(body);
 }
 
+
+async function scrapePage(url){
+ const r=await fetch('https://scrape.serper.dev',{method:'POST',headers:{'X-API-KEY':key,'Content-Type':'application/json'},body:JSON.stringify({url,includeMarkdown:true})});
+ const body=await r.text();
+ if(!r.ok)throw new Error('Serper scrape '+r.status+' '+body.slice(0,120));
+ return JSON.parse(body);
+}
+function extractedDirectRows(data,base){
+ const blob=[data.markdown||'',data.text||'',JSON.stringify(data)].join('\n');
+ const rows=[],seen=new Set();
+ const add=(url,idx=0)=>{
+  try{
+   const u=new URL(url,base).href;
+   if(!seen.has(u)&&allowed.test(u)&&isDirectListing(u)){
+    seen.add(u);
+    rows.push({link:u,title:'',snippet:blob.slice(Math.max(0,idx-350),idx+650)});
+   }
+  }catch{}
+ };
+ for(const m of blob.matchAll(/https?:\/\/[^\s)\]"'<>]+/g)) add(m[0].replace(/[.,;]+$/,''),m.index||0);
+ for(const m of blob.matchAll(/(\/vehicledetail\/[A-Za-z0-9-]+\/?|\/cars-for-sale\/vehicle\/[A-Za-z0-9-]+[^\s)\]"'<>]*|\/marketplace\/item\/\d+[^\s)\]"'<>]*|\/view\/d\/[^\s)\]"'<>]+)/g)) add(m[1],m.index||0);
+ for(const m of blob.matchAll(/"listing_id"\s*:\s*"([a-f0-9-]{20,})"/ig)) add('https://www.cars.com/vehicledetail/'+m[1]+'/',m.index||0);
+ return rows.slice(0,10);
+}
+async function hydrate(row){
+ const t=(row.title||'')+' '+(row.snippet||'');
+ if(/\$\s?[0-9]/.test(t)&&/\b(19|20)\d{2}\b/.test(t))return row;
+ try{
+  const d=await scrapePage(row.link);
+  const text=(d.markdown||d.text||'').slice(0,7000);
+  return {...row,title:d.metadata?.title||row.title||'',snippet:text};
+ }catch{return row}
+}
+
 const all=[],log=[];
 for(const area of cfg.searchAreas){
  const queries=[
@@ -102,29 +136,33 @@ for(const area of cfg.searchAreas){
  for(const q of queries){
   try{
    const j=await search(q), organic=(j.organic||[]);
-   const direct=organic.filter(v=>v.link&&allowed.test(v.link)&&isDirectListing(v.link));
-   log.push({area,query:q,results:organic.length,kept:direct.length});
-   for(const row of direct) all.push(parse(row,area));
-
-   if(direct.length===0){
-    const candidates=organic.filter(v=>v.link&&allowed.test(v.link)&&looksLikeSpecificVehicle(v)).slice(0,2);
-    for(const candidate of candidates){
-     const t=(candidate.title||'')+' '+(candidate.snippet||'');
-     const ym=t.match(/\b(20[0-2][0-9]|19[89][0-9])\b/);
-     const mm=t.match(/(Honda Pilot|Toyota Highlander|Ford Explorer|Kia Sorento|Nissan Pathfinder|Chevrolet Traverse|GMC Acadia|Dodge Durango|Acura MDX|Infiniti QX60|Buick Enclave|Mazda CX-9)/i);
-     const pm=t.match(/\$\s?([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})/);
-     if(!ym||!mm||!pm) continue;
-     const resolveQuery=ym[1]+' '+mm[1]+' '+pm[1]+' '+area;
-     try{
-      const rj=await search(resolveQuery);
-      const resolved=(rj.organic||[]).find(v=>v.link&&allowed.test(v.link)&&isDirectListing(v.link));
-      if(resolved){
-       all.push(parse(resolved,area));
-       log.push({area,query:resolveQuery,results:(rj.organic||[]).length,kept:1,resolved:true});
-      }
-     }catch(e){}
+   const rows=[];
+   for(const r of organic){
+    if(r.link&&allowed.test(r.link)&&isDirectListing(r.link)) rows.push(r);
+    const sitelinks=[...(r.sitelinks||[]),...(r.sitelinks?.inline||[]),...(r.sitelinks?.expanded||[])];
+    for(const s of sitelinks){
+     if(s?.link&&allowed.test(s.link)&&isDirectListing(s.link)) rows.push({title:s.title||r.title||'',snippet:r.snippet||'',link:s.link});
     }
    }
+   let scrapedPages=0;
+   const generic=organic.filter(r=>r.link&&allowed.test(r.link)&&!isDirectListing(r.link)).slice(0,2);
+   for(const g of generic){
+    try{
+     const d=await scrapePage(g.link); scrapedPages++;
+     rows.push(...extractedDirectRows(d,g.link));
+    }catch{}
+   }
+   const uniqueRows=[...new Map(rows.map(r=>[r.link,r])).values()].slice(0,6);
+   let accepted=0;
+   for(const row of uniqueRows){
+    const full=await hydrate(row);
+    const p=parse(full,area);
+    const txt=p.title+' '+p.snippet;
+    if(p.price!==null&&p.price>=cfg.minPrice&&p.price<=cfg.maxPrice&&p.year!==null&&p.year>=cfg.minYear-1&&seven.test(txt)){
+     all.push(p); accepted++;
+    }
+   }
+   log.push({area,query:q,results:organic.length,directFound:uniqueRows.length,scrapedPages,accepted,sampleUrls:uniqueRows.slice(0,3).map(r=>r.link)});
   }catch(e){log.push({area,query:q,error:e.message})}
  }
 }
@@ -140,4 +178,4 @@ if(out.length===0){
 }
 await fs.writeFile(new URL('data/listings.json',root),JSON.stringify(finalOut,null,2));
 await fs.writeFile(new URL('data/scan-meta.json',root),JSON.stringify({lastScan:new Date().toISOString(),status,count:finalOut.length,newCount:out.length,rawCount:all.length,uniqueCount:uniq.length,queriesRun:log.length,queryLog:log},null,2));
-console.log('Saved',out.length,'listings');
+console.log('Saved',finalOut.length,'listings,',out.length,'new');
