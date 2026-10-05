@@ -1,5 +1,85 @@
 {
-  "lastScan": "2026-10-05T19:09:16.451Z",
+  "lastScan": "2026-10-05T19:23:48.976Z",
   "status": "ok",
-  "count": 0
+  "count": 0,
+  "rawCount": 0,
+  "uniqueCount": 0,
+  "queriesRun": 15,
+  "queryLog": [
+    {
+      "region": "Long Island NY",
+      "query": "(site:craigslist.org OR site:facebook.com/marketplace OR site:privateauto.com OR site:offerup.com OR site:ebay.com OR site:cars.com) (\"Toyota Highlander\" OR \"Honda Pilot\" OR \"Mazda CX-9\" OR \"Ford Explorer\" OR \"Kia Sorento\" OR \"Chevrolet Traverse\") \"Long Island NY\" used for sale",
+      "error": "Serper 400"
+    },
+    {
+      "region": "Long Island NY",
+      "query": "(site:craigslist.org OR site:facebook.com/marketplace OR site:privateauto.com OR site:offerup.com OR site:ebay.com OR site:cars.com) (\"Acura MDX\" OR \"GMC Acadia\" OR \"Dodge Durango\" OR \"Nissan Pathfinder\" OR \"Buick Enclave\" OR \"Infiniti QX60\" OR \"Toyota 4Runner\") \"Long Island NY\" used for sale",
+      "error": "Serper 400"
+    },
+    {
+      "region": "Long Island NY",
+      "query": "(site:craigslist.org OR site:facebook.com/marketplace OR site:privateauto.com OR site:offerup.com OR site:ebay.com OR site:cars.com) \"Long Island NY\" (\"7 passenger\" OR \"8 passenger\" OR \"third row\" OR \"3rd row\") SUV for sale",
+      "error": "Serper 400"
+    },
+    {
+      "region": "Nassau County NY",
+      "query": "(site:craigslist.org OR site:facebook.com/marketplace OR site:privateauto.com OR site:offerup.com OR site:ebay.com OR site:cars.com) (\"Toyota Highlander\" OR \"Honda Pilot\" OR \"Mazda CX-9\" OR \"Ford Explorer\" OR \"Kia Sorento\" OR \"Chevrolet Traverse\") \"Nassau County NY\" used for sale",
+      "error": "Serper 400"
+    },
+    {
+      "region": "Nassau County NY",
+      "query": "(site:craigslist.org OR site:facebook.com/marketplace OR site:privateauto.com OR site:offerup.com OR site:ebay.com OR site:cars.com) (\"Acura MDX\" OR \"GMC Acadia\" OR \"Dodge Durango\" OR \"Nissan Pathfinder\" OR \"Buick Enclave\" OR \"Infiniti QX60\" OR \"Toyota 4Runner\") \"Nassau County NY\" used for sale",
+      "error": "Serper 400"
+    },
+    {
+      "region": "Nassau County NY",
+      "query": "(site:craigslist.org OR site:facebook.com/marketplace OR site:privateauto.com OR site:offerup.com OR site:ebay.com OR site:cars.com) \"Nassau County NY\" (\"7 passenger\" OR \"8 passenger\" OR \"third row\" OR \"3rd row\") SUV for sale",
+      "error": "Serper 400"
+    },
+    {
+      "region": "Suffolk County NY",
+      "query": "(site:craigslist.org OR site:facebook.com/marketplace OR site:privateauto.com OR site:offerup.com OR site:ebay.com OR site:cars.com) (\"Toyota Highlander\" OR \"Honda Pilot\" OR \"Mazda CX-9\" OR \"Ford Explorer\" OR \"Kia Sorento\" OR \"Chevrolet Traverse\") \"Suffolk County NY\" used for sale",
+      "error": "Serper 400"
+    },
+    {
+      "region": "Suffolk County NY",
+      "query": "(site:craigslist.org OR site:facebook.com/marketplace OR site:privateauto.com OR site:offerup.com OR site:ebay.com OR site:cars.com) (\"Acura MDX\" OR \"GMC Acadia\" OR \"Dodge Durango\" OR \"Nissan Pathfinder\" OR \"Buick Enclave\" OR \"Infiniti QX60\" OR \"Toyota 4Runner\") \"Suffolk County NY\" used for sale",
+      "error": "Serper 400"
+    },
+    {
+      "region": "Suffolk County NY",
+      "query": "(site:craigslist.org OR site:facebook.com/marketplace OR site:privateauto.com OR site:offerup.com OR site:ebay.com OR site:cars.com) \"Suffolk County NY\" (\"7 passenger\" OR \"8 passenger\" OR \"third row\" OR \"3rd row\") SUV for sale",
+      "error": "Serper 400"
+    },
+    {
+      "region": "Westchester County NY",
+      "query": "(site:craigslist.org OR site:facebook.com/marketplace OR site:privateauto.com OR site:offerup.com OR site:ebay.com OR site:cars.com) (\"Toyota Highlander\" OR \"Honda Pilot\" OR \"Mazda CX-9\" OR \"Ford Explorer\" OR \"Kia Sorento\" OR \"Chevrolet Traverse\") \"Westchester County NY\" used for sale",
+      "error": "Serper 400"
+    },
+    {
+      "region": "Westchester County NY",
+      "query": "(site:craigslist.org OR site:facebook.com/marketplace OR site:privateauto.com OR site:offerup.com OR site:ebay.com OR site:cars.com) (\"Acura MDX\" OR \"GMC Acadia\" OR \"Dodge Durango\" OR \"Nissan Pathfinder\" OR \"Buick Enclave\" OR \"Infiniti QX60\" OR \"Toyota 4Runner\") \"Westchester County NY\" used for sale",
+      "error": "Serper 400"
+    },
+    {
+      "region": "Westchester County NY",
+      "query": "(site:craigslist.org OR site:facebook.com/marketplace OR site:privateauto.com OR site:offerup.com OR site:ebay.com OR site:cars.com) \"Westchester County NY\" (\"7 passenger\" OR \"8 passenger\" OR \"third row\" OR \"3rd row\") SUV for sale",
+      "error": "Serper 400"
+    },
+    {
+      "region": "North Jersey NJ",
+      "query": "(site:craigslist.org OR site:facebook.com/marketplace OR site:privateauto.com OR site:offerup.com OR site:ebay.com OR site:cars.com) (\"Toyota Highlander\" OR \"Honda Pilot\" OR \"Mazda CX-9\" OR \"Ford Explorer\" OR \"Kia Sorento\" OR \"Chevrolet Traverse\") \"North Jersey NJ\" used for sale",
+      "error": "Serper 400"
+    },
+    {
+      "region": "North Jersey NJ",
+      "query": "(site:craigslist.org OR site:facebook.com/marketplace OR site:privateauto.com OR site:offerup.com OR site:ebay.com OR site:cars.com) (\"Acura MDX\" OR \"GMC Acadia\" OR \"Dodge Durango\" OR \"Nissan Pathfinder\" OR \"Buick Enclave\" OR \"Infiniti QX60\" OR \"Toyota 4Runner\") \"North Jersey NJ\" used for sale",
+      "error": "Serper 400"
+    },
+    {
+      "region": "North Jersey NJ",
+      "query": "(site:craigslist.org OR site:facebook.com/marketplace OR site:privateauto.com OR site:offerup.com OR site:ebay.com OR site:cars.com) \"North Jersey NJ\" (\"7 passenger\" OR \"8 passenger\" OR \"third row\" OR \"3rd row\") SUV for sale",
+      "error": "Serper 400"
+    }
+  ]
 }
