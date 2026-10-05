@@ -53,7 +53,7 @@ function parse(x,area){
  const risk=bad.test(text)?'high':mid.test(text)?'medium':'unknown';
  const xl=seven.test(text);
  let score=45; const reasons=[];
- if(price&&price<=cfg.maxPrice){score+=20;reasons.push('Within budget')}else if(price){score-=20;reasons.push('Over budget')}else reasons.push('Price verify');
+ if(price>=cfg.minPrice&&price<=cfg.maxPrice){score+=20;reasons.push('Within $4k-$15k budget')}else{score-=25;reasons.push('Outside price range')};
  if(year&&year>=cfg.minYear){score+=15;reasons.push('Year fits target')}else if(year){score-=20;reasons.push('Older than target')}else reasons.push('Year verify');
  if(mileage&&mileage<=120000){score+=10;reasons.push('Good mileage')}else if(mileage&&mileage<=cfg.maxMileage){score+=5}else if(mileage){score-=10};
  if(privateSeller){score+=10;reasons.push('Private seller likely')}else{reasons.push('Dealer/unknown seller')};
@@ -72,8 +72,8 @@ async function search(q){
 const all=[],log=[];
 for(const area of cfg.searchAreas){
  const queries=[
-  'Honda Pilot Toyota Highlander Ford Explorer Kia Sorento '+area+' used vehicle listing',
-  'Pathfinder Traverse Acadia Durango MDX QX60 Enclave '+area+' used vehicle listing',
+  'Honda Pilot Toyota Highlander Ford Explorer Kia Sorento '+area+' used vehicle listing price under 15000',
+  'Pathfinder Traverse Acadia Durango MDX QX60 Enclave '+area+' used vehicle listing price under 15000',
   'site:craigslist.org '+area+' Honda Pilot OR Highlander OR Explorer OR Sorento',
   'site:cars.com/vehicledetail '+area+' Honda Pilot OR Highlander OR Pathfinder OR Traverse'
  ];
@@ -86,7 +86,7 @@ for(const area of cfg.searchAreas){
  }
 }
 const uniq=[...new Map(all.map(x=>[x.url,x])).values()];
-const out=uniq.filter(x=>(!x.price||x.price<=cfg.maxPrice*1.08)&&(!x.year||x.year>=cfg.minYear-1)).sort((a,b)=>b.score-a.score).slice(0,250);
+const out=uniq.filter(x=>x.price!==null&&x.price>=cfg.minPrice&&x.price<=cfg.maxPrice&&(!x.year||x.year>=cfg.minYear-1)).sort((a,b)=>b.score-a.score).slice(0,250);
 await fs.writeFile(new URL('data/listings.json',root),JSON.stringify(out,null,2));
 await fs.writeFile(new URL('data/scan-meta.json',root),JSON.stringify({lastScan:new Date().toISOString(),status:'ok',count:out.length,rawCount:all.length,uniqueCount:uniq.length,queriesRun:log.length,queryLog:log},null,2));
 console.log('Saved',out.length,'listings');
