@@ -1,152 +1,81 @@
 {
-  "lastScan": "2026-10-05T22:11:19.834Z",
+  "lastScan": "2026-10-05T22:22:27.846Z",
   "status": "ok",
   "count": 0,
+  "newCount": 0,
   "rawCount": 0,
   "uniqueCount": 0,
-  "queriesRun": 24,
+  "queriesRun": 12,
   "queryLog": [
     {
       "area": "Long Island NY",
-      "query": "site:craigslist.org/view/d Long Island NY Honda Pilot Highlander Explorer Sorento 4000 15000",
-      "results": 0,
-      "kept": 0
-    },
-    {
-      "area": "Long Island NY",
-      "query": "site:craigslist.org/view/d Long Island NY Pathfinder Traverse Acadia Durango MDX QX60 Enclave 4000 15000",
-      "results": 0,
-      "kept": 0
-    },
-    {
-      "area": "Long Island NY",
-      "query": "inurl:vehicledetail Long Island NY Honda Pilot Highlander Pathfinder Traverse 4000 15000",
+      "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Long Island NY used for sale price",
       "results": 10,
       "kept": 0
     },
     {
       "area": "Long Island NY",
-      "query": "inurl:/cars-for-sale/vehicle/ Long Island NY Pilot Highlander Explorer Pathfinder 4000 15000",
+      "query": "Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 Long Island NY used for sale price",
       "results": 10,
       "kept": 0
     },
     {
       "area": "Westchester NY",
-      "query": "site:craigslist.org/view/d Westchester NY Honda Pilot Highlander Explorer Sorento 4000 15000",
-      "results": 0,
+      "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Westchester NY used for sale price",
+      "results": 7,
       "kept": 0
     },
     {
       "area": "Westchester NY",
-      "query": "site:craigslist.org/view/d Westchester NY Pathfinder Traverse Acadia Durango MDX QX60 Enclave 4000 15000",
-      "results": 0,
+      "query": "Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 Westchester NY used for sale price",
+      "results": 7,
       "kept": 0
     },
     {
-      "area": "Westchester NY",
-      "query": "inurl:vehicledetail Westchester NY Honda Pilot Highlander Pathfinder Traverse 4000 15000",
-      "results": 10,
-      "kept": 0
-    },
-    {
-      "area": "Westchester NY",
-      "query": "inurl:/cars-for-sale/vehicle/ Westchester NY Pilot Highlander Explorer Pathfinder 4000 15000",
+      "area": "North Jersey",
+      "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento North Jersey used for sale price",
       "results": 10,
       "kept": 0
     },
     {
       "area": "North Jersey",
-      "query": "site:craigslist.org/view/d North Jersey Honda Pilot Highlander Explorer Sorento 4000 15000",
-      "results": 0,
+      "query": "Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 North Jersey used for sale price",
+      "results": 7,
       "kept": 0
     },
     {
-      "area": "North Jersey",
-      "query": "site:craigslist.org/view/d North Jersey Pathfinder Traverse Acadia Durango MDX QX60 Enclave 4000 15000",
-      "results": 0,
-      "kept": 0
-    },
-    {
-      "area": "North Jersey",
-      "query": "inurl:vehicledetail North Jersey Honda Pilot Highlander Pathfinder Traverse 4000 15000",
-      "results": 10,
-      "kept": 0
-    },
-    {
-      "area": "North Jersey",
-      "query": "inurl:/cars-for-sale/vehicle/ North Jersey Pilot Highlander Explorer Pathfinder 4000 15000",
+      "area": "Hudson Valley NY",
+      "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Hudson Valley NY used for sale price",
       "results": 10,
       "kept": 0
     },
     {
       "area": "Hudson Valley NY",
-      "query": "site:craigslist.org/view/d Hudson Valley NY Honda Pilot Highlander Explorer Sorento 4000 15000",
-      "results": 0,
-      "kept": 0
-    },
-    {
-      "area": "Hudson Valley NY",
-      "query": "site:craigslist.org/view/d Hudson Valley NY Pathfinder Traverse Acadia Durango MDX QX60 Enclave 4000 15000",
-      "results": 0,
-      "kept": 0
-    },
-    {
-      "area": "Hudson Valley NY",
-      "query": "inurl:vehicledetail Hudson Valley NY Honda Pilot Highlander Pathfinder Traverse 4000 15000",
-      "results": 10,
-      "kept": 0
-    },
-    {
-      "area": "Hudson Valley NY",
-      "query": "inurl:/cars-for-sale/vehicle/ Hudson Valley NY Pilot Highlander Explorer Pathfinder 4000 15000",
+      "query": "Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 Hudson Valley NY used for sale price",
       "results": 10,
       "kept": 0
     },
     {
       "area": "Southwest Connecticut",
-      "query": "site:craigslist.org/view/d Southwest Connecticut Honda Pilot Highlander Explorer Sorento 4000 15000",
-      "results": 0,
+      "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Southwest Connecticut used for sale price",
+      "results": 7,
       "kept": 0
     },
     {
       "area": "Southwest Connecticut",
-      "query": "site:craigslist.org/view/d Southwest Connecticut Pathfinder Traverse Acadia Durango MDX QX60 Enclave 4000 15000",
-      "results": 0,
-      "kept": 0
-    },
-    {
-      "area": "Southwest Connecticut",
-      "query": "inurl:vehicledetail Southwest Connecticut Honda Pilot Highlander Pathfinder Traverse 4000 15000",
-      "results": 10,
-      "kept": 0
-    },
-    {
-      "area": "Southwest Connecticut",
-      "query": "inurl:/cars-for-sale/vehicle/ Southwest Connecticut Pilot Highlander Explorer Pathfinder 4000 15000",
+      "query": "Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 Southwest Connecticut used for sale price",
       "results": 10,
       "kept": 0
     },
     {
       "area": "Northeast Pennsylvania",
-      "query": "site:craigslist.org/view/d Northeast Pennsylvania Honda Pilot Highlander Explorer Sorento 4000 15000",
-      "results": 0,
-      "kept": 0
-    },
-    {
-      "area": "Northeast Pennsylvania",
-      "query": "site:craigslist.org/view/d Northeast Pennsylvania Pathfinder Traverse Acadia Durango MDX QX60 Enclave 4000 15000",
-      "results": 0,
-      "kept": 0
-    },
-    {
-      "area": "Northeast Pennsylvania",
-      "query": "inurl:vehicledetail Northeast Pennsylvania Honda Pilot Highlander Pathfinder Traverse 4000 15000",
+      "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Northeast Pennsylvania used for sale price",
       "results": 10,
       "kept": 0
     },
     {
       "area": "Northeast Pennsylvania",
-      "query": "inurl:/cars-for-sale/vehicle/ Northeast Pennsylvania Pilot Highlander Explorer Pathfinder 4000 15000",
+      "query": "Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 Northeast Pennsylvania used for sale price",
       "results": 10,
       "kept": 0
     }
