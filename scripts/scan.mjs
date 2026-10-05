@@ -96,10 +96,8 @@ async function search(q){
 const all=[],log=[];
 for(const area of cfg.searchAreas){
  const queries=[
-  'site:craigslist.org/view/d '+area+' Honda Pilot Highlander Explorer Sorento 4000 15000',
-  'site:craigslist.org/view/d '+area+' Pathfinder Traverse Acadia Durango MDX QX60 Enclave 4000 15000',
-  'inurl:vehicledetail '+area+' Honda Pilot Highlander Pathfinder Traverse 4000 15000',
-  'inurl:/cars-for-sale/vehicle/ '+area+' Pilot Highlander Explorer Pathfinder 4000 15000'
+  'Honda Pilot Toyota Highlander Ford Explorer Kia Sorento '+area+' used for sale price',
+  'Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 '+area+' used for sale price'
  ];
  for(const q of queries){
   try{
