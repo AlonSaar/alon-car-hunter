@@ -41,6 +41,15 @@ function isSpecificListing(u=''){
   return false;
  }catch{return false}
 }
+function looksLikeSpecificVehicle(v){
+ const title=v.title||'', snippet=v.snippet||'', text=title+' '+snippet;
+ const generic=/(for sale in|cars for sale|suvs for sale|vehicles for sale|shop used|browse the best|search used|best used|3rd-row seats for sale|all new, used, and certified|used cars for sale near me)/i;
+ const vehicleShape=/\b(19|20)\d{2}\b/.test(text) && /(pilot|highlander|explorer|sorento|pathfinder|traverse|acadia|durango|mdx|qx60|enclave|cx-9|4runner|armada|aspen|navigator|gls|yukon|tahoe|suburban|expedition)/i.test(text);
+ const priceShape=/\$\s?[0-9]{1,3}(?:,[0-9]{3})+|\$\s?[0-9]{4,5}/.test(text);
+ const mileageShape=/\b[0-9]{1,3}(?:,[0-9]{3})+\s*(?:mi|miles)\b/i.test(text);
+ if(generic.test(title) && !vehicleShape) return false;
+ return vehicleShape && (priceShape || mileageShape);
+}
 function parse(x,area){
  const text=(x.title||'')+' '+(x.snippet||'');
  const prices=[...text.matchAll(/\$\s?([0-9]{4,5}|[0-9]{1,3}(?:,[0-9]{3})+)/g)].map(m=>num(m[1])).filter(v=>v>=2000&&v<=50000);
@@ -79,14 +88,14 @@ for(const area of cfg.searchAreas){
  ];
  for(const q of queries){
   try{
-   const j=await search(q), rows=(j.organic||[]).filter(v=>v.link&&allowed.test(v.link)&&isSpecificListing(v.link));
+   const j=await search(q), rows=(j.organic||[]).filter(v=>v.link&&allowed.test(v.link)&&looksLikeSpecificVehicle(v));
    log.push({area,query:q,results:(j.organic||[]).length,kept:rows.length});
    for(const row of rows)all.push(parse(row,area));
   }catch(e){log.push({area,query:q,error:e.message})}
  }
 }
 const uniq=[...new Map(all.map(x=>[x.url,x])).values()];
-const out=uniq.filter(x=>x.price!==null&&x.price>=cfg.minPrice&&x.price<=cfg.maxPrice&&(!x.year||x.year>=cfg.minYear-1)).sort((a,b)=>b.score-a.score).slice(0,250);
+const out=uniq.filter(x=>x.price!==null&&x.price>=cfg.minPrice&&x.price<=cfg.maxPrice&&x.year!==null&&x.year>=cfg.minYear-1).sort((a,b)=>b.score-a.score).slice(0,250);
 await fs.writeFile(new URL('data/listings.json',root),JSON.stringify(out,null,2));
 await fs.writeFile(new URL('data/scan-meta.json',root),JSON.stringify({lastScan:new Date().toISOString(),status:'ok',count:out.length,rawCount:all.length,uniqueCount:uniq.length,queriesRun:log.length,queryLog:log},null,2));
 console.log('Saved',out.length,'listings');
