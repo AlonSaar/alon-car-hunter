@@ -50,6 +50,21 @@ function looksLikeSpecificVehicle(v){
  if(generic.test(title) && !vehicleShape) return false;
  return vehicleShape && (priceShape || mileageShape);
 }
+function isDirectListing(u=''){
+ try{
+  const url=new URL(u), h=url.hostname.toLowerCase(), p=url.pathname;
+  if(h.includes('craigslist.org')) return /^\/view\/d\//i.test(p);
+  if(h.includes('facebook.com')) return /^\/marketplace\/item\//i.test(p);
+  if(h.includes('cars.com')) return /^\/vehicledetail\//i.test(p);
+  if(h.includes('autotrader.com')) return /\/cars-for-sale\/vehicle\//i.test(p);
+  if(h.includes('ebay.com')) return /\/itm\//i.test(p);
+  if(h.includes('offerup.com')) return /\/item\/detail\//i.test(p);
+  if(h.includes('privateauto.com')) return /\/(vehicle|listing)\//i.test(p);
+  if(h.includes('cargurus.com')) return /listingId=\d+/i.test(u)||/\/Cars\/(link|detail)\//i.test(p);
+  if(h.includes('truecar.com')) return /\/used-cars-for-sale\/listing\//i.test(p);
+  return false;
+ }catch{return false}
+}
 function parse(x,area){
  const text=(x.title||'')+' '+(x.snippet||'');
  const prices=[...text.matchAll(/\$\s?([0-9]{4,5}|[0-9]{1,3}(?:,[0-9]{3})+)/g)].map(m=>num(m[1])).filter(v=>v>=2000&&v<=50000);
@@ -81,14 +96,14 @@ async function search(q){
 const all=[],log=[];
 for(const area of cfg.searchAreas){
  const queries=[
-  'Honda Pilot Toyota Highlander Ford Explorer Kia Sorento '+area+' used vehicle listing price under 15000',
-  'Pathfinder Traverse Acadia Durango MDX QX60 Enclave '+area+' used vehicle listing price under 15000',
-  'site:craigslist.org '+area+' Honda Pilot OR Highlander OR Explorer OR Sorento',
-  'site:cars.com/vehicledetail '+area+' Honda Pilot OR Highlander OR Pathfinder OR Traverse'
+  'site:craigslist.org/view/d '+area+' Honda Pilot Highlander Explorer Sorento 4000 15000',
+  'site:craigslist.org/view/d '+area+' Pathfinder Traverse Acadia Durango MDX QX60 Enclave 4000 15000',
+  'inurl:vehicledetail '+area+' Honda Pilot Highlander Pathfinder Traverse 4000 15000',
+  'inurl:/cars-for-sale/vehicle/ '+area+' Pilot Highlander Explorer Pathfinder 4000 15000'
  ];
  for(const q of queries){
   try{
-   const j=await search(q), rows=(j.organic||[]).filter(v=>v.link&&allowed.test(v.link)&&looksLikeSpecificVehicle(v));
+   const j=await search(q), rows=(j.organic||[]).filter(v=>v.link&&allowed.test(v.link)&&isDirectListing(v.link));
    log.push({area,query:q,results:(j.organic||[]).length,kept:rows.length});
    for(const row of rows)all.push(parse(row,area));
   }catch(e){log.push({area,query:q,error:e.message})}
