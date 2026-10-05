@@ -26,6 +26,21 @@ function source(u=''){
  if(/truecar/i.test(u))return'TrueCar';
  return'Web';
 }
+function isSpecificListing(u=''){
+ try{
+  const url=new URL(u), p=url.pathname;
+  if(/craigslist\.org$/i.test(url.hostname)||/\.craigslist\.org$/i.test(url.hostname)) return /\/d\/[^/]+\/\d+\.html$/i.test(p);
+  if(/facebook\.com$/i.test(url.hostname)||/\.facebook\.com$/i.test(url.hostname)) return /\/marketplace\/item\/\d+/i.test(p);
+  if(/cars\.com$/i.test(url.hostname)||/\.cars\.com$/i.test(url.hostname)) return /\/vehicledetail\//i.test(p);
+  if(/autotrader\.com$/i.test(url.hostname)||/\.autotrader\.com$/i.test(url.hostname)) return /\/cars-for-sale\/vehicle\/\d+/i.test(p);
+  if(/ebay\.com$/i.test(url.hostname)||/\.ebay\.com$/i.test(url.hostname)) return /\/itm\/\d+/i.test(p);
+  if(/offerup\.com$/i.test(url.hostname)||/\.offerup\.com$/i.test(url.hostname)) return /\/item\/detail\//i.test(p);
+  if(/privateauto\.com$/i.test(url.hostname)||/\.privateauto\.com$/i.test(url.hostname)) return !/^\/?$/.test(p) && !/\/search|\/browse|\/cars-for-sale/i.test(p);
+  if(/cargurus\.com$/i.test(url.hostname)||/\.cargurus\.com$/i.test(url.hostname)) return /listingId=\d+/i.test(u)||/\/Cars\/link\//i.test(p)||/\/Cars\/detail/i.test(p);
+  if(/truecar\.com$/i.test(url.hostname)||/\.truecar\.com$/i.test(url.hostname)) return /\/used-cars-for-sale\/listing\//i.test(p);
+  return false;
+ }catch{return false}
+}
 function parse(x,area){
  const text=(x.title||'')+' '+(x.snippet||'');
  const prices=[...text.matchAll(/\$\s?([0-9]{4,5}|[0-9]{1,3}(?:,[0-9]{3})+)/g)].map(m=>num(m[1])).filter(v=>v>=2000&&v<=50000);
@@ -57,12 +72,14 @@ async function search(q){
 const all=[],log=[];
 for(const area of cfg.searchAreas){
  const queries=[
-  'used 7 passenger SUV for sale '+area+' Honda Pilot Toyota Highlander Ford Explorer Kia Sorento',
-  'used third row SUV for sale '+area+' Pathfinder Traverse Acadia Durango MDX QX60 Enclave'
+  'Honda Pilot Toyota Highlander Ford Explorer Kia Sorento '+area+' used vehicle listing',
+  'Pathfinder Traverse Acadia Durango MDX QX60 Enclave '+area+' used vehicle listing',
+  'site:craigslist.org '+area+' Honda Pilot OR Highlander OR Explorer OR Sorento',
+  'site:cars.com/vehicledetail '+area+' Honda Pilot OR Highlander OR Pathfinder OR Traverse'
  ];
  for(const q of queries){
   try{
-   const j=await search(q), rows=(j.organic||[]).filter(v=>v.link&&allowed.test(v.link));
+   const j=await search(q), rows=(j.organic||[]).filter(v=>v.link&&allowed.test(v.link)&&isSpecificListing(v.link));
    log.push({area,query:q,results:(j.organic||[]).length,kept:rows.length});
    for(const row of rows)all.push(parse(row,area));
   }catch(e){log.push({area,query:q,error:e.message})}
