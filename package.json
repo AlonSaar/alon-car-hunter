@@ -1,0 +1,9 @@
+{
+  "name": "alon-car-hunter",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scan": "node scripts/scan.mjs"
+  }
+}
