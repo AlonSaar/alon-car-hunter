@@ -1,5 +1,5 @@
 {
-  "lastScan": "2026-10-05T22:22:27.846Z",
+  "lastScan": "2026-10-05T22:29:38.477Z",
   "status": "ok",
   "count": 0,
   "newCount": 0,
@@ -11,73 +11,145 @@
       "area": "Long Island NY",
       "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Long Island NY used for sale price",
       "results": 10,
-      "kept": 0
+      "directFound": 6,
+      "scrapedPages": 2,
+      "accepted": 0,
+      "sampleUrls": [
+        "https://www.cars.com/vehicledetail/8535806c-515d-4960-afee-a6aa3e1c88d0/?attribution_type=carousel_ncn&sid=d68cfa9c-bda8-4b2a-8286-1592a740b2e7",
+        "https://www.cars.com/vehicledetail/c9e9d263-85ed-4dd2-a567-fde0a115e7bd/?attribution_type=carousel_ncn&sid=d68cfa9c-bda8-4b2a-8286-1592a740b2e7",
+        "https://www.cars.com/vehicledetail/3d2ba898-84c5-4e85-adce-f79708dbd3a7/?attribution_type=carousel_ncn&sid=d68cfa9c-bda8-4b2a-8286-1592a740b2e7"
+      ]
     },
     {
       "area": "Long Island NY",
       "query": "Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 Long Island NY used for sale price",
       "results": 10,
-      "kept": 0
+      "directFound": 6,
+      "scrapedPages": 1,
+      "accepted": 0,
+      "sampleUrls": [
+        "https://www.cars.com/vehicledetail/a93afc9a-e473-402f-b70f-7be1cbd30de1/?attribution_type=carousel_ncn&sid=1472149c-d1d7-4436-96d4-fd3b9b36e32b",
+        "https://www.cars.com/vehicledetail/afea1e2d-c728-4099-affe-294f15d0fa3c/?attribution_type=carousel_ncn&sid=1472149c-d1d7-4436-96d4-fd3b9b36e32b",
+        "https://www.cars.com/vehicledetail/c387b493-eec9-45b5-a62e-f9a8624af807/?attribution_type=carousel_ncn&sid=1472149c-d1d7-4436-96d4-fd3b9b36e32b"
+      ]
     },
     {
       "area": "Westchester NY",
       "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Westchester NY used for sale price",
-      "results": 7,
-      "kept": 0
+      "results": 10,
+      "directFound": 0,
+      "scrapedPages": 2,
+      "accepted": 0,
+      "sampleUrls": []
     },
     {
       "area": "Westchester NY",
       "query": "Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 Westchester NY used for sale price",
-      "results": 7,
-      "kept": 0
+      "results": 10,
+      "directFound": 6,
+      "scrapedPages": 2,
+      "accepted": 0,
+      "sampleUrls": [
+        "https://www.cars.com/vehicledetail/a93afc9a-e473-402f-b70f-7be1cbd30de1/?attribution_type=carousel_ncn&sid=2cced1f1-4667-4925-b289-f98b1df93511",
+        "https://www.cars.com/vehicledetail/c387b493-eec9-45b5-a62e-f9a8624af807/?attribution_type=carousel_ncn&sid=2cced1f1-4667-4925-b289-f98b1df93511",
+        "https://www.cars.com/vehicledetail/1e45b280-4991-4a66-886c-d29527a56e3e/?attribution_type=carousel_ncn&sid=2cced1f1-4667-4925-b289-f98b1df93511"
+      ]
     },
     {
       "area": "North Jersey",
       "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento North Jersey used for sale price",
       "results": 10,
-      "kept": 0
+      "directFound": 6,
+      "scrapedPages": 2,
+      "accepted": 0,
+      "sampleUrls": [
+        "https://www.cars.com/vehicledetail/8535806c-515d-4960-afee-a6aa3e1c88d0/?attribution_type=carousel_ncn&sid=4a886803-0d3a-4375-b5d7-4ff33bb514f1",
+        "https://www.cars.com/vehicledetail/c9e9d263-85ed-4dd2-a567-fde0a115e7bd/?attribution_type=carousel_ncn&sid=4a886803-0d3a-4375-b5d7-4ff33bb514f1",
+        "https://www.cars.com/vehicledetail/3d2ba898-84c5-4e85-adce-f79708dbd3a7/?attribution_type=carousel_ncn&sid=4a886803-0d3a-4375-b5d7-4ff33bb514f1"
+      ]
     },
     {
       "area": "North Jersey",
       "query": "Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 North Jersey used for sale price",
-      "results": 7,
-      "kept": 0
+      "results": 10,
+      "directFound": 6,
+      "scrapedPages": 2,
+      "accepted": 0,
+      "sampleUrls": [
+        "https://www.cars.com/vehicledetail/93f5fb8d-f81a-4bac-8d99-8ea3f196fa68/?attribution_type=carousel_ncn&sid=5ebb5026-d23b-4cd8-9573-289e2cb9c21e",
+        "https://www.cars.com/vehicledetail/64bfe5c7-32e9-4ed2-ac71-a155d9b37822/?attribution_type=carousel_ncn&sid=5ebb5026-d23b-4cd8-9573-289e2cb9c21e",
+        "https://www.cars.com/vehicledetail/6e4485b9-e139-4201-89f9-1e4721625e0f/?attribution_type=carousel_ncn&sid=5ebb5026-d23b-4cd8-9573-289e2cb9c21e"
+      ]
     },
     {
       "area": "Hudson Valley NY",
       "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Hudson Valley NY used for sale price",
       "results": 10,
-      "kept": 0
+      "directFound": 6,
+      "scrapedPages": 2,
+      "accepted": 0,
+      "sampleUrls": [
+        "https://www.cars.com/vehicledetail/763b65e9-76ae-4df3-b9af-7daf469288d0/?attribution_type=carousel_ncn&sid=7ed99aca-6faf-415b-a9f6-2f0c4658365c",
+        "https://www.cars.com/vehicledetail/48a69f4f-b997-4bcb-8dae-cc31e7438bb8/?attribution_type=carousel_ncn&sid=7ed99aca-6faf-415b-a9f6-2f0c4658365c",
+        "https://www.cars.com/vehicledetail/3e8b9f22-eac0-44b9-af2f-450ba6dea0f7/?attribution_type=carousel_ncn&sid=7ed99aca-6faf-415b-a9f6-2f0c4658365c"
+      ]
     },
     {
       "area": "Hudson Valley NY",
       "query": "Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 Hudson Valley NY used for sale price",
       "results": 10,
-      "kept": 0
+      "directFound": 6,
+      "scrapedPages": 1,
+      "accepted": 0,
+      "sampleUrls": [
+        "https://www.cars.com/vehicledetail/a93afc9a-e473-402f-b70f-7be1cbd30de1/?attribution_type=carousel_ncn&sid=b1ff6697-9e00-499a-b1a6-1afdf7793146",
+        "https://www.cars.com/vehicledetail/c387b493-eec9-45b5-a62e-f9a8624af807/?attribution_type=carousel_ncn&sid=b1ff6697-9e00-499a-b1a6-1afdf7793146",
+        "https://www.cars.com/vehicledetail/1e45b280-4991-4a66-886c-d29527a56e3e/?attribution_type=carousel_ncn&sid=b1ff6697-9e00-499a-b1a6-1afdf7793146"
+      ]
     },
     {
       "area": "Southwest Connecticut",
       "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Southwest Connecticut used for sale price",
-      "results": 7,
-      "kept": 0
+      "results": 10,
+      "directFound": 6,
+      "scrapedPages": 1,
+      "accepted": 0,
+      "sampleUrls": [
+        "https://www.cars.com/vehicledetail/3e036f6a-c32f-4ab4-8b38-f2410a7511e8/?attribution_type=carousel_ncn&sid=54df1180-98f6-45ff-b354-c2924c606059",
+        "https://www.cars.com/vehicledetail/39067297-930b-4620-ba1e-9c12bfc9a88c/?attribution_type=carousel_ncn&sid=54df1180-98f6-45ff-b354-c2924c606059",
+        "https://www.cars.com/vehicledetail/ff6bec50-8bed-4381-8b7f-7fec4367b9a8/?attribution_type=carousel_ncn&sid=54df1180-98f6-45ff-b354-c2924c606059"
+      ]
     },
     {
       "area": "Southwest Connecticut",
       "query": "Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 Southwest Connecticut used for sale price",
       "results": 10,
-      "kept": 0
+      "directFound": 0,
+      "scrapedPages": 2,
+      "accepted": 0,
+      "sampleUrls": []
     },
     {
       "area": "Northeast Pennsylvania",
       "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Northeast Pennsylvania used for sale price",
       "results": 10,
-      "kept": 0
+      "directFound": 6,
+      "scrapedPages": 2,
+      "accepted": 0,
+      "sampleUrls": [
+        "https://www.cars.com/vehicledetail/7efd5e54-b9c3-4627-b834-41f2dca39e7f/?attribution_type=carousel_ncn&sid=23bb0cbf-8587-406d-b62d-0ae6cb6f0290",
+        "https://www.cars.com/vehicledetail/1bebee2d-43b6-40b1-8044-57bcb5c1c80e/?attribution_type=carousel_ncn&sid=23bb0cbf-8587-406d-b62d-0ae6cb6f0290",
+        "https://www.cars.com/vehicledetail/856cffa9-08b9-4923-a652-e593b2124a7c/?attribution_type=carousel_ncn&sid=23bb0cbf-8587-406d-b62d-0ae6cb6f0290"
+      ]
     },
     {
       "area": "Northeast Pennsylvania",
       "query": "Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 Northeast Pennsylvania used for sale price",
       "results": 10,
-      "kept": 0
+      "directFound": 0,
+      "scrapedPages": 1,
+      "accepted": 0,
+      "sampleUrls": []
     }
   ]
 }
