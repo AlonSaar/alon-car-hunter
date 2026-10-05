@@ -22,14 +22,10 @@
     "Kia Sorento",
     "Chevrolet Traverse",
     "GMC Acadia",
-    "Dodge Durango"
-  ],
-  "sourceQueries": [
-    {"name":"Craigslist","site":"craigslist.org/cto"},
-    {"name":"Facebook Marketplace","site":"facebook.com/marketplace"},
-    {"name":"PrivateAuto","site":"privateauto.com"},
-    {"name":"eBay Motors","site":"ebay.com/motors"},
-    {"name":"Cars.com","site":"cars.com/vehicledetail"},
-    {"name":"OfferUp","site":"offerup.com"}
+    "Dodge Durango",
+    "Nissan Pathfinder",
+    "Buick Enclave",
+    "Infiniti QX60",
+    "Toyota 4Runner"
   ]
 }
