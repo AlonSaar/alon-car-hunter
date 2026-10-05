@@ -4,13 +4,16 @@
   "maxMileage": 160000,
   "minSeats": 7,
   "bodyStyles": ["SUV"],
-  "privateSellerPreferred": true,
-  "regions": [
+  "searchCenter": "New York, NY",
+  "radiusMiles": 150,
+  "sellerTypes": ["private", "dealer"],
+  "searchAreas": [
     "Long Island NY",
-    "Nassau County NY",
-    "Suffolk County NY",
-    "Westchester County NY",
-    "North Jersey NJ"
+    "Westchester NY",
+    "North Jersey",
+    "Hudson Valley NY",
+    "Southwest Connecticut",
+    "Northeast Pennsylvania"
   ],
   "preferredModels": [
     "Toyota Highlander",
