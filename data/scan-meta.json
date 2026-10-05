@@ -1,82 +1,154 @@
 {
-  "lastScan": "2026-10-05T21:22:44.423Z",
+  "lastScan": "2026-10-05T21:37:09.017Z",
   "status": "ok",
-  "count": 33,
-  "rawCount": 40,
-  "uniqueCount": 38,
-  "queriesRun": 12,
+  "count": 0,
+  "rawCount": 0,
+  "uniqueCount": 0,
+  "queriesRun": 24,
   "queryLog": [
     {
       "area": "Long Island NY",
-      "query": "used 7 passenger SUV for sale Long Island NY Honda Pilot Toyota Highlander Ford Explorer Kia Sorento",
+      "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Long Island NY used vehicle listing price under 15000",
       "results": 10,
-      "kept": 3
+      "kept": 0
     },
     {
       "area": "Long Island NY",
-      "query": "used third row SUV for sale Long Island NY Pathfinder Traverse Acadia Durango MDX QX60 Enclave",
+      "query": "Pathfinder Traverse Acadia Durango MDX QX60 Enclave Long Island NY used vehicle listing price under 15000",
       "results": 10,
-      "kept": 2
+      "kept": 0
+    },
+    {
+      "area": "Long Island NY",
+      "query": "site:craigslist.org Long Island NY Honda Pilot OR Highlander OR Explorer OR Sorento",
+      "results": 10,
+      "kept": 0
+    },
+    {
+      "area": "Long Island NY",
+      "query": "site:cars.com/vehicledetail Long Island NY Honda Pilot OR Highlander OR Pathfinder OR Traverse",
+      "results": 0,
+      "kept": 0
     },
     {
       "area": "Westchester NY",
-      "query": "used 7 passenger SUV for sale Westchester NY Honda Pilot Toyota Highlander Ford Explorer Kia Sorento",
-      "results": 10,
-      "kept": 2
+      "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Westchester NY used vehicle listing price under 15000",
+      "results": 7,
+      "kept": 0
     },
     {
       "area": "Westchester NY",
-      "query": "used third row SUV for sale Westchester NY Pathfinder Traverse Acadia Durango MDX QX60 Enclave",
+      "query": "Pathfinder Traverse Acadia Durango MDX QX60 Enclave Westchester NY used vehicle listing price under 15000",
       "results": 7,
-      "kept": 5
+      "kept": 0
+    },
+    {
+      "area": "Westchester NY",
+      "query": "site:craigslist.org Westchester NY Honda Pilot OR Highlander OR Explorer OR Sorento",
+      "results": 10,
+      "kept": 0
+    },
+    {
+      "area": "Westchester NY",
+      "query": "site:cars.com/vehicledetail Westchester NY Honda Pilot OR Highlander OR Pathfinder OR Traverse",
+      "results": 0,
+      "kept": 0
     },
     {
       "area": "North Jersey",
-      "query": "used 7 passenger SUV for sale North Jersey Honda Pilot Toyota Highlander Ford Explorer Kia Sorento",
-      "results": 10,
-      "kept": 3
+      "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento North Jersey used vehicle listing price under 15000",
+      "results": 7,
+      "kept": 0
     },
     {
       "area": "North Jersey",
-      "query": "used third row SUV for sale North Jersey Pathfinder Traverse Acadia Durango MDX QX60 Enclave",
+      "query": "Pathfinder Traverse Acadia Durango MDX QX60 Enclave North Jersey used vehicle listing price under 15000",
       "results": 10,
-      "kept": 1
+      "kept": 0
+    },
+    {
+      "area": "North Jersey",
+      "query": "site:craigslist.org North Jersey Honda Pilot OR Highlander OR Explorer OR Sorento",
+      "results": 10,
+      "kept": 0
+    },
+    {
+      "area": "North Jersey",
+      "query": "site:cars.com/vehicledetail North Jersey Honda Pilot OR Highlander OR Pathfinder OR Traverse",
+      "results": 0,
+      "kept": 0
     },
     {
       "area": "Hudson Valley NY",
-      "query": "used 7 passenger SUV for sale Hudson Valley NY Honda Pilot Toyota Highlander Ford Explorer Kia Sorento",
+      "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Hudson Valley NY used vehicle listing price under 15000",
       "results": 7,
-      "kept": 3
+      "kept": 0
     },
     {
       "area": "Hudson Valley NY",
-      "query": "used third row SUV for sale Hudson Valley NY Pathfinder Traverse Acadia Durango MDX QX60 Enclave",
-      "results": 7,
-      "kept": 5
+      "query": "Pathfinder Traverse Acadia Durango MDX QX60 Enclave Hudson Valley NY used vehicle listing price under 15000",
+      "results": 10,
+      "kept": 0
+    },
+    {
+      "area": "Hudson Valley NY",
+      "query": "site:craigslist.org Hudson Valley NY Honda Pilot OR Highlander OR Explorer OR Sorento",
+      "results": 10,
+      "kept": 0
+    },
+    {
+      "area": "Hudson Valley NY",
+      "query": "site:cars.com/vehicledetail Hudson Valley NY Honda Pilot OR Highlander OR Pathfinder OR Traverse",
+      "results": 0,
+      "kept": 0
     },
     {
       "area": "Southwest Connecticut",
-      "query": "used 7 passenger SUV for sale Southwest Connecticut Honda Pilot Toyota Highlander Ford Explorer Kia Sorento",
-      "results": 7,
-      "kept": 5
+      "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Southwest Connecticut used vehicle listing price under 15000",
+      "results": 10,
+      "kept": 0
     },
     {
       "area": "Southwest Connecticut",
-      "query": "used third row SUV for sale Southwest Connecticut Pathfinder Traverse Acadia Durango MDX QX60 Enclave",
-      "results": 10,
-      "kept": 3
-    },
-    {
-      "area": "Northeast Pennsylvania",
-      "query": "used 7 passenger SUV for sale Northeast Pennsylvania Honda Pilot Toyota Highlander Ford Explorer Kia Sorento",
+      "query": "Pathfinder Traverse Acadia Durango MDX QX60 Enclave Southwest Connecticut used vehicle listing price under 15000",
       "results": 7,
-      "kept": 5
+      "kept": 0
+    },
+    {
+      "area": "Southwest Connecticut",
+      "query": "site:craigslist.org Southwest Connecticut Honda Pilot OR Highlander OR Explorer OR Sorento",
+      "results": 10,
+      "kept": 0
+    },
+    {
+      "area": "Southwest Connecticut",
+      "query": "site:cars.com/vehicledetail Southwest Connecticut Honda Pilot OR Highlander OR Pathfinder OR Traverse",
+      "results": 0,
+      "kept": 0
     },
     {
       "area": "Northeast Pennsylvania",
-      "query": "used third row SUV for sale Northeast Pennsylvania Pathfinder Traverse Acadia Durango MDX QX60 Enclave",
+      "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Northeast Pennsylvania used vehicle listing price under 15000",
       "results": 10,
-      "kept": 3
+      "kept": 0
+    },
+    {
+      "area": "Northeast Pennsylvania",
+      "query": "Pathfinder Traverse Acadia Durango MDX QX60 Enclave Northeast Pennsylvania used vehicle listing price under 15000",
+      "results": 10,
+      "kept": 0
+    },
+    {
+      "area": "Northeast Pennsylvania",
+      "query": "site:craigslist.org Northeast Pennsylvania Honda Pilot OR Highlander OR Explorer OR Sorento",
+      "results": 0,
+      "kept": 0
+    },
+    {
+      "area": "Northeast Pennsylvania",
+      "query": "site:cars.com/vehicledetail Northeast Pennsylvania Honda Pilot OR Highlander OR Pathfinder OR Traverse",
+      "results": 0,
+      "kept": 0
     }
   ]
 }
