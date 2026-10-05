@@ -3,10 +3,15 @@
   "minYear": 2011,
   "maxMileage": 160000,
   "minSeats": 7,
-  "bodyStyles": ["SUV"],
+  "bodyStyles": [
+    "SUV"
+  ],
   "searchCenter": "New York, NY",
   "radiusMiles": 150,
-  "sellerTypes": ["private", "dealer"],
+  "sellerTypes": [
+    "private",
+    "dealer"
+  ],
   "searchAreas": [
     "Long Island NY",
     "Westchester NY",
@@ -30,5 +35,6 @@
     "Buick Enclave",
     "Infiniti QX60",
     "Toyota 4Runner"
-  ]
+  ],
+  "minPrice": 4000
 }
