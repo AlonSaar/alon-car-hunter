@@ -1,0 +1,19 @@
+import fs from 'node:fs/promises';
+import crypto from 'node:crypto';
+const root=new URL('../',import.meta.url);const cfg=JSON.parse(await fs.readFile(new URL('config.json',root),'utf8'));
+const apiKey=process.env.SERPER_API_KEY;if(!apiKey){console.error('Missing SERPER_API_KEY. Add it as a GitHub Actions secret or environment variable.');process.exit(2)}
+const preferred=cfg.preferredModels.map(x=>x.toLowerCase());
+const titleBad=/(salvage|rebuilt|reconstructed|flood|junk|parts only|certificate of destruction)/i;
+function num(s){if(!s)return null;return Number(String(s).replace(/[^0-9]/g,''))||null}
+function parse(item,source,region){const text=(item.title+' '+(item.snippet||''));const priceM=text.match(/\$\s?([0-9]{1,3}(?:,[0-9]{3})+)/);const yearM=text.match(/\b(20[0-2][0-9]|19[89][0-9])\b/);const mileM=text.match(/([0-9]{1,3}(?:,[0-9]{3})+)\s*(?:mi|miles)/i);const price=num(priceM?.[1]),year=num(yearM?.[1]),mileage=num(mileM?.[1]);const lower=text.toLowerCase();const priv=source==='Craigslist'||source==='Facebook Marketplace'||source==='PrivateAuto'||/private seller|by owner|owner sale|fsbo/i.test(text);let score=50;const reasons=[];
+ if(price&&price<=cfg.maxPrice){score+=14;reasons.push('Within $15k budget')}else if(price){score-=20;reasons.push('Over budget')}else reasons.push('Price needs verification');
+ if(year&&year>=cfg.minYear){score+=12;reasons.push('Year fits current suburbs age target')}else if(year){score-=20;reasons.push('Too old for target')}else reasons.push('Year needs verification');
+ if(mileage&&mileage<=cfg.maxMileage){score+=8;reasons.push('Mileage within target')}else if(mileage){score-=8;reasons.push('High mileage')}
+ if(priv){score+=8;reasons.push('Private seller likely')}if(preferred.some(m=>lower.includes(m.toLowerCase()))){score+=8;reasons.push('Preferred model')}
+ const risk=titleBad.test(text)?'high':/accident|damage|lien|title issue/i.test(text)?'medium':'unknown';if(risk==='high'){score-=35;reasons.push('Salvage/rebuilt/flood keyword detected')}
+ const seven=/7\s*(?:passenger|seat)|8\s*(?:passenger|seat)|third row|3rd row/i.test(text)||/(pilot|highlander|cx-9|mdx|explorer|santa fe xl|sorento|traverse|acadia|durango)/i.test(text);if(seven){score+=5;reasons.push('7-seat/third-row signal')}
+ score=Math.max(0,Math.min(100,score));return {id:crypto.createHash('sha1').update(item.link).digest('hex').slice(0,14),title:item.title,url:item.link,snippet:item.snippet||'',source,location:region,price,year,mileage,privateSellerLikely:priv,titleRisk:risk,uberXL:seven&&year&&year>=cfg.minYear?'likely':'verify',score,reasons,foundAt:new Date().toISOString()}}
+async function search(q){const r=await fetch('https://google.serper.dev/search',{method:'POST',headers:{'X-API-KEY':apiKey,'Content-Type':'application/json'},body:JSON.stringify({q,num:20,gl:'us',hl:'en'})});if(!r.ok)throw new Error('Serper '+r.status);return await r.json()}
+const all=[];for(const src of cfg.sourceQueries){for(const region of cfg.regions){const modelPhrase='("Toyota Highlander" OR "Honda Pilot" OR "Mazda CX-9" OR "Acura MDX" OR "Ford Explorer" OR "Kia Sorento" OR "Chevrolet Traverse" OR "GMC Acadia" OR "Dodge Durango")';const q=`site:${src.site} ${modelPhrase} ${region} (SUV OR "third row" OR "7 passenger") ("$15000" OR "$14,999" OR "$13,999" OR "$12,999") -dealer`;try{const j=await search(q);for(const it of j.organic||[])all.push(parse(it,src.name,region));await new Promise(r=>setTimeout(r,200))}catch(e){console.error(src.name,region,e.message)}}}
+const uniq=[...new Map(all.map(x=>[x.url,x])).values()].filter(x=>(!x.price||x.price<=cfg.maxPrice*1.1)&&(!x.year||x.year>=cfg.minYear-1)).sort((a,b)=>b.score-a.score).slice(0,250);
+await fs.writeFile(new URL('data/listings.json',root),JSON.stringify(uniq,null,2));await fs.writeFile(new URL('data/scan-meta.json',root),JSON.stringify({lastScan:new Date().toISOString(),status:'ok',count:uniq.length},null,2));console.log('Saved',uniq.length,'listings');
