@@ -1,0 +1,26 @@
+name: Daily vehicle scan
+on:
+  schedule:
+    - cron: '30 12 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Scan listings
+        env:
+          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+        run: node scripts/scan.mjs
+      - name: Commit updated listings
+        run: |
+          git config user.name "car-hunter-bot"
+          git config user.email "car-hunter-bot@users.noreply.github.com"
+          git add data/listings.json data/scan-meta.json
+          git diff --cached --quiet || git commit -m "Daily vehicle scan"
+          git push
