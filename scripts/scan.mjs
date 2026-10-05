@@ -101,14 +101,43 @@ for(const area of cfg.searchAreas){
  ];
  for(const q of queries){
   try{
-   const j=await search(q), rows=(j.organic||[]).filter(v=>v.link&&allowed.test(v.link)&&isDirectListing(v.link));
-   log.push({area,query:q,results:(j.organic||[]).length,kept:rows.length});
-   for(const row of rows)all.push(parse(row,area));
+   const j=await search(q), organic=(j.organic||[]);
+   const direct=organic.filter(v=>v.link&&allowed.test(v.link)&&isDirectListing(v.link));
+   log.push({area,query:q,results:organic.length,kept:direct.length});
+   for(const row of direct) all.push(parse(row,area));
+
+   if(direct.length===0){
+    const candidates=organic.filter(v=>v.link&&allowed.test(v.link)&&looksLikeSpecificVehicle(v)).slice(0,2);
+    for(const candidate of candidates){
+     const t=(candidate.title||'')+' '+(candidate.snippet||'');
+     const ym=t.match(/\b(20[0-2][0-9]|19[89][0-9])\b/);
+     const mm=t.match(/(Honda Pilot|Toyota Highlander|Ford Explorer|Kia Sorento|Nissan Pathfinder|Chevrolet Traverse|GMC Acadia|Dodge Durango|Acura MDX|Infiniti QX60|Buick Enclave|Mazda CX-9)/i);
+     const pm=t.match(/\$\s?([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})/);
+     if(!ym||!mm||!pm) continue;
+     const resolveQuery=ym[1]+' '+mm[1]+' '+pm[1]+' '+area;
+     try{
+      const rj=await search(resolveQuery);
+      const resolved=(rj.organic||[]).find(v=>v.link&&allowed.test(v.link)&&isDirectListing(v.link));
+      if(resolved){
+       all.push(parse(resolved,area));
+       log.push({area,query:resolveQuery,results:(rj.organic||[]).length,kept:1,resolved:true});
+      }
+     }catch(e){}
+    }
+   }
   }catch(e){log.push({area,query:q,error:e.message})}
  }
 }
 const uniq=[...new Map(all.map(x=>[x.url,x])).values()];
 const out=uniq.filter(x=>x.price!==null&&x.price>=cfg.minPrice&&x.price<=cfg.maxPrice&&x.year!==null&&x.year>=cfg.minYear-1).sort((a,b)=>b.score-a.score).slice(0,250);
-await fs.writeFile(new URL('data/listings.json',root),JSON.stringify(out,null,2));
-await fs.writeFile(new URL('data/scan-meta.json',root),JSON.stringify({lastScan:new Date().toISOString(),status:'ok',count:out.length,rawCount:all.length,uniqueCount:uniq.length,queriesRun:log.length,queryLog:log},null,2));
+let finalOut=out;
+let status='ok';
+if(out.length===0){
+ try{
+  const previous=JSON.parse(await fs.readFile(new URL('data/listings.json',root),'utf8'));
+  if(Array.isArray(previous)&&previous.length){finalOut=previous;status='no-new-results-kept-previous';}
+ }catch(e){}
+}
+await fs.writeFile(new URL('data/listings.json',root),JSON.stringify(finalOut,null,2));
+await fs.writeFile(new URL('data/scan-meta.json',root),JSON.stringify({lastScan:new Date().toISOString(),status,count:finalOut.length,newCount:out.length,rawCount:all.length,uniqueCount:uniq.length,queriesRun:log.length,queryLog:log},null,2));
 console.log('Saved',out.length,'listings');
