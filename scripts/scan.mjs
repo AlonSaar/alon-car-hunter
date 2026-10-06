@@ -165,44 +165,99 @@ async function hydrate(row){
 }
 
 const all=[],log=[];
-const modelDefs=[
- {make:'honda',model:'pilot',label:'Honda Pilot',body:'SUV'},{make:'toyota',model:'highlander',label:'Toyota Highlander',body:'SUV'},
- {make:'ford',model:'explorer',label:'Ford Explorer',body:'SUV'},{make:'kia',model:'sorento',label:'Kia Sorento',body:'SUV'},
- {make:'nissan',model:'pathfinder',label:'Nissan Pathfinder',body:'SUV'},{make:'chevrolet',model:'traverse',label:'Chevrolet Traverse',body:'SUV'},
- {make:'gmc',model:'acadia',label:'GMC Acadia',body:'SUV'},{make:'dodge',model:'durango',label:'Dodge Durango',body:'SUV'},
- {make:'acura',model:'mdx',label:'Acura MDX',body:'SUV'},{make:'infiniti',model:'qx60',label:'Infiniti QX60',body:'SUV'},
- {make:'buick',model:'enclave',label:'Buick Enclave',body:'SUV'},{make:'mazda',model:'cx-9',label:'Mazda CX-9',body:'SUV'},
- {make:'toyota',model:'4runner',label:'Toyota 4Runner',body:'SUV'},{make:'chrysler',model:'pacifica',label:'Chrysler Pacifica',body:'Minivan'},
- {make:'honda',model:'odyssey',label:'Honda Odyssey',body:'Minivan'},{make:'toyota',model:'sienna',label:'Toyota Sienna',body:'Minivan'},
- {make:'kia',model:'carnival',label:'Kia Carnival',body:'Minivan'}
+const minivanModel=/(Chrysler\s+Pacifica|Honda\s+Odyssey|Toyota\s+Sienna|Kia\s+Carnival|Kia\s+Sedona|Dodge\s+Grand\s+Caravan|Chrysler\s+Town\s*&?\s*Country)/i;
+const wantedModel=new RegExp(targetModel.source+'|'+minivanModel.source,'i');
+
+function addParsed(row,area,force={}){
+ const p=parse(row,area);
+ Object.assign(p,force);
+ const txt=(p.title||'')+' '+(p.snippet||'');
+ const modelOk=wantedModel.test(txt);
+ const priceOk=p.price!==null&&p.price>=cfg.minPrice&&p.price<=cfg.maxPrice;
+ const yearOk=p.year!==null&&p.year>=cfg.minYear;
+ const milesOk=p.mileage===null||p.mileage<=cfg.maxMileage;
+ if(modelOk&&priceOk&&yearOk&&milesOk&&p.titleRisk!=='high'){all.push(p);return true}
+ return false;
+}
+
+function trueCarBlocks(md){
+ const rows=[];
+ const heads=[...md.matchAll(/(?:^|\n)##\s+((?:19|20)\d{2}\s+[^\n]{2,100})/g)];
+ for(let i=0;i<heads.length;i++){
+  const title=heads[i][1].trim(),a=heads[i].index,b=i+1<heads.length?heads[i+1].index:Math.min(md.length,a+5000);
+  const block=md.slice(a,b);
+  const vin=block.match(/\bVIN:\s*([A-HJ-NPR-Z0-9]{17})\b/i)?.[1]?.toUpperCase();
+  const price=num(block.match(/(?:ADVERTISED PRICE|Advertised price|LIST PRICE|List price|price)\s*[\r\n *]{0,120}\$([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})/i)?.[1]);
+  const mileage=num(block.match(/Used\s*[·-]\s*([0-9]{1,3}(?:,[0-9]{3})+)\s*mi\b/i)?.[1]||block.match(/([0-9]{1,3}(?:,[0-9]{3})+)\s*(?:mi|miles)\b/i)?.[1]);
+  if(vin&&price&&wantedModel.test(title)){
+   rows.push({link:'https://www.truecar.com/used-cars-for-sale/listing/'+vin+'/',title,snippet:title+' Advertised price $'+price+(mileage?' '+mileage+' miles':'')+' '+block.slice(0,1800),price,mileage});
+  }
+ }
+ return rows;
+}
+
+const trueCarPages=[
+ ['New York metro','https://www.truecar.com/used-cars-for-sale/listings/price-below-15000/location-new-york-ny/'],
+ ['Long Island','https://www.truecar.com/used-cars-for-sale/listings/price-below-15000/location-central-islip-ny/'],
+ ['North Jersey / Hudson','https://www.truecar.com/used-cars-for-sale/listings/price-below-15000/location-nanuet-ny/']
 ];
-const centers=[{truecar:'new-york-ny',cars:'new_york-ny',label:'New York metro'},{truecar:'central-islip-ny',cars:'central_islip-ny',label:'Long Island'},{truecar:'nanuet-ny',cars:'nanuet-ny',label:'Hudson / North Jersey'}];
-const half=new Date().getUTCHours()<6?modelDefs.slice(9):modelDefs.slice(0,9);
-const safeRe=s=>s.replace(/[.*+?^$()|[\]\\]/g,'\\$&');
-function blocks(md){const m=[...md.matchAll(/^##\s+(.+)$/gm)],o=[];for(let i=0;i<m.length;i++){const a=m[i].index+m[i][0].length,b=i+1<m.length?m[i+1].index:md.length;o.push({title:m[i][1].trim(),block:md.slice(a,b),before:md.slice(Math.max(0,m[i].index-1000),m[i].index+300)})}return o}
-function vehicle(title,block,src,area,url,body){
- const year=num(title.match(/\b(20[0-2][0-9]|19[89][0-9])\b/)?.[1]);
- const price=num((block.match(/(?:Advertised price|List price|Sale price|Our price|Price)\s*[\r\n *]{0,100}\$([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})/i)||block.match(/\$([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})/))?.[1]);
- const mileage=num((block.match(/Used\s*[·-]\s*([0-9]{1,3}(?:,[0-9]{3})+)\s*mi\b/i)||block.match(/([0-9]{1,3}(?:,[0-9]{3})+)\s*(?:mi|miles)\b/i))?.[1]);
- const third=/Third Row Seating|Third-Row|7 passenger|8 passenger|3rd row/i.test(block);
- if(!year||!price||price<cfg.minPrice||price>cfg.maxPrice||year<cfg.minYear||!mileage||mileage>cfg.maxMileage||(body==='SUV'&&!third))return null;
- const p=parse({link:url,title,snippet:title+' Advertised price $'+price+' '+mileage+' miles '+(third?'Third Row Seating ':'')+block.slice(0,900)},area);
- Object.assign(p,{price,year,mileage,bodyStyle:body,source:src,uberXL:third?'likely':'verify',score:Math.max(p.score,body==='SUV'?90:82)});return p;
+for(const [area,url] of trueCarPages){
+ try{
+  const d=await scrapePage(url),rows=trueCarBlocks(d.markdown||d.text||'');let accepted=0;
+  for(const r of rows){if(addParsed(r,area,{price:r.price,mileage:r.mileage,bodyStyle:minivanModel.test(r.title)?'Minivan':'SUV'}))accepted++}
+  log.push({collector:'TrueCar',area,url,found:rows.length,accepted});
+ }catch(e){log.push({collector:'TrueCar',area,url,error:e.message})}
 }
-for(const center of centers)for(const def of half){
- const tc='https://www.truecar.com/used-cars-for-sale/listings/'+def.make+'/'+def.model+'/price-below-15000/location-'+center.truecar+'/';
- try{const d=await scrapePage(tc),md=d.markdown||d.text||'';let accepted=0;for(const b of blocks(md)){if(!new RegExp(safeRe(def.label),'i').test(b.title))continue;const vin=(b.block.match(/\bVIN[:\s]+([A-HJ-NPR-Z0-9]{17})\b/i)||[])[1];if(!vin)continue;const p=vehicle(b.title,b.block,'TrueCar',center.label,'https://www.truecar.com/used-cars-for-sale/listing/'+vin.toUpperCase()+'/',def.body);if(p){all.push(p);accepted++}}log.push({collector:'TrueCar',area:center.label,model:def.label,accepted})}catch(e){log.push({collector:'TrueCar',area:center.label,model:def.label,error:e.message})}
- const cs='https://www.cars.com/shopping/'+def.make+'-'+def.model+'/'+center.cars+'/price-under-15000/';
- try{const d=await scrapePage(cs),md=d.markdown||d.text||'';let accepted=0;for(const b of blocks(md)){if(!/Used\s+/i.test(b.title)||!new RegExp(safeRe(def.label),'i').test(b.title))continue;const lm=(b.before+b.block).match(/https?:\/\/(?:www\.)?cars\.com\/vehicledetail\/[A-Za-z0-9-]+\/?[^\s)"']*/i);if(!lm)continue;const direct=canonicalUrl(lm[0]);const p=vehicle(b.title,b.block,'Cars.com',center.label,direct,def.body);if(p){all.push(p);accepted++}}log.push({collector:'Cars.com',area:center.label,model:def.label,accepted})}catch(e){log.push({collector:'Cars.com',area:center.label,model:def.label,error:e.message})}
+
+const carsPages=[
+ ['New York metro','https://www.cars.com/shopping/new_york-ny/price-under-15000/?page=1'],
+ ['Long Island','https://www.cars.com/shopping/suv/long_island-ny/price-under-15000/?page=1'],
+ ['North Jersey','https://www.cars.com/shopping/suv/newark-nj/price-under-15000/?page=1'],
+ ['Connecticut','https://www.cars.com/shopping/suv/stamford-ct/price-under-15000/?page=1']
+];
+for(const [area,url] of carsPages){
+ try{
+  const d=await scrapePage(url),rows=extractedDirectRows(d,url);let accepted=0;
+  for(const r of rows){
+   if(!wantedModel.test((r.title||'')+' '+(r.snippet||'')))continue;
+   if(addParsed(r,area,{bodyStyle:minivanModel.test((r.title||'')+' '+(r.snippet||''))?'Minivan':'SUV'}))accepted++;
+  }
+  log.push({collector:'Cars.com',area,url,found:rows.length,accepted,samples:rows.slice(0,3).map(r=>r.link)});
+ }catch(e){log.push({collector:'Cars.com',area,url,error:e.message})}
 }
-for(const area of cfg.searchAreas)for(const src of [{name:'Craigslist',q:'site:craigslist.org/view/d'},{name:'Facebook Marketplace',q:'site:facebook.com/marketplace/item'}]){
- const q=src.q+' '+area+' (Pilot OR Highlander OR Explorer OR Sorento OR Pathfinder OR Traverse OR Acadia OR Durango OR MDX OR QX60 OR Pacifica OR Odyssey OR Sienna) "$"';
- try{const j=await search(q);let accepted=0;for(const r of (j.organic||[])){if(!r.link||!isDirectListing(r.link))continue;const p=parse({...r,link:canonicalUrl(r.link)},area),txt=p.title+' '+p.snippet,isVan=/pacifica|odyssey|sienna|carnival|minivan/i.test(txt);p.bodyStyle=isVan?'Minivan':'SUV';if(p.price!==null&&p.price>=cfg.minPrice&&p.price<=cfg.maxPrice&&p.year!==null&&p.year>=cfg.minYear&&(p.mileage===null||p.mileage<=cfg.maxMileage)&&(targetModel.test(txt)||isVan)){all.push(p);accepted++}}log.push({collector:src.name,area,results:(j.organic||[]).length,accepted})}catch(e){log.push({collector:src.name,area,error:e.message})}
+
+// Private-party and Facebook discovery. Facebook is best-effort because Marketplace indexing is inconsistent.
+for(const area of cfg.searchAreas){
+ for(const spec of [
+  {name:'Craigslist',q:'site:craigslist.org/view/d '+area+' (Pilot OR Highlander OR Explorer OR Sorento OR Pathfinder OR Traverse OR Acadia OR Durango OR MDX OR QX60 OR Pacifica OR Odyssey OR Sienna) "$"'},
+  {name:'Facebook Marketplace',q:'site:facebook.com/marketplace/item '+area+' (Pilot OR Highlander OR Explorer OR Sorento OR Pathfinder OR Traverse OR Pacifica OR Odyssey OR Sienna) "$"'},
+  {name:'Autotrader',q:'site:autotrader.com/cars-for-sale/vehicle '+area+' (Pilot OR Highlander OR Explorer OR Sorento OR Pathfinder OR Traverse) "$"'},
+  {name:'CarGurus',q:'site:cargurus.com/Cars '+area+' (Pilot OR Highlander OR Explorer OR Sorento OR Pathfinder OR Traverse) "$"'}
+ ]){
+  try{
+   const j=await search(spec.q);let accepted=0,direct=0;
+   for(const r of (j.organic||[])){
+    if(!r.link||!isDirectListing(r.link))continue;direct++;
+    if(addParsed({...r,link:canonicalUrl(r.link)},area,{bodyStyle:minivanModel.test((r.title||'')+' '+(r.snippet||''))?'Minivan':'SUV'}))accepted++;
+   }
+   log.push({collector:spec.name,area,results:(j.organic||[]).length,direct,accepted});
+  }catch(e){log.push({collector:spec.name,area,error:e.message})}
+ }
 }
-let previous=[];try{previous=JSON.parse(await fs.readFile(new URL('data/listings.json',root),'utf8'));if(!Array.isArray(previous))previous=[]}catch{}
-const merged=[...all,...previous.filter(x=>x&&x.url&&x.price>=cfg.minPrice&&x.price<=cfg.maxPrice&&x.year>=cfg.minYear)];
-const uniq=[...new Map(merged.map(x=>[canonicalUrl(x.url),{...x,url:canonicalUrl(x.url)}])).values()];
-const out=uniq.filter(x=>x.price!==null&&x.price>=cfg.minPrice&&x.price<=cfg.maxPrice&&x.year!==null&&x.year>=cfg.minYear&&(x.mileage===null||x.mileage<=cfg.maxMileage)).sort((a,b)=>(b.score||0)-(a.score||0)).slice(0,300);
+
+// Keep still-valid previous inventory too, so one source fluctuation does not erase another source.
+try{
+ const previous=JSON.parse(await fs.readFile(new URL('data/listings.json',root),'utf8'));
+ if(Array.isArray(previous)){
+  for(const p of previous){
+   const age=Date.now()-new Date(p.foundAt||0).getTime();
+   if(age<7*24*60*60*1000&&p.url&&p.price>=cfg.minPrice&&p.price<=cfg.maxPrice&&p.year>=cfg.minYear) all.push(p);
+  }
+ }
+}catch{}
+
+const uniq=[...new Map(all.map(x=>[canonicalUrl(x.url),{...x,url:canonicalUrl(x.url)}])).values()];
+const out=uniq.sort((a,b)=>(b.score||0)-(a.score||0)).slice(0,300);
 await fs.writeFile(new URL('data/listings.json',root),JSON.stringify(out,null,2));
-await fs.writeFile(new URL('data/scan-meta.json',root),JSON.stringify({lastScan:new Date().toISOString(),status:'ok',count:out.length,newCount:all.length,uniqueCount:uniq.length,collectorsRun:log.length,activeModels:half.map(x=>x.label),sourceCounts:Object.fromEntries([...new Set(out.map(x=>x.source))].map(s=>[s,out.filter(x=>x.source===s).length])),queryLog:log},null,2));
-console.log('Saved',out.length,'listings,',all.length,'fresh');
+await fs.writeFile(new URL('data/scan-meta.json',root),JSON.stringify({lastScan:new Date().toISOString(),status:'ok',count:out.length,rawCount:all.length,uniqueCount:uniq.length,collectors:log},null,2));
+console.log('Saved',out.length,'listings');
