@@ -1,8 +1,8 @@
 {
-  "lastScan": "2026-10-06T13:43:45.363Z",
+  "lastScan": "2026-10-06T13:55:25.573Z",
   "status": "ok",
   "count": 29,
-  "rawCount": 43,
+  "rawCount": 45,
   "uniqueCount": 29,
   "collectors": [
     {
@@ -128,7 +128,7 @@
       "area": "Long Island NY",
       "results": 10,
       "direct": 10,
-      "accepted": 2
+      "accepted": 1
     },
     {
       "collector": "Autotrader",
@@ -174,17 +174,17 @@
     },
     {
       "collector": "Craigslist",
+      "area": "North Jersey",
+      "results": 10,
+      "direct": 10,
+      "accepted": 4
+    },
+    {
+      "collector": "Facebook Marketplace",
       "area": "North Jersey",
       "results": 10,
       "direct": 10,
       "accepted": 1
-    },
-    {
-      "collector": "Facebook Marketplace",
-      "area": "North Jersey",
-      "results": 10,
-      "direct": 10,
-      "accepted": 2
     },
     {
       "collector": "Autotrader",
@@ -210,8 +210,8 @@
     {
       "collector": "Facebook Marketplace",
       "area": "Hudson Valley NY",
-      "results": 10,
-      "direct": 10,
+      "results": 3,
+      "direct": 3,
       "accepted": 0
     },
     {
@@ -224,7 +224,7 @@
     {
       "collector": "CarGurus",
       "area": "Hudson Valley NY",
-      "results": 7,
+      "results": 10,
       "direct": 0,
       "accepted": 0
     },
