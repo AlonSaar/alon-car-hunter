@@ -1,9 +1,9 @@
 {
-  "lastScan": "2026-10-06T13:16:33.479Z",
+  "lastScan": "2026-10-06T13:20:22.445Z",
   "status": "ok",
-  "count": 28,
-  "rawCount": 38,
-  "uniqueCount": 28,
+  "count": 29,
+  "rawCount": 41,
+  "uniqueCount": 29,
   "collectors": [
     {
       "collector": "TrueCar",
@@ -61,115 +61,59 @@
       "samples": []
     },
     {
-      "collector": "Cars.com search fallback",
-      "area": "New York NY",
+      "collector": "Cars.com model fallback",
+      "model": "Nissan Pathfinder",
       "results": 0,
       "direct": 0,
       "accepted": 0
     },
     {
-      "collector": "Cars.com search fallback",
-      "area": "New York NY",
+      "collector": "Cars.com model fallback",
+      "model": "Honda Odyssey",
       "results": 0,
       "direct": 0,
       "accepted": 0
     },
     {
-      "collector": "Cars.com search fallback",
-      "area": "Long Island NY",
+      "collector": "Cars.com model fallback",
+      "model": "Toyota Sienna",
       "results": 0,
       "direct": 0,
       "accepted": 0
     },
     {
-      "collector": "Cars.com search fallback",
-      "area": "Long Island NY",
+      "collector": "Cars.com model fallback",
+      "model": "Chrysler Pacifica",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar model fallback",
+      "model": "Nissan Pathfinder",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar model fallback",
+      "model": "Honda Odyssey",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar model fallback",
+      "model": "Toyota Sienna",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar model fallback",
+      "model": "Chrysler Pacifica",
       "results": 1,
       "direct": 1,
-      "accepted": 0
-    },
-    {
-      "collector": "Cars.com search fallback",
-      "area": "North Jersey",
-      "results": 0,
-      "direct": 0,
-      "accepted": 0
-    },
-    {
-      "collector": "Cars.com search fallback",
-      "area": "North Jersey",
-      "results": 0,
-      "direct": 0,
-      "accepted": 0
-    },
-    {
-      "collector": "Cars.com search fallback",
-      "area": "Westchester NY",
-      "results": 1,
-      "direct": 1,
-      "accepted": 0
-    },
-    {
-      "collector": "Cars.com search fallback",
-      "area": "Westchester NY",
-      "results": 0,
-      "direct": 0,
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar search fallback",
-      "area": "New York NY",
-      "results": 0,
-      "direct": 0,
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar search fallback",
-      "area": "New York NY",
-      "results": 0,
-      "direct": 0,
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar search fallback",
-      "area": "Long Island NY",
-      "results": 0,
-      "direct": 0,
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar search fallback",
-      "area": "Long Island NY",
-      "results": 1,
-      "direct": 1,
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar search fallback",
-      "area": "North Jersey",
-      "results": 0,
-      "direct": 0,
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar search fallback",
-      "area": "North Jersey",
-      "results": 1,
-      "direct": 1,
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar search fallback",
-      "area": "Westchester NY",
-      "results": 1,
-      "direct": 1,
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar search fallback",
-      "area": "Westchester NY",
-      "results": 0,
-      "direct": 0,
       "accepted": 0
     },
     {
@@ -184,7 +128,7 @@
       "area": "Long Island NY",
       "results": 10,
       "direct": 10,
-      "accepted": 2
+      "accepted": 1
     },
     {
       "collector": "Autotrader",
@@ -196,16 +140,16 @@
     {
       "collector": "CarGurus",
       "area": "Long Island NY",
-      "results": 10,
+      "results": 7,
       "direct": 0,
       "accepted": 0
     },
     {
       "collector": "Craigslist",
       "area": "Westchester NY",
-      "results": 7,
-      "direct": 7,
-      "accepted": 0
+      "results": 10,
+      "direct": 10,
+      "accepted": 3
     },
     {
       "collector": "Facebook Marketplace",
@@ -266,8 +210,8 @@
     {
       "collector": "Facebook Marketplace",
       "area": "Hudson Valley NY",
-      "results": 3,
-      "direct": 3,
+      "results": 10,
+      "direct": 10,
       "accepted": 0
     },
     {
@@ -294,8 +238,8 @@
     {
       "collector": "Facebook Marketplace",
       "area": "Southwest Connecticut",
-      "results": 1,
-      "direct": 1,
+      "results": 10,
+      "direct": 10,
       "accepted": 0
     },
     {
@@ -324,7 +268,7 @@
       "area": "Northeast Pennsylvania",
       "results": 10,
       "direct": 10,
-      "accepted": 1
+      "accepted": 0
     },
     {
       "collector": "Autotrader",
@@ -336,7 +280,7 @@
     {
       "collector": "CarGurus",
       "area": "Northeast Pennsylvania",
-      "results": 7,
+      "results": 10,
       "direct": 0,
       "accepted": 0
     }
