@@ -1,1 +1,1 @@
-diagnostic run 6
+diagnostic run 7
