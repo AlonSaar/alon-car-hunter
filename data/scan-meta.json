@@ -1,47 +1,21 @@
 {
-  "lastScan": "2026-10-06T12:29:33.586Z",
-  "status": "ok",
+  "lastScan": "2026-10-06T12:33:29.529Z",
+  "status": "no-new-results-kept-previous",
   "count": 6,
-  "newCount": 6,
-  "rawCount": 6,
-  "uniqueCount": 6,
+  "newCount": 0,
+  "rawCount": 0,
+  "uniqueCount": 0,
   "queriesRun": 12,
   "queryLog": [
     {
       "area": "Long Island NY",
       "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Long Island NY used SUV under $15000 2011 or newer under 160000 miles",
       "results": 10,
-      "directFound": 2,
+      "directFound": 0,
       "scrapedPages": 2,
       "accepted": 0,
-      "rejected": [
-        {
-          "url": "https://www.cars.com/vehicledetail/b158d03d-c484-4eb0-b803-f336383ef688/?attribution_type=ship&sid=403a381e-4345-4a64-9767-d234f745c502",
-          "title": "2018 Honda Pilot EX-L](https://platform.cstatic-images.com/la",
-          "price": null,
-          "year": 2018,
-          "mileage": null,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": true
-        },
-        {
-          "url": "https://www.cars.com/vehicledetail/b158d03d-c484-4eb0-b803-f336383ef688/",
-          "title": "2018 Honda Pilot EX-L](https://platform.cstatic-images.com/la",
-          "price": 41866,
-          "year": 2018,
-          "mileage": null,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": true
-        }
-      ],
-      "sampleUrls": [
-        "https://www.cars.com/vehicledetail/b158d03d-c484-4eb0-b803-f336383ef688/?attribution_type=ship&sid=403a381e-4345-4a64-9767-d234f745c502",
-        "https://www.cars.com/vehicledetail/b158d03d-c484-4eb0-b803-f336383ef688/"
-      ]
+      "rejected": [],
+      "sampleUrls": []
     },
     {
       "area": "Long Island NY",
@@ -77,11 +51,49 @@
       "area": "North Jersey",
       "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento North Jersey used SUV under $15000 2011 or newer under 160000 miles",
       "results": 10,
-      "directFound": 0,
+      "directFound": 6,
       "scrapedPages": 2,
       "accepted": 0,
-      "rejected": [],
-      "sampleUrls": []
+      "rejected": [
+        {
+          "url": "https://www.truecar.com/used-cars-for-sale/listing/5NMS2CAD3LH169195/",
+          "title": "Vehicle listing",
+          "price": null,
+          "year": 2020,
+          "mileage": null,
+          "priceOk": false,
+          "yearOk": true,
+          "milesOk": true,
+          "modelOk": false
+        },
+        {
+          "url": "https://www.truecar.com/used-cars-for-sale/listing/1FM5K8GT8FGB06318/",
+          "title": "2015 Ford Explorer Sport For Sale in Lawrenceville, NJ - 1FM5K8",
+          "price": null,
+          "year": 2015,
+          "mileage": null,
+          "priceOk": false,
+          "yearOk": true,
+          "milesOk": true,
+          "modelOk": true
+        },
+        {
+          "url": "https://www.truecar.com/used-cars-for-sale/listing/5XYZU3LB8EG189296/",
+          "title": "Vehicle listing",
+          "price": 8995,
+          "year": 2014,
+          "mileage": null,
+          "priceOk": true,
+          "yearOk": true,
+          "milesOk": true,
+          "modelOk": false
+        }
+      ],
+      "sampleUrls": [
+        "https://www.truecar.com/used-cars-for-sale/listing/5NMS2CAD3LH169195/",
+        "https://www.truecar.com/used-cars-for-sale/listing/1FM5K8GT8FGB06318/",
+        "https://www.truecar.com/used-cars-for-sale/listing/5XYZU3LB8EG189296/"
+      ]
     },
     {
       "area": "North Jersey",
@@ -106,9 +118,9 @@
     {
       "area": "Hudson Valley NY",
       "query": "Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 Hudson Valley NY used SUV under $15000 2011 or newer under 160000 miles",
-      "results": 10,
+      "results": 0,
       "directFound": 0,
-      "scrapedPages": 2,
+      "scrapedPages": 0,
       "accepted": 0,
       "rejected": [],
       "sampleUrls": []
@@ -117,15 +129,11 @@
       "area": "Southwest Connecticut",
       "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Southwest Connecticut used SUV under $15000 2011 or newer under 160000 miles",
       "results": 10,
-      "directFound": 6,
-      "scrapedPages": 2,
-      "accepted": 6,
+      "directFound": 0,
+      "scrapedPages": 1,
+      "accepted": 0,
       "rejected": [],
-      "sampleUrls": [
-        "https://www.cars.com/vehicledetail/45d8996c-f30d-4136-af69-88a6963a451f/?attribution_type=showcase&sid=5a129f38-3b6b-4dc7-b5f3-8735ccffbe88",
-        "https://www.cars.com/vehicledetail/d722be92-b5d6-457c-b1d0-310233bf1b76/?attribution_type=showcase&sid=5a129f38-3b6b-4dc7-b5f3-8735ccffbe88",
-        "https://www.cars.com/vehicledetail/c4ca0a1b-545c-4685-b656-cdc91be397eb/?attribution_type=showcase&sid=5a129f38-3b6b-4dc7-b5f3-8735ccffbe88"
-      ]
+      "sampleUrls": []
     },
     {
       "area": "Southwest Connecticut",
@@ -151,49 +159,11 @@
       "area": "Northeast Pennsylvania",
       "query": "Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 Northeast Pennsylvania used SUV under $15000 2011 or newer under 160000 miles",
       "results": 10,
-      "directFound": 6,
+      "directFound": 0,
       "scrapedPages": 2,
       "accepted": 0,
-      "rejected": [
-        {
-          "url": "https://www.cars.com/vehicledetail/28d2e14f-7286-4e92-82a0-46f1b20a95b5/?attribution_type=carousel_ncn&sid=59810028-77c6-4d31-a7fc-29dd827f2db6",
-          "title": "Vehicle listing",
-          "price": null,
-          "year": 2027,
-          "mileage": null,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": true
-        },
-        {
-          "url": "https://www.cars.com/vehicledetail/86bb3812-13d3-4156-af98-720c4f0fea60/?attribution_type=carousel_ncn&sid=59810028-77c6-4d31-a7fc-29dd827f2db6",
-          "title": "Vehicle listing",
-          "price": null,
-          "year": 2026,
-          "mileage": null,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": true
-        },
-        {
-          "url": "https://www.cars.com/vehicledetail/139f6f7c-3ae8-4aa3-9a9f-da8f3946bed0/?attribution_type=carousel_ncn&sid=59810028-77c6-4d31-a7fc-29dd827f2db6",
-          "title": "Vehicle listing",
-          "price": null,
-          "year": 2026,
-          "mileage": null,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": true
-        }
-      ],
-      "sampleUrls": [
-        "https://www.cars.com/vehicledetail/28d2e14f-7286-4e92-82a0-46f1b20a95b5/?attribution_type=carousel_ncn&sid=59810028-77c6-4d31-a7fc-29dd827f2db6",
-        "https://www.cars.com/vehicledetail/86bb3812-13d3-4156-af98-720c4f0fea60/?attribution_type=carousel_ncn&sid=59810028-77c6-4d31-a7fc-29dd827f2db6",
-        "https://www.cars.com/vehicledetail/139f6f7c-3ae8-4aa3-9a9f-da8f3946bed0/?attribution_type=carousel_ncn&sid=59810028-77c6-4d31-a7fc-29dd827f2db6"
-      ]
+      "rejected": [],
+      "sampleUrls": []
     }
   ]
 }
