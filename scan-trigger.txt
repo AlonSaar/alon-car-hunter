@@ -1,1 +1,1 @@
-diagnostic run 11
+full validation 12
