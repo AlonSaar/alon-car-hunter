@@ -1,200 +1,230 @@
 {
-  "lastScan": "2026-10-06T12:50:29.649Z",
+  "lastScan": "2026-10-06T13:08:58.295Z",
   "status": "ok",
-  "count": 3,
-  "newCount": 3,
-  "rawCount": 3,
-  "uniqueCount": 3,
-  "queriesRun": 27,
-  "activeModelGroup": "A",
-  "queryLog": [
+  "count": 20,
+  "rawCount": 21,
+  "uniqueCount": 20,
+  "collectors": [
     {
-      "collector": "TrueCar direct inventory",
+      "collector": "TrueCar",
       "area": "New York metro",
-      "model": "honda pilot",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/honda/pilot/price-below-15000/location-new-york-ny/",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/price-below-15000/location-new-york-ny/",
+      "found": 0,
       "accepted": 0
     },
     {
-      "collector": "TrueCar direct inventory",
+      "collector": "TrueCar",
+      "area": "Long Island",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/price-below-15000/location-central-islip-ny/",
+      "found": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar",
+      "area": "North Jersey / Hudson",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/price-below-15000/location-nanuet-ny/",
+      "error": "Serper scrape 500 {\"message\":\"Scraping failed.\",\"statusCode\":500}"
+    },
+    {
+      "collector": "Cars.com",
       "area": "New York metro",
-      "model": "toyota highlander",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/highlander/price-below-15000/location-new-york-ny/",
-      "accepted": 0
+      "url": "https://www.cars.com/shopping/new_york-ny/price-under-15000/?page=1",
+      "found": 0,
+      "accepted": 0,
+      "samples": []
     },
     {
-      "collector": "TrueCar direct inventory",
-      "area": "New York metro",
-      "model": "ford explorer",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/ford/explorer/price-below-15000/location-new-york-ny/",
-      "accepted": 0
+      "collector": "Cars.com",
+      "area": "Long Island",
+      "url": "https://www.cars.com/shopping/suv/long_island-ny/price-under-15000/?page=1",
+      "found": 0,
+      "accepted": 0,
+      "samples": []
     },
     {
-      "collector": "TrueCar direct inventory",
-      "area": "New York metro",
-      "model": "kia sorento",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/kia/sorento/price-below-15000/location-new-york-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "New York metro",
-      "model": "nissan pathfinder",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/nissan/pathfinder/price-below-15000/location-new-york-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "New York metro",
-      "model": "chevrolet traverse",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/traverse/price-below-15000/location-new-york-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "New York metro",
-      "model": "acura mdx",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/acura/mdx/price-below-15000/location-new-york-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "Long Island / Connecticut",
-      "model": "honda pilot",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/honda/pilot/price-below-15000/location-central-islip-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "Long Island / Connecticut",
-      "model": "toyota highlander",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/highlander/price-below-15000/location-central-islip-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "Long Island / Connecticut",
-      "model": "ford explorer",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/ford/explorer/price-below-15000/location-central-islip-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "Long Island / Connecticut",
-      "model": "kia sorento",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/kia/sorento/price-below-15000/location-central-islip-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "Long Island / Connecticut",
-      "model": "nissan pathfinder",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/nissan/pathfinder/price-below-15000/location-central-islip-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "Long Island / Connecticut",
-      "model": "chevrolet traverse",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/traverse/price-below-15000/location-central-islip-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "Long Island / Connecticut",
-      "model": "acura mdx",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/acura/mdx/price-below-15000/location-central-islip-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "Hudson Valley / North Jersey",
-      "model": "honda pilot",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/honda/pilot/price-below-15000/location-nanuet-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "Hudson Valley / North Jersey",
-      "model": "toyota highlander",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/highlander/price-below-15000/location-nanuet-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "Hudson Valley / North Jersey",
-      "model": "ford explorer",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/ford/explorer/price-below-15000/location-nanuet-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "Hudson Valley / North Jersey",
-      "model": "kia sorento",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/kia/sorento/price-below-15000/location-nanuet-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "Hudson Valley / North Jersey",
-      "model": "nissan pathfinder",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/nissan/pathfinder/price-below-15000/location-nanuet-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "Hudson Valley / North Jersey",
-      "model": "chevrolet traverse",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/traverse/price-below-15000/location-nanuet-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar direct inventory",
-      "area": "Hudson Valley / North Jersey",
-      "model": "acura mdx",
-      "url": "https://www.truecar.com/used-cars-for-sale/listings/acura/mdx/price-below-15000/location-nanuet-ny/",
-      "accepted": 0
-    },
-    {
-      "collector": "Private seller discovery",
-      "area": "Long Island NY",
-      "query": "site:craigslist.org/view/d OR site:facebook.com/marketplace/item Long Island NY SUV \"third row\" \"$\"",
-      "results": 10,
-      "accepted": 0
-    },
-    {
-      "collector": "Private seller discovery",
-      "area": "Westchester NY",
-      "query": "site:craigslist.org/view/d OR site:facebook.com/marketplace/item Westchester NY SUV \"third row\" \"$\"",
-      "results": 3,
-      "accepted": 0
-    },
-    {
-      "collector": "Private seller discovery",
+      "collector": "Cars.com",
       "area": "North Jersey",
-      "query": "site:craigslist.org/view/d OR site:facebook.com/marketplace/item North Jersey SUV \"third row\" \"$\"",
+      "url": "https://www.cars.com/shopping/suv/newark-nj/price-under-15000/?page=1",
+      "found": 1,
+      "accepted": 0,
+      "samples": [
+        "https://www.cars.com/vehicledetail/d4cccfe3-bfa8-4f78-a1c4-85ed73201cfa/"
+      ]
+    },
+    {
+      "collector": "Cars.com",
+      "area": "Connecticut",
+      "url": "https://www.cars.com/shopping/suv/stamford-ct/price-under-15000/?page=1",
+      "found": 0,
+      "accepted": 0,
+      "samples": []
+    },
+    {
+      "collector": "Craigslist",
+      "area": "Long Island NY",
       "results": 10,
+      "direct": 10,
+      "accepted": 7
+    },
+    {
+      "collector": "Facebook Marketplace",
+      "area": "Long Island NY",
+      "results": 10,
+      "direct": 10,
+      "accepted": 1
+    },
+    {
+      "collector": "Autotrader",
+      "area": "Long Island NY",
+      "results": 10,
+      "direct": 10,
+      "accepted": 0
+    },
+    {
+      "collector": "CarGurus",
+      "area": "Long Island NY",
+      "results": 10,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "Craigslist",
+      "area": "Westchester NY",
+      "results": 10,
+      "direct": 10,
       "accepted": 3
     },
     {
-      "collector": "Private seller discovery",
+      "collector": "Facebook Marketplace",
+      "area": "Westchester NY",
+      "results": 10,
+      "direct": 10,
+      "accepted": 1
+    },
+    {
+      "collector": "Autotrader",
+      "area": "Westchester NY",
+      "results": 10,
+      "direct": 10,
+      "accepted": 0
+    },
+    {
+      "collector": "CarGurus",
+      "area": "Westchester NY",
+      "results": 10,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "Craigslist",
+      "area": "North Jersey",
+      "results": 10,
+      "direct": 10,
+      "accepted": 5
+    },
+    {
+      "collector": "Facebook Marketplace",
+      "area": "North Jersey",
+      "results": 7,
+      "direct": 7,
+      "accepted": 0
+    },
+    {
+      "collector": "Autotrader",
+      "area": "North Jersey",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "CarGurus",
+      "area": "North Jersey",
+      "results": 10,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "Craigslist",
       "area": "Hudson Valley NY",
-      "query": "site:craigslist.org/view/d OR site:facebook.com/marketplace/item Hudson Valley NY SUV \"third row\" \"$\"",
       "results": 10,
+      "direct": 10,
+      "accepted": 1
+    },
+    {
+      "collector": "Facebook Marketplace",
+      "area": "Hudson Valley NY",
+      "results": 10,
+      "direct": 10,
       "accepted": 0
     },
     {
-      "collector": "Private seller discovery",
+      "collector": "Autotrader",
+      "area": "Hudson Valley NY",
+      "results": 5,
+      "direct": 5,
+      "accepted": 0
+    },
+    {
+      "collector": "CarGurus",
+      "area": "Hudson Valley NY",
+      "results": 7,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "Craigslist",
       "area": "Southwest Connecticut",
-      "query": "site:craigslist.org/view/d OR site:facebook.com/marketplace/item Southwest Connecticut SUV \"third row\" \"$\"",
-      "results": 3,
+      "results": 10,
+      "direct": 10,
       "accepted": 0
     },
     {
-      "collector": "Private seller discovery",
-      "area": "Northeast Pennsylvania",
-      "query": "site:craigslist.org/view/d OR site:facebook.com/marketplace/item Northeast Pennsylvania SUV \"third row\" \"$\"",
+      "collector": "Facebook Marketplace",
+      "area": "Southwest Connecticut",
+      "results": 1,
+      "direct": 1,
+      "accepted": 0
+    },
+    {
+      "collector": "Autotrader",
+      "area": "Southwest Connecticut",
+      "results": 1,
+      "direct": 1,
+      "accepted": 0
+    },
+    {
+      "collector": "CarGurus",
+      "area": "Southwest Connecticut",
       "results": 10,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "Craigslist",
+      "area": "Northeast Pennsylvania",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "Facebook Marketplace",
+      "area": "Northeast Pennsylvania",
+      "results": 7,
+      "direct": 7,
+      "accepted": 0
+    },
+    {
+      "collector": "Autotrader",
+      "area": "Northeast Pennsylvania",
+      "results": 10,
+      "direct": 10,
+      "accepted": 0
+    },
+    {
+      "collector": "CarGurus",
+      "area": "Northeast Pennsylvania",
+      "results": 10,
+      "direct": 0,
       "accepted": 0
     }
   ]
