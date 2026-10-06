@@ -144,7 +144,7 @@ function extractedDirectRows(data,base){
   const pm=block.match(/(?:advertised price|list price|price)\s*[\r\n ]{0,30}\$([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})/i);
   const mm=block.match(/(?:used\s*[·-]\s*|mileage\s*)?([0-9]{1,3}(?:,[0-9]{3})+)\s*(?:mi|miles)/i);
   if(targetModel.test(title)&&pm){
-   const snippet=title+' Advertised price 
+   const snippet=title+' Advertised price $'+pm[1]+(mm?' Mileage '+mm[1]+' miles':'')+' '+block.slice(0,1200);
  for(const m of markdown.matchAll(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g)){
   if(allowed.test(m[2])&&isDirectListing(m[2])) add(m[2],m[1],m[1],m.index||0);
  }
