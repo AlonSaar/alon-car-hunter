@@ -1,5 +1,5 @@
 {
-  "lastScan": "2026-10-06T12:33:29.529Z",
+  "lastScan": "2026-10-06T12:39:08.650Z",
   "status": "no-new-results-kept-previous",
   "count": 6,
   "newCount": 0,
@@ -31,11 +31,49 @@
       "area": "Westchester NY",
       "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Westchester NY used SUV under $15000 2011 or newer under 160000 miles",
       "results": 10,
-      "directFound": 0,
+      "directFound": 6,
       "scrapedPages": 2,
       "accepted": 0,
-      "rejected": [],
-      "sampleUrls": []
+      "rejected": [
+        {
+          "url": "https://www.truecar.com/used-cars-for-sale/listing/1FAHP2EW8BG113542/",
+          "title": "Vehicle listing",
+          "price": null,
+          "year": 2011,
+          "mileage": null,
+          "priceOk": false,
+          "yearOk": true,
+          "milesOk": true,
+          "modelOk": false
+        },
+        {
+          "url": "https://www.truecar.com/used-cars-for-sale/listing/1FAHP2KT7BG105345/",
+          "title": "Vehicle listing",
+          "price": null,
+          "year": 2011,
+          "mileage": null,
+          "priceOk": false,
+          "yearOk": true,
+          "milesOk": true,
+          "modelOk": false
+        },
+        {
+          "url": "https://www.truecar.com/used-cars-for-sale/listing/2T2BK1BA2BC113287/",
+          "title": "Vehicle listing",
+          "price": null,
+          "year": 2011,
+          "mileage": null,
+          "priceOk": false,
+          "yearOk": true,
+          "milesOk": true,
+          "modelOk": false
+        }
+      ],
+      "sampleUrls": [
+        "https://www.truecar.com/used-cars-for-sale/listing/1FAHP2EW8BG113542/",
+        "https://www.truecar.com/used-cars-for-sale/listing/1FAHP2KT7BG105345/",
+        "https://www.truecar.com/used-cars-for-sale/listing/2T2BK1BA2BC113287/"
+      ]
     },
     {
       "area": "Westchester NY",
@@ -51,49 +89,11 @@
       "area": "North Jersey",
       "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento North Jersey used SUV under $15000 2011 or newer under 160000 miles",
       "results": 10,
-      "directFound": 6,
+      "directFound": 0,
       "scrapedPages": 2,
       "accepted": 0,
-      "rejected": [
-        {
-          "url": "https://www.truecar.com/used-cars-for-sale/listing/5NMS2CAD3LH169195/",
-          "title": "Vehicle listing",
-          "price": null,
-          "year": 2020,
-          "mileage": null,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": false
-        },
-        {
-          "url": "https://www.truecar.com/used-cars-for-sale/listing/1FM5K8GT8FGB06318/",
-          "title": "2015 Ford Explorer Sport For Sale in Lawrenceville, NJ - 1FM5K8",
-          "price": null,
-          "year": 2015,
-          "mileage": null,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": true
-        },
-        {
-          "url": "https://www.truecar.com/used-cars-for-sale/listing/5XYZU3LB8EG189296/",
-          "title": "Vehicle listing",
-          "price": 8995,
-          "year": 2014,
-          "mileage": null,
-          "priceOk": true,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": false
-        }
-      ],
-      "sampleUrls": [
-        "https://www.truecar.com/used-cars-for-sale/listing/5NMS2CAD3LH169195/",
-        "https://www.truecar.com/used-cars-for-sale/listing/1FM5K8GT8FGB06318/",
-        "https://www.truecar.com/used-cars-for-sale/listing/5XYZU3LB8EG189296/"
-      ]
+      "rejected": [],
+      "sampleUrls": []
     },
     {
       "area": "North Jersey",
@@ -118,9 +118,9 @@
     {
       "area": "Hudson Valley NY",
       "query": "Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 Hudson Valley NY used SUV under $15000 2011 or newer under 160000 miles",
-      "results": 0,
+      "results": 10,
       "directFound": 0,
-      "scrapedPages": 0,
+      "scrapedPages": 2,
       "accepted": 0,
       "rejected": [],
       "sampleUrls": []
@@ -129,11 +129,49 @@
       "area": "Southwest Connecticut",
       "query": "Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Southwest Connecticut used SUV under $15000 2011 or newer under 160000 miles",
       "results": 10,
-      "directFound": 0,
-      "scrapedPages": 1,
+      "directFound": 6,
+      "scrapedPages": 2,
       "accepted": 0,
-      "rejected": [],
-      "sampleUrls": []
+      "rejected": [
+        {
+          "url": "https://www.truecar.com/used-cars-for-sale/listing/5N1AT3BBXMC820226/",
+          "title": "Vehicle listing",
+          "price": null,
+          "year": 2021,
+          "mileage": null,
+          "priceOk": false,
+          "yearOk": true,
+          "milesOk": true,
+          "modelOk": false
+        },
+        {
+          "url": "https://www.truecar.com/used-cars-for-sale/listing/KM8K5CA32PU945132/",
+          "title": "Vehicle listing",
+          "price": null,
+          "year": 2023,
+          "mileage": null,
+          "priceOk": false,
+          "yearOk": true,
+          "milesOk": true,
+          "modelOk": false
+        },
+        {
+          "url": "https://www.truecar.com/used-cars-for-sale/listing/1FM5K8GT9HGA96692/",
+          "title": "2017 Ford Explorer Sport For Sale in Milford, CT - 1FM5K8GT9HGA",
+          "price": null,
+          "year": 2017,
+          "mileage": null,
+          "priceOk": false,
+          "yearOk": true,
+          "milesOk": true,
+          "modelOk": true
+        }
+      ],
+      "sampleUrls": [
+        "https://www.truecar.com/used-cars-for-sale/listing/5N1AT3BBXMC820226/",
+        "https://www.truecar.com/used-cars-for-sale/listing/KM8K5CA32PU945132/",
+        "https://www.truecar.com/used-cars-for-sale/listing/1FM5K8GT9HGA96692/"
+      ]
     },
     {
       "area": "Southwest Connecticut",
