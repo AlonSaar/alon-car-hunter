@@ -1,6 +1,9 @@
 name: Vehicle scan - 8 AM and 8 PM ET
 
 on:
+  push:
+    paths:
+      - 'scan-trigger.txt'
   schedule:
     # GitHub cron uses UTC. These four trigger times cover both EDT and EST.
     # A New York time gate below allows the scan only at 08:00 or 20:00 local time.
@@ -21,7 +24,7 @@ jobs:
         id: timegate
         shell: bash
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event_name }}" = "push" ]; then
             echo "run_scan=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
