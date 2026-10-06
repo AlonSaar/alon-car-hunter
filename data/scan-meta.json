@@ -1,9 +1,9 @@
 {
-  "lastScan": "2026-10-06T13:08:58.295Z",
+  "lastScan": "2026-10-06T13:12:21.983Z",
   "status": "ok",
-  "count": 20,
-  "rawCount": 21,
-  "uniqueCount": 20,
+  "count": 21,
+  "rawCount": 36,
+  "uniqueCount": 21,
   "collectors": [
     {
       "collector": "TrueCar",
@@ -23,7 +23,8 @@
       "collector": "TrueCar",
       "area": "North Jersey / Hudson",
       "url": "https://www.truecar.com/used-cars-for-sale/listings/price-below-15000/location-nanuet-ny/",
-      "error": "Serper scrape 500 {\"message\":\"Scraping failed.\",\"statusCode\":500}"
+      "found": 0,
+      "accepted": 0
     },
     {
       "collector": "Cars.com",
@@ -60,11 +61,123 @@
       "samples": []
     },
     {
+      "collector": "Cars.com search fallback",
+      "area": "New York NY",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "Cars.com search fallback",
+      "area": "New York NY",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "Cars.com search fallback",
+      "area": "Long Island NY",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "Cars.com search fallback",
+      "area": "Long Island NY",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "Cars.com search fallback",
+      "area": "North Jersey",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "Cars.com search fallback",
+      "area": "North Jersey",
+      "results": 1,
+      "direct": 1,
+      "accepted": 0
+    },
+    {
+      "collector": "Cars.com search fallback",
+      "area": "Westchester NY",
+      "results": 1,
+      "direct": 1,
+      "accepted": 0
+    },
+    {
+      "collector": "Cars.com search fallback",
+      "area": "Westchester NY",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar search fallback",
+      "area": "New York NY",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar search fallback",
+      "area": "New York NY",
+      "results": 1,
+      "direct": 1,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar search fallback",
+      "area": "Long Island NY",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar search fallback",
+      "area": "Long Island NY",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar search fallback",
+      "area": "North Jersey",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar search fallback",
+      "area": "North Jersey",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar search fallback",
+      "area": "Westchester NY",
+      "results": 1,
+      "direct": 1,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar search fallback",
+      "area": "Westchester NY",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
       "collector": "Craigslist",
       "area": "Long Island NY",
       "results": 10,
       "direct": 10,
-      "accepted": 7
+      "accepted": 6
     },
     {
       "collector": "Facebook Marketplace",
@@ -76,14 +189,14 @@
     {
       "collector": "Autotrader",
       "area": "Long Island NY",
-      "results": 10,
-      "direct": 10,
+      "results": 0,
+      "direct": 0,
       "accepted": 0
     },
     {
       "collector": "CarGurus",
       "area": "Long Island NY",
-      "results": 10,
+      "results": 7,
       "direct": 0,
       "accepted": 0
     },
@@ -97,9 +210,9 @@
     {
       "collector": "Facebook Marketplace",
       "area": "Westchester NY",
-      "results": 10,
-      "direct": 10,
-      "accepted": 1
+      "results": 5,
+      "direct": 5,
+      "accepted": 0
     },
     {
       "collector": "Autotrader",
@@ -120,14 +233,14 @@
       "area": "North Jersey",
       "results": 10,
       "direct": 10,
-      "accepted": 5
+      "accepted": 4
     },
     {
       "collector": "Facebook Marketplace",
       "area": "North Jersey",
-      "results": 7,
-      "direct": 7,
-      "accepted": 0
+      "results": 10,
+      "direct": 10,
+      "accepted": 2
     },
     {
       "collector": "Autotrader",
@@ -167,7 +280,7 @@
     {
       "collector": "CarGurus",
       "area": "Hudson Valley NY",
-      "results": 7,
+      "results": 10,
       "direct": 0,
       "accepted": 0
     },
@@ -202,8 +315,8 @@
     {
       "collector": "Craigslist",
       "area": "Northeast Pennsylvania",
-      "results": 0,
-      "direct": 0,
+      "results": 10,
+      "direct": 10,
       "accepted": 0
     },
     {
@@ -216,8 +329,8 @@
     {
       "collector": "Autotrader",
       "area": "Northeast Pennsylvania",
-      "results": 10,
-      "direct": 10,
+      "results": 0,
+      "direct": 0,
       "accepted": 0
     },
     {
