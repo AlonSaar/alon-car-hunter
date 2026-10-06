@@ -118,6 +118,8 @@ function canonicalUrl(raw){
   const u=new URL(raw);
   if(u.hostname.includes('cars.com')&&/\/vehicledetail\//i.test(u.pathname)) return u.origin+u.pathname;
   if(u.hostname.includes('truecar.com')&&/\/used-cars-for-sale\/listing\//i.test(u.pathname)) return u.origin+u.pathname;
+  if(u.hostname.includes('facebook.com')&&/\/marketplace\/item\//i.test(u.pathname)) return u.origin+u.pathname.replace(/\/$/,'')+'/';
+  if(u.hostname.includes('craigslist.org')&&/^\/view\/d\//i.test(u.pathname)) return u.origin+u.pathname;
   return u.href;
  }catch{return raw}
 }
