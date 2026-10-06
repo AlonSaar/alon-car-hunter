@@ -24,6 +24,29 @@
     "bodyStyle": "SUV"
   },
   {
+    "id": "df4c78258c78",
+    "title": "2019 Toyota Sienna · XLE Minivan 4D - Cars & Trucks",
+    "url": "https://www.facebook.com/marketplace/item/1545190840625560/",
+    "snippet": "XLE Minivan 4D $14,950 Sold. Driven 89,093 miles Automatic transmission. No issues Runs and drives amazing. Used - $7,000",
+    "source": "Facebook Marketplace",
+    "location": "North Jersey",
+    "price": 14950,
+    "year": 2019,
+    "mileage": 89093,
+    "privateSellerLikely": true,
+    "titleRisk": "unknown",
+    "uberXL": "verify",
+    "score": 100,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Good mileage",
+      "Private seller likely"
+    ],
+    "foundAt": "2026-10-06T13:43:15.318Z",
+    "bodyStyle": "Minivan"
+  },
+  {
     "id": "090e0ae30c7a",
     "title": "2016 ford explorer xlt for sale - Iselin, NJ",
     "url": "https://www.craigslist.org/view/d/iselin-2016-ford-explorer-xlt-miles/3kHhvSjjLAbkKbwMujzLzw",
@@ -184,29 +207,6 @@
     "bodyStyle": "SUV"
   },
   {
-    "id": "64a29ee54a3a",
-    "title": "2018 honda pilot exl 4wd for sale - Yonkers, NY",
-    "url": "https://www.craigslist.org/view/d/yonkers-2018-honda-pilot-exl-excellent/fR3m5RTr8GN95W8A3L49if",
-    "snippet": "2018 honda pilot exl 4wd for sale - Yonkers, NY. HONDA PILOT EXL EXCELLENT CONDITION!!! - $13,900 (YONKER NY) PEARL WHITE/TAN LEATHER INTERIOR, ...",
-    "source": "Craigslist",
-    "location": "Westchester NY",
-    "price": 13900,
-    "year": 2018,
-    "mileage": null,
-    "privateSellerLikely": true,
-    "titleRisk": "unknown",
-    "uberXL": "likely",
-    "score": 98,
-    "reasons": [
-      "Within $4k-$15k budget",
-      "Year fits target",
-      "Private seller likely",
-      "7-seat signal"
-    ],
-    "foundAt": "2026-10-06T13:08:03.077Z",
-    "bodyStyle": "SUV"
-  },
-  {
     "id": "7610ec7e5aa3",
     "title": "2014 Dodge Durango AWD 4dr Limited",
     "url": "https://www.craigslist.org/view/d/peekskill-2014-dodge-durango-awd-4dr/uFCgq7my8RGwvJSv-SlX8A",
@@ -230,14 +230,37 @@
     "bodyStyle": "SUV"
   },
   {
-    "id": "75a1868db5bb",
-    "title": "2015 Honda Pilot SE 4WD - Cars & Trucks",
-    "url": "https://www.facebook.com/marketplace/item/1100422909475860/?ref=search&referral_code=null&referral_story_type=post",
-    "snippet": "2015 Honda Pilot SE 4WD - $11500, Used, in Jersey City, New Jersey. Browse similar Cars, Trucks & Motorcycles or message the seller to buy locally.",
+    "id": "a351dcbe09ae",
+    "title": "2020 Nissan Pathfinder SL for sale by owner - Haskell, NJ",
+    "url": "https://www.craigslist.org/view/d/haskell-2020-nissan-pathfinder-great/va67bUv3Mcp9Hy1cEWBuuc",
+    "snippet": "2020 Nissan Pathfinder Great Condition - $9,995 (Haskell, NJ) ; condition: excellent ; drive: 4wd ; fuel: gas ; odometer: 108,000 ; paint color: ...",
+    "source": "Craigslist",
+    "location": "North Jersey",
+    "price": 9995,
+    "year": 2020,
+    "mileage": 108000,
+    "privateSellerLikely": true,
+    "titleRisk": "unknown",
+    "uberXL": "likely",
+    "score": 98,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Private seller likely",
+      "7-seat signal"
+    ],
+    "foundAt": "2026-10-06T13:08:09.024Z",
+    "bodyStyle": "SUV"
+  },
+  {
+    "id": "c3a7323408b1",
+    "title": "2020 Chevrolet Traverse LS Sport Utility 4D",
+    "url": "https://www.facebook.com/marketplace/item/1315941950616565/",
+    "snippet": "2020 Chevrolet Traverse LS Sport Utility 4D - $13396, Used, in Newark, New Jersey.",
     "source": "Facebook Marketplace",
     "location": "North Jersey",
-    "price": 11500,
-    "year": 2015,
+    "price": 13396,
+    "year": 2020,
     "mileage": null,
     "privateSellerLikely": true,
     "titleRisk": "unknown",
@@ -249,7 +272,7 @@
       "Private seller likely",
       "7-seat signal"
     ],
-    "foundAt": "2026-10-06T13:19:49.080Z",
+    "foundAt": "2026-10-06T13:11:47.474Z",
     "bodyStyle": "SUV"
   },
   {
@@ -273,6 +296,29 @@
       "7-seat signal"
     ],
     "foundAt": "2026-10-06T13:08:19.823Z",
+    "bodyStyle": "SUV"
+  },
+  {
+    "id": "64a29ee54a3a",
+    "title": "2018 honda pilot exl 4wd for sale - Yonkers, NY",
+    "url": "https://www.craigslist.org/view/d/yonkers-2018-honda-pilot-exl-excellent/fR3m5RTr8GN95W8A3L49if",
+    "snippet": "2018 honda pilot exl 4wd for sale - Yonkers, NY. HONDA PILOT EXL EXCELLENT CONDITION!!! - $13,900 (YONKER NY) PEARL WHITE/TAN LEATHER INTERIOR, ...",
+    "source": "Craigslist",
+    "location": "Westchester NY",
+    "price": 13900,
+    "year": 2018,
+    "mileage": null,
+    "privateSellerLikely": true,
+    "titleRisk": "unknown",
+    "uberXL": "likely",
+    "score": 98,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Private seller likely",
+      "7-seat signal"
+    ],
+    "foundAt": "2026-10-06T13:08:03.077Z",
     "bodyStyle": "SUV"
   },
   {
@@ -301,7 +347,7 @@
   {
     "id": "14d8ccaac45c",
     "title": "2013 Honda Pilot · EX-L Sport Utility 4D",
-    "url": "https://www.facebook.com/marketplace/item/2326617198084449/?locale=en_GB",
+    "url": "https://www.facebook.com/marketplace/item/2326617198084449/",
     "snippet": "EX-L Sport Utility 4D - $7999, Used, in Edinboro, Pennsylvania. 4 wheel Drive, leather interior, 3 Row seating, Sun Roof, front and rear Air Conditioning,",
     "source": "Facebook Marketplace",
     "location": "Northeast Pennsylvania",
@@ -365,52 +411,6 @@
       "7-seat signal"
     ],
     "foundAt": "2026-10-06T13:08:09.024Z",
-    "bodyStyle": "SUV"
-  },
-  {
-    "id": "a351dcbe09ae",
-    "title": "2020 Nissan Pathfinder SL for sale by owner - Haskell, NJ",
-    "url": "https://www.craigslist.org/view/d/haskell-2020-nissan-pathfinder-great/va67bUv3Mcp9Hy1cEWBuuc",
-    "snippet": "2020 Nissan Pathfinder Great Condition - $9,995 (Haskell, NJ) ; condition: excellent ; drive: 4wd ; fuel: gas ; odometer: 108,000 ; paint color: ...",
-    "source": "Craigslist",
-    "location": "North Jersey",
-    "price": 9995,
-    "year": 2020,
-    "mileage": 108000,
-    "privateSellerLikely": true,
-    "titleRisk": "unknown",
-    "uberXL": "likely",
-    "score": 98,
-    "reasons": [
-      "Within $4k-$15k budget",
-      "Year fits target",
-      "Private seller likely",
-      "7-seat signal"
-    ],
-    "foundAt": "2026-10-06T13:08:09.024Z",
-    "bodyStyle": "SUV"
-  },
-  {
-    "id": "c3a7323408b1",
-    "title": "2020 Chevrolet Traverse LS Sport Utility 4D",
-    "url": "https://www.facebook.com/marketplace/item/1315941950616565/",
-    "snippet": "2020 Chevrolet Traverse LS Sport Utility 4D - $13396, Used, in Newark, New Jersey.",
-    "source": "Facebook Marketplace",
-    "location": "North Jersey",
-    "price": 13396,
-    "year": 2020,
-    "mileage": null,
-    "privateSellerLikely": true,
-    "titleRisk": "unknown",
-    "uberXL": "likely",
-    "score": 98,
-    "reasons": [
-      "Within $4k-$15k budget",
-      "Year fits target",
-      "Private seller likely",
-      "7-seat signal"
-    ],
-    "foundAt": "2026-10-06T13:11:47.474Z",
     "bodyStyle": "SUV"
   },
   {
@@ -568,6 +568,28 @@
       "Private seller likely"
     ],
     "foundAt": "2026-10-06T13:07:57.094Z",
+    "bodyStyle": "Minivan"
+  },
+  {
+    "id": "7cd523436bf3",
+    "title": "2016 Honda Odyssey · EX Minivan 4D - Cars & Trucks",
+    "url": "https://www.facebook.com/marketplace/item/1527164402503002/",
+    "snippet": "2016 Honda Odyssey · EX Minivan 4D - $7500, Used, in Long Island City, New York.",
+    "source": "Facebook Marketplace",
+    "location": "Long Island NY",
+    "price": 7500,
+    "year": 2016,
+    "mileage": null,
+    "privateSellerLikely": true,
+    "titleRisk": "unknown",
+    "uberXL": "verify",
+    "score": 90,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Private seller likely"
+    ],
+    "foundAt": "2026-10-06T13:43:01.997Z",
     "bodyStyle": "Minivan"
   },
   {
