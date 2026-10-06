@@ -1,24 +1,68 @@
 [
   {
-    "id": "8ec562eb7d37",
-    "title": "2019 Kia Sorento LX V6",
-    "url": "https://www.cars.com/vehicledetail/45d8996c-f30d-4136-af69-88a6963a451f/",
-    "snippet": "2019 Kia Sorento LX V6 - $11,448 - 114,412 miles - Milford, CT",
-    "source": "Cars.com",
-    "location": "Southwest Connecticut",
-    "price": 11448,
-    "year": 2019,
-    "mileage": 114412,
-    "privateSellerLikely": false,
+    "id": "090e0ae30c7a",
+    "title": "2016 ford explorer xlt for sale - Iselin, NJ",
+    "url": "https://www.craigslist.org/view/d/iselin-2016-ford-explorer-xlt-miles/3kHhvSjjLAbkKbwMujzLzw",
+    "snippet": "2016 FORD EXPLORER XLT 133,000 MILES THIRD ROW FULLY LOADED!!!! - $7,499 (Iselin) ; condition: excellent ; fuel: gas ; odometer: 133,000 ; title ...",
+    "source": "Craigslist",
+    "location": "North Jersey",
+    "price": 7499,
+    "year": 2016,
+    "mileage": 133000,
+    "privateSellerLikely": true,
+    "titleRisk": "unknown",
+    "uberXL": "likely",
+    "score": 100,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Private seller likely",
+      "7-seat signal"
+    ],
+    "foundAt": "2026-10-06T12:50:24.224Z"
+  },
+  {
+    "id": "283a1c6e3368",
+    "title": "2015 NISSAN PATHFINDER for sale - Iselin, NJ",
+    "url": "https://www.craigslist.org/view/d/iselin-private-sale-2015-nissan/kV1GCApdy6MfZBdi94PwAt",
+    "snippet": "PRIVATE SALE!! 2015 NISSAN PATHFINDER SENIOR DRIVEN THIRD ROW - $5,499 (Iselin) ; condition: excellent ; fuel: gas ; odometer: 144,000 ; title ...",
+    "source": "Craigslist",
+    "location": "North Jersey",
+    "price": 5499,
+    "year": 2015,
+    "mileage": null,
+    "privateSellerLikely": true,
     "titleRisk": "unknown",
     "uberXL": "likely",
     "score": 98,
     "reasons": [
       "Within $4k-$15k budget",
       "Year fits target",
-      "Mileage within target",
-      "7-seat model"
+      "Private seller likely",
+      "7-seat signal"
     ],
-    "foundAt": "2026-10-06T12:42:16.926Z"
+    "foundAt": "2026-10-06T12:50:24.224Z"
+  },
+  {
+    "id": "0a8a63513395",
+    "title": "2014 nissan pathfinder platinum awd for sale by owner",
+    "url": "https://www.craigslist.org/view/d/pequannock-2014-nissan-pathfinder/fbvvAWt9txC91gEhQ5mPqq",
+    "snippet": "Third Row Seats Remote Starter Keyless Entry ASKING $7,700 OBO NEGOTIABLE. © craigslist - Map data © OpenStreetMap. post id: 7977768162. posted ...",
+    "source": "Craigslist",
+    "location": "North Jersey",
+    "price": 7700,
+    "year": 2014,
+    "mileage": null,
+    "privateSellerLikely": true,
+    "titleRisk": "unknown",
+    "uberXL": "likely",
+    "score": 98,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Private seller likely",
+      "7-seat signal"
+    ],
+    "foundAt": "2026-10-06T12:50:24.224Z"
   }
 ]

@@ -1,245 +1,201 @@
 {
-  "lastScan": "2026-10-06T12:42:16.926Z",
-  "status": "no-new-results-kept-previous",
-  "count": 6,
-  "newCount": 0,
-  "rawCount": 0,
-  "uniqueCount": 0,
-  "queriesRun": 12,
+  "lastScan": "2026-10-06T12:50:29.649Z",
+  "status": "ok",
+  "count": 3,
+  "newCount": 3,
+  "rawCount": 3,
+  "uniqueCount": 3,
+  "queriesRun": 27,
+  "activeModelGroup": "A",
   "queryLog": [
     {
+      "collector": "TrueCar direct inventory",
+      "area": "New York metro",
+      "model": "honda pilot",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/honda/pilot/price-below-15000/location-new-york-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "New York metro",
+      "model": "toyota highlander",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/highlander/price-below-15000/location-new-york-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "New York metro",
+      "model": "ford explorer",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/ford/explorer/price-below-15000/location-new-york-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "New York metro",
+      "model": "kia sorento",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/kia/sorento/price-below-15000/location-new-york-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "New York metro",
+      "model": "nissan pathfinder",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/nissan/pathfinder/price-below-15000/location-new-york-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "New York metro",
+      "model": "chevrolet traverse",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/traverse/price-below-15000/location-new-york-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "New York metro",
+      "model": "acura mdx",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/acura/mdx/price-below-15000/location-new-york-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "Long Island / Connecticut",
+      "model": "honda pilot",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/honda/pilot/price-below-15000/location-central-islip-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "Long Island / Connecticut",
+      "model": "toyota highlander",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/highlander/price-below-15000/location-central-islip-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "Long Island / Connecticut",
+      "model": "ford explorer",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/ford/explorer/price-below-15000/location-central-islip-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "Long Island / Connecticut",
+      "model": "kia sorento",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/kia/sorento/price-below-15000/location-central-islip-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "Long Island / Connecticut",
+      "model": "nissan pathfinder",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/nissan/pathfinder/price-below-15000/location-central-islip-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "Long Island / Connecticut",
+      "model": "chevrolet traverse",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/traverse/price-below-15000/location-central-islip-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "Long Island / Connecticut",
+      "model": "acura mdx",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/acura/mdx/price-below-15000/location-central-islip-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "Hudson Valley / North Jersey",
+      "model": "honda pilot",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/honda/pilot/price-below-15000/location-nanuet-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "Hudson Valley / North Jersey",
+      "model": "toyota highlander",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/highlander/price-below-15000/location-nanuet-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "Hudson Valley / North Jersey",
+      "model": "ford explorer",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/ford/explorer/price-below-15000/location-nanuet-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "Hudson Valley / North Jersey",
+      "model": "kia sorento",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/kia/sorento/price-below-15000/location-nanuet-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "Hudson Valley / North Jersey",
+      "model": "nissan pathfinder",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/nissan/pathfinder/price-below-15000/location-nanuet-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "Hudson Valley / North Jersey",
+      "model": "chevrolet traverse",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/traverse/price-below-15000/location-nanuet-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar direct inventory",
+      "area": "Hudson Valley / North Jersey",
+      "model": "acura mdx",
+      "url": "https://www.truecar.com/used-cars-for-sale/listings/acura/mdx/price-below-15000/location-nanuet-ny/",
+      "accepted": 0
+    },
+    {
+      "collector": "Private seller discovery",
       "area": "Long Island NY",
-      "query": "site:cars.com/shopping/ Long Island NY Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 under 15000 used",
-      "results": 0,
-      "directFound": 0,
-      "scrapedPages": 0,
-      "accepted": 0,
-      "rejected": [],
-      "sampleUrls": []
+      "query": "site:craigslist.org/view/d OR site:facebook.com/marketplace/item Long Island NY SUV \"third row\" \"$\"",
+      "results": 10,
+      "accepted": 0
     },
     {
-      "area": "Long Island NY",
-      "query": "site:truecar.com/used-cars-for-sale/listings/ Long Island NY Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 under 15000 used",
-      "results": 0,
-      "directFound": 0,
-      "scrapedPages": 0,
-      "accepted": 0,
-      "rejected": [],
-      "sampleUrls": []
-    },
-    {
+      "collector": "Private seller discovery",
       "area": "Westchester NY",
-      "query": "site:cars.com/shopping/ Westchester NY Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 under 15000 used",
-      "results": 7,
-      "directFound": 0,
-      "scrapedPages": 2,
-      "accepted": 0,
-      "rejected": [],
-      "sampleUrls": []
+      "query": "site:craigslist.org/view/d OR site:facebook.com/marketplace/item Westchester NY SUV \"third row\" \"$\"",
+      "results": 3,
+      "accepted": 0
     },
     {
-      "area": "Westchester NY",
-      "query": "site:truecar.com/used-cars-for-sale/listings/ Westchester NY Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 under 15000 used",
-      "results": 7,
-      "directFound": 6,
-      "scrapedPages": 2,
-      "accepted": 0,
-      "rejected": [
-        {
-          "url": "https://www.truecar.com/used-cars-for-sale/listing/5TDGZRBH7NS202544/",
-          "title": "2022 Toyota Highlander XLE For Sale in Ramsey, NJ - 5TDGZRBH7NS2025",
-          "price": null,
-          "year": 2022,
-          "mileage": null,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": true
-        },
-        {
-          "url": "https://www.truecar.com/used-cars-for-sale/listing/5TDKDRBH6PS035055/",
-          "title": "2023 Toyota Highlander LE For Sale in Bronx, NY - 5TDKDRBH6PS035055",
-          "price": null,
-          "year": 2023,
-          "mileage": 25364,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": true
-        },
-        {
-          "url": "https://www.truecar.com/used-cars-for-sale/listing/5TDJZRFH9KS620132/",
-          "title": "2019 Toyota Highlander SE V6 For Sale in Jersey City, NJ - 5TDJZRFH",
-          "price": null,
-          "year": 2019,
-          "mileage": 98074,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": true
-        }
-      ],
-      "sampleUrls": [
-        "https://www.truecar.com/used-cars-for-sale/listing/5TDGZRBH7NS202544/",
-        "https://www.truecar.com/used-cars-for-sale/listing/5TDKDRBH6PS035055/",
-        "https://www.truecar.com/used-cars-for-sale/listing/5TDJZRFH9KS620132/"
-      ]
-    },
-    {
+      "collector": "Private seller discovery",
       "area": "North Jersey",
-      "query": "site:cars.com/shopping/ North Jersey Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 under 15000 used",
-      "results": 1,
-      "directFound": 6,
-      "scrapedPages": 1,
-      "accepted": 0,
-      "rejected": [
-        {
-          "url": "https://www.cars.com/vehicledetail/9ef03100-5f2b-4e3e-9d51-bc6cc28998bc/",
-          "title": "New 2026 Volkswagen Atlas Cross Sport 2.0T SE W/TECHNOLOGY",
-          "price": 48445,
-          "year": 2026,
-          "mileage": null,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": false
-        },
-        {
-          "url": "https://www.cars.com/vehicledetail/eccb85f4-9f05-49f0-8b82-f8c637f3a84b/",
-          "title": "New 2026 Mercedes-Benz GLB 250 Base 4MATIC",
-          "price": null,
-          "year": 2026,
-          "mileage": null,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": false
-        },
-        {
-          "url": "https://www.cars.com/vehicledetail/13a5baa7-1ea5-49e9-8338-6fb82a90202f/",
-          "title": "New 2027 Jeep Wrangler Sport S",
-          "price": null,
-          "year": 2027,
-          "mileage": null,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": false
-        }
-      ],
-      "sampleUrls": [
-        "https://www.cars.com/vehicledetail/9ef03100-5f2b-4e3e-9d51-bc6cc28998bc/",
-        "https://www.cars.com/vehicledetail/eccb85f4-9f05-49f0-8b82-f8c637f3a84b/",
-        "https://www.cars.com/vehicledetail/13a5baa7-1ea5-49e9-8338-6fb82a90202f/"
-      ]
+      "query": "site:craigslist.org/view/d OR site:facebook.com/marketplace/item North Jersey SUV \"third row\" \"$\"",
+      "results": 10,
+      "accepted": 3
     },
     {
-      "area": "North Jersey",
-      "query": "site:truecar.com/used-cars-for-sale/listings/ North Jersey Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 under 15000 used",
-      "results": 0,
-      "directFound": 0,
-      "scrapedPages": 0,
-      "accepted": 0,
-      "rejected": [],
-      "sampleUrls": []
-    },
-    {
+      "collector": "Private seller discovery",
       "area": "Hudson Valley NY",
-      "query": "site:cars.com/shopping/ Hudson Valley NY Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 under 15000 used",
-      "results": 0,
-      "directFound": 0,
-      "scrapedPages": 0,
-      "accepted": 0,
-      "rejected": [],
-      "sampleUrls": []
+      "query": "site:craigslist.org/view/d OR site:facebook.com/marketplace/item Hudson Valley NY SUV \"third row\" \"$\"",
+      "results": 10,
+      "accepted": 0
     },
     {
-      "area": "Hudson Valley NY",
-      "query": "site:truecar.com/used-cars-for-sale/listings/ Hudson Valley NY Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 under 15000 used",
-      "results": 0,
-      "directFound": 0,
-      "scrapedPages": 0,
-      "accepted": 0,
-      "rejected": [],
-      "sampleUrls": []
-    },
-    {
+      "collector": "Private seller discovery",
       "area": "Southwest Connecticut",
-      "query": "site:cars.com/shopping/ Southwest Connecticut Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 under 15000 used",
-      "results": 7,
-      "directFound": 0,
-      "scrapedPages": 2,
-      "accepted": 0,
-      "rejected": [],
-      "sampleUrls": []
+      "query": "site:craigslist.org/view/d OR site:facebook.com/marketplace/item Southwest Connecticut SUV \"third row\" \"$\"",
+      "results": 3,
+      "accepted": 0
     },
     {
-      "area": "Southwest Connecticut",
-      "query": "site:truecar.com/used-cars-for-sale/listings/ Southwest Connecticut Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 under 15000 used",
-      "results": 0,
-      "directFound": 0,
-      "scrapedPages": 0,
-      "accepted": 0,
-      "rejected": [],
-      "sampleUrls": []
-    },
-    {
+      "collector": "Private seller discovery",
       "area": "Northeast Pennsylvania",
-      "query": "site:cars.com/shopping/ Northeast Pennsylvania Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 under 15000 used",
-      "results": 0,
-      "directFound": 0,
-      "scrapedPages": 0,
-      "accepted": 0,
-      "rejected": [],
-      "sampleUrls": []
-    },
-    {
-      "area": "Northeast Pennsylvania",
-      "query": "site:truecar.com/used-cars-for-sale/listings/ Northeast Pennsylvania Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 under 15000 used",
-      "results": 7,
-      "directFound": 6,
-      "scrapedPages": 2,
-      "accepted": 0,
-      "rejected": [
-        {
-          "url": "https://www.truecar.com/used-cars-for-sale/listing/1C6SRFJTXPN582803/",
-          "title": "Vehicle listing",
-          "price": null,
-          "year": 2023,
-          "mileage": 217554,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": false,
-          "modelOk": false
-        },
-        {
-          "url": "https://www.truecar.com/used-cars-for-sale/listing/JN8BT3BB7PW197308/",
-          "title": "Vehicle listing",
-          "price": null,
-          "year": 2023,
-          "mileage": null,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": false
-        },
-        {
-          "url": "https://www.truecar.com/used-cars-for-sale/listing/1C4RJFBG8MC508173/",
-          "title": "Vehicle listing",
-          "price": null,
-          "year": 2021,
-          "mileage": null,
-          "priceOk": false,
-          "yearOk": true,
-          "milesOk": true,
-          "modelOk": false
-        }
-      ],
-      "sampleUrls": [
-        "https://www.truecar.com/used-cars-for-sale/listing/1C6SRFJTXPN582803/",
-        "https://www.truecar.com/used-cars-for-sale/listing/JN8BT3BB7PW197308/",
-        "https://www.truecar.com/used-cars-for-sale/listing/1C4RJFBG8MC508173/"
-      ]
+      "query": "site:craigslist.org/view/d OR site:facebook.com/marketplace/item Northeast Pennsylvania SUV \"third row\" \"$\"",
+      "results": 10,
+      "accepted": 0
     }
   ]
 }
