@@ -1,120 +1,5 @@
 [
   {
-    "id": "cars-2016-pilot-1",
-    "title": "2016 Honda Pilot EX-L",
-    "url": "https://www.cars.com/vehicledetail/61fb8915-3cd5-4b64-b96f-da0afa3bd2eb/",
-    "snippet": "Used 2016 Honda Pilot EX-L - $10,885 - 158,906 mi - Bloomfield, NJ - Third Row Seating",
-    "source": "Cars.com",
-    "location": "New York metro",
-    "price": 10885,
-    "year": 2016,
-    "mileage": 158906,
-    "privateSellerLikely": false,
-    "titleRisk": "unknown",
-    "uberXL": "likely",
-    "score": 90,
-    "reasons": [
-      "Within $4k-$15k budget",
-      "Year fits target",
-      "Mileage within target",
-      "Third Row Seating"
-    ],
-    "foundAt": "2026-10-06T13:13:53.068Z",
-    "bodyStyle": "SUV"
-  },
-  {
-    "id": "cars-2018-pilot-1",
-    "title": "2018 Honda Pilot EX",
-    "url": "https://www.cars.com/vehicledetail/e0606e20-52c4-42dc-a7eb-0c05e842cb3b/",
-    "snippet": "Used 2018 Honda Pilot EX - $13,594 - 140,324 mi - Woodridge, NJ - Third Row Seating",
-    "source": "Cars.com",
-    "location": "New York metro",
-    "price": 13594,
-    "year": 2018,
-    "mileage": 140324,
-    "privateSellerLikely": false,
-    "titleRisk": "unknown",
-    "uberXL": "likely",
-    "score": 90,
-    "reasons": [
-      "Within $4k-$15k budget",
-      "Year fits target",
-      "Mileage within target",
-      "Third Row Seating"
-    ],
-    "foundAt": "2026-10-06T13:13:53.068Z",
-    "bodyStyle": "SUV"
-  },
-  {
-    "id": "cars-2016-pilot-2",
-    "title": "2016 Honda Pilot EX-L",
-    "url": "https://www.cars.com/vehicledetail/35097c60-9808-4591-88ac-499e490349f3/",
-    "snippet": "Used 2016 Honda Pilot EX-L - $13,495 - 122,381 mi - Hasbrouck Heights, NJ - Third Row Seating",
-    "source": "Cars.com",
-    "location": "New York metro",
-    "price": 13495,
-    "year": 2016,
-    "mileage": 122381,
-    "privateSellerLikely": false,
-    "titleRisk": "unknown",
-    "uberXL": "likely",
-    "score": 92,
-    "reasons": [
-      "Within $4k-$15k budget",
-      "Year fits target",
-      "Mileage within target",
-      "Third Row Seating"
-    ],
-    "foundAt": "2026-10-06T13:13:53.068Z",
-    "bodyStyle": "SUV"
-  },
-  {
-    "id": "truecar-2018-pilot",
-    "title": "2018 Honda Pilot EX AWD",
-    "url": "https://www.truecar.com/used-cars-for-sale/listing/5FNYF6H34JB006129/",
-    "snippet": "2018 Honda Pilot EX AWD - advertised price $14,027 - 130,235 mi - Glen Cove, NY - Third Row Seating",
-    "source": "TrueCar",
-    "location": "New York metro",
-    "price": 14027,
-    "year": 2018,
-    "mileage": 130235,
-    "privateSellerLikely": false,
-    "titleRisk": "unknown",
-    "uberXL": "likely",
-    "score": 92,
-    "reasons": [
-      "Within $4k-$15k budget",
-      "Year fits target",
-      "Mileage within target",
-      "Third Row Seating"
-    ],
-    "foundAt": "2026-10-06T13:13:53.068Z",
-    "bodyStyle": "SUV"
-  },
-  {
-    "id": "truecar-2013-pilot",
-    "title": "2013 Honda Pilot EX-L 4WD",
-    "url": "https://www.truecar.com/used-cars-for-sale/listing/5FNYF4H55DB021720/",
-    "snippet": "2013 Honda Pilot EX-L 4WD - advertised price $11,020 - 74,964 mi - Bronx, NY - Third Row Seating",
-    "source": "TrueCar",
-    "location": "New York metro",
-    "price": 11020,
-    "year": 2013,
-    "mileage": 74964,
-    "privateSellerLikely": false,
-    "titleRisk": "unknown",
-    "uberXL": "likely",
-    "score": 95,
-    "reasons": [
-      "Within $4k-$15k budget",
-      "Year fits target",
-      "Good mileage",
-      "Third Row Seating"
-    ],
-    "foundAt": "2026-10-06T13:13:53.068Z",
-    "bodyStyle": "SUV"
-  },
-  {
     "id": "6be28cad9ee3",
     "title": "2014 INFINITI QX60 for sale - Roosevelt, NY",
     "url": "https://www.craigslist.org/view/d/roosevelt-an-impressive-2014-infiniti/xjSoPDu_8RGW87_SOhf5Cw",
@@ -181,6 +66,29 @@
       "7-seat signal"
     ],
     "foundAt": "2026-10-06T13:07:57.093Z",
+    "bodyStyle": "SUV"
+  },
+  {
+    "id": "5296889f3ae1",
+    "title": "2018 DODGE DURANGO for sale - Commack, NY",
+    "url": "https://www.craigslist.org/view/d/commack-2018-dodge-durango-t-awd-super/4sxqcgDB8RGlHYOzByg-Cw",
+    "snippet": "(631) 614-4989 — $14,999. Contact me at 631-741-1037. Used Mileage: 130,254 MPG: 1099 Jericho Turnpike Commack, NY 11725 Phone: (631) 614-4989",
+    "source": "Craigslist",
+    "location": "Long Island NY",
+    "price": 14999,
+    "year": 2018,
+    "mileage": null,
+    "privateSellerLikely": true,
+    "titleRisk": "unknown",
+    "uberXL": "likely",
+    "score": 98,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Private seller likely",
+      "7-seat signal"
+    ],
+    "foundAt": "2026-10-06T13:07:57.094Z",
     "bodyStyle": "SUV"
   },
   {
@@ -273,6 +181,75 @@
       "7-seat signal"
     ],
     "foundAt": "2026-10-06T13:07:59.042Z",
+    "bodyStyle": "SUV"
+  },
+  {
+    "id": "56fd50a022cb",
+    "title": "2015 Honda Pilot SE 4WD - Cars & Trucks",
+    "url": "https://www.facebook.com/marketplace/item/1100422909475860/",
+    "snippet": "2015 Honda Pilot SE 4WD - $11500, Used, in Jersey City, New Jersey. With its powerful 4WD/AWD system, Used - $16,800",
+    "source": "Facebook Marketplace",
+    "location": "North Jersey",
+    "price": 11500,
+    "year": 2015,
+    "mileage": null,
+    "privateSellerLikely": true,
+    "titleRisk": "unknown",
+    "uberXL": "likely",
+    "score": 98,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Private seller likely",
+      "7-seat signal"
+    ],
+    "foundAt": "2026-10-06T13:11:47.474Z",
+    "bodyStyle": "SUV"
+  },
+  {
+    "id": "163b172c18f2",
+    "title": "2018 kia sorento for sale - Rock Tavern, NY",
+    "url": "https://www.craigslist.org/view/d/rock-tavern-2018-kia-sorento-awd/kRE7UQCmgGfALS2bziBW1b",
+    "snippet": "Fanatastic running All Wheel Drive SUV!! Only 108K miles Clean Interior. Excellent Condition Super Clean 108 K miles - $8,995 (Runs like new ...",
+    "source": "Craigslist",
+    "location": "Hudson Valley NY",
+    "price": 8995,
+    "year": 2018,
+    "mileage": null,
+    "privateSellerLikely": true,
+    "titleRisk": "unknown",
+    "uberXL": "likely",
+    "score": 98,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Private seller likely",
+      "7-seat signal"
+    ],
+    "foundAt": "2026-10-06T13:08:19.823Z",
+    "bodyStyle": "SUV"
+  },
+  {
+    "id": "14d8ccaac45c",
+    "title": "2013 Honda Pilot · EX-L Sport Utility 4D",
+    "url": "https://www.facebook.com/marketplace/item/2326617198084449/?locale=en_GB",
+    "snippet": "EX-L Sport Utility 4D - $7999, Used, in Edinboro, Pennsylvania. 4 wheel Drive, leather interior, 3 Row seating, Sun Roof, front and rear Air Conditioning,",
+    "source": "Facebook Marketplace",
+    "location": "Northeast Pennsylvania",
+    "price": 7999,
+    "year": 2013,
+    "mileage": null,
+    "privateSellerLikely": true,
+    "titleRisk": "unknown",
+    "uberXL": "likely",
+    "score": 98,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Private seller likely",
+      "7-seat signal"
+    ],
+    "foundAt": "2026-10-06T13:16:28.144Z",
     "bodyStyle": "SUV"
   },
   {
@@ -414,75 +391,6 @@
     "bodyStyle": "SUV"
   },
   {
-    "id": "56fd50a022cb",
-    "title": "2015 Honda Pilot SE 4WD - Cars & Trucks",
-    "url": "https://www.facebook.com/marketplace/item/1100422909475860/",
-    "snippet": "2015 Honda Pilot SE 4WD - $11500, Used, in Jersey City, New Jersey. With its powerful 4WD/AWD system, Used - $16,800",
-    "source": "Facebook Marketplace",
-    "location": "North Jersey",
-    "price": 11500,
-    "year": 2015,
-    "mileage": null,
-    "privateSellerLikely": true,
-    "titleRisk": "unknown",
-    "uberXL": "likely",
-    "score": 98,
-    "reasons": [
-      "Within $4k-$15k budget",
-      "Year fits target",
-      "Private seller likely",
-      "7-seat signal"
-    ],
-    "foundAt": "2026-10-06T13:11:47.474Z",
-    "bodyStyle": "SUV"
-  },
-  {
-    "id": "163b172c18f2",
-    "title": "2018 kia sorento for sale - Rock Tavern, NY",
-    "url": "https://www.craigslist.org/view/d/rock-tavern-2018-kia-sorento-awd/kRE7UQCmgGfALS2bziBW1b",
-    "snippet": "Fanatastic running All Wheel Drive SUV!! Only 108K miles Clean Interior. Excellent Condition Super Clean 108 K miles - $8,995 (Runs like new ...",
-    "source": "Craigslist",
-    "location": "Hudson Valley NY",
-    "price": 8995,
-    "year": 2018,
-    "mileage": null,
-    "privateSellerLikely": true,
-    "titleRisk": "unknown",
-    "uberXL": "likely",
-    "score": 98,
-    "reasons": [
-      "Within $4k-$15k budget",
-      "Year fits target",
-      "Private seller likely",
-      "7-seat signal"
-    ],
-    "foundAt": "2026-10-06T13:08:19.823Z",
-    "bodyStyle": "SUV"
-  },
-  {
-    "id": "5296889f3ae1",
-    "title": "2018 DODGE DURANGO for sale - Commack, NY",
-    "url": "https://www.craigslist.org/view/d/commack-2018-dodge-durango-t-awd-super/4sxqcgDB8RGlHYOzByg-Cw",
-    "snippet": "(631) 614-4989 — $14,999. Contact me at 631-741-1037. Used Mileage: 130,254 MPG: 1099 Jericho Turnpike Commack, NY 11725 Phone: (631) 614-4989",
-    "source": "Craigslist",
-    "location": "Long Island NY",
-    "price": 14999,
-    "year": 2018,
-    "mileage": null,
-    "privateSellerLikely": true,
-    "titleRisk": "unknown",
-    "uberXL": "likely",
-    "score": 98,
-    "reasons": [
-      "Within $4k-$15k budget",
-      "Year fits target",
-      "Private seller likely",
-      "7-seat signal"
-    ],
-    "foundAt": "2026-10-06T13:07:57.094Z",
-    "bodyStyle": "SUV"
-  },
-  {
     "id": "6ece3b36309b",
     "title": "2012 honda pilot exl 4wd for sale - Morristown, NJ",
     "url": "https://www.craigslist.org/view/d/morristown-2012-honda-pilot-exl/2cSYAUjKHLGGBbUPezYNRy",
@@ -550,6 +458,29 @@
     "foundAt": "2026-10-06T12:50:24.224Z"
   },
   {
+    "id": "truecar-2013-pilot",
+    "title": "2013 Honda Pilot EX-L 4WD",
+    "url": "https://www.truecar.com/used-cars-for-sale/listing/5FNYF4H55DB021720/",
+    "snippet": "2013 Honda Pilot EX-L 4WD - advertised price $11,020 - 74,964 mi - Bronx, NY - Third Row Seating",
+    "source": "TrueCar",
+    "location": "New York metro",
+    "price": 11020,
+    "year": 2013,
+    "mileage": 74964,
+    "privateSellerLikely": false,
+    "titleRisk": "unknown",
+    "uberXL": "likely",
+    "score": 95,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Good mileage",
+      "Third Row Seating"
+    ],
+    "foundAt": "2026-10-06T13:13:53.068Z",
+    "bodyStyle": "SUV"
+  },
+  {
     "id": "554f2cb290aa",
     "title": "2012 Honda Odyssey EX for sale by owner - Scarsdale, NY",
     "url": "https://www.craigslist.org/view/d/scarsdale-2012-honda-odyssey-ex-one/eBk5jsQ1YDtXGaRSoNdAMy",
@@ -572,6 +503,52 @@
     "bodyStyle": "Minivan"
   },
   {
+    "id": "cars-2016-pilot-2",
+    "title": "2016 Honda Pilot EX-L",
+    "url": "https://www.cars.com/vehicledetail/35097c60-9808-4591-88ac-499e490349f3/",
+    "snippet": "Used 2016 Honda Pilot EX-L - $13,495 - 122,381 mi - Hasbrouck Heights, NJ - Third Row Seating",
+    "source": "Cars.com",
+    "location": "New York metro",
+    "price": 13495,
+    "year": 2016,
+    "mileage": 122381,
+    "privateSellerLikely": false,
+    "titleRisk": "unknown",
+    "uberXL": "likely",
+    "score": 92,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Mileage within target",
+      "Third Row Seating"
+    ],
+    "foundAt": "2026-10-06T13:13:53.068Z",
+    "bodyStyle": "SUV"
+  },
+  {
+    "id": "truecar-2018-pilot",
+    "title": "2018 Honda Pilot EX AWD",
+    "url": "https://www.truecar.com/used-cars-for-sale/listing/5FNYF6H34JB006129/",
+    "snippet": "2018 Honda Pilot EX AWD - advertised price $14,027 - 130,235 mi - Glen Cove, NY - Third Row Seating",
+    "source": "TrueCar",
+    "location": "New York metro",
+    "price": 14027,
+    "year": 2018,
+    "mileage": 130235,
+    "privateSellerLikely": false,
+    "titleRisk": "unknown",
+    "uberXL": "likely",
+    "score": 92,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Mileage within target",
+      "Third Row Seating"
+    ],
+    "foundAt": "2026-10-06T13:13:53.068Z",
+    "bodyStyle": "SUV"
+  },
+  {
     "id": "ae0f2af5ae8f",
     "title": "2015 honda odyssey ex-l for sale by owner - Huntington, NY",
     "url": "https://www.craigslist.org/view/d/huntington-2015-honda-odyssey-for-sale/7Vwu1kUuthdFTnTmaqjxVL",
@@ -592,5 +569,73 @@
     ],
     "foundAt": "2026-10-06T13:07:57.094Z",
     "bodyStyle": "Minivan"
+  },
+  {
+    "id": "46363def6958",
+    "title": "2020 Honda Odyssey · EX Minivan 4D - Cars & Trucks",
+    "url": "https://www.facebook.com/marketplace/item/1617438740031160/",
+    "snippet": "van 4D for sale - Used - $7,500 in Long Island $7,500. This sleek minivan offers not just seating capacity, but versatility and convenience too. With ample ...",
+    "source": "Facebook Marketplace",
+    "location": "Long Island NY",
+    "price": 7500,
+    "year": 2020,
+    "mileage": null,
+    "privateSellerLikely": true,
+    "titleRisk": "unknown",
+    "uberXL": "verify",
+    "score": 90,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Private seller likely"
+    ],
+    "foundAt": "2026-10-06T13:15:38.588Z",
+    "bodyStyle": "Minivan"
+  },
+  {
+    "id": "cars-2016-pilot-1",
+    "title": "2016 Honda Pilot EX-L",
+    "url": "https://www.cars.com/vehicledetail/61fb8915-3cd5-4b64-b96f-da0afa3bd2eb/",
+    "snippet": "Used 2016 Honda Pilot EX-L - $10,885 - 158,906 mi - Bloomfield, NJ - Third Row Seating",
+    "source": "Cars.com",
+    "location": "New York metro",
+    "price": 10885,
+    "year": 2016,
+    "mileage": 158906,
+    "privateSellerLikely": false,
+    "titleRisk": "unknown",
+    "uberXL": "likely",
+    "score": 90,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Mileage within target",
+      "Third Row Seating"
+    ],
+    "foundAt": "2026-10-06T13:13:53.068Z",
+    "bodyStyle": "SUV"
+  },
+  {
+    "id": "cars-2018-pilot-1",
+    "title": "2018 Honda Pilot EX",
+    "url": "https://www.cars.com/vehicledetail/e0606e20-52c4-42dc-a7eb-0c05e842cb3b/",
+    "snippet": "Used 2018 Honda Pilot EX - $13,594 - 140,324 mi - Woodridge, NJ - Third Row Seating",
+    "source": "Cars.com",
+    "location": "New York metro",
+    "price": 13594,
+    "year": 2018,
+    "mileage": 140324,
+    "privateSellerLikely": false,
+    "titleRisk": "unknown",
+    "uberXL": "likely",
+    "score": 90,
+    "reasons": [
+      "Within $4k-$15k budget",
+      "Year fits target",
+      "Mileage within target",
+      "Third Row Seating"
+    ],
+    "foundAt": "2026-10-06T13:13:53.068Z",
+    "bodyStyle": "SUV"
   }
 ]

@@ -1,9 +1,9 @@
 {
-  "lastScan": "2026-10-06T13:12:21.983Z",
+  "lastScan": "2026-10-06T13:16:33.479Z",
   "status": "ok",
-  "count": 21,
-  "rawCount": 36,
-  "uniqueCount": 21,
+  "count": 28,
+  "rawCount": 38,
+  "uniqueCount": 28,
   "collectors": [
     {
       "collector": "TrueCar",
@@ -84,22 +84,22 @@
     {
       "collector": "Cars.com search fallback",
       "area": "Long Island NY",
-      "results": 0,
-      "direct": 0,
-      "accepted": 0
-    },
-    {
-      "collector": "Cars.com search fallback",
-      "area": "North Jersey",
-      "results": 0,
-      "direct": 0,
-      "accepted": 0
-    },
-    {
-      "collector": "Cars.com search fallback",
-      "area": "North Jersey",
       "results": 1,
       "direct": 1,
+      "accepted": 0
+    },
+    {
+      "collector": "Cars.com search fallback",
+      "area": "North Jersey",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "Cars.com search fallback",
+      "area": "North Jersey",
+      "results": 0,
+      "direct": 0,
       "accepted": 0
     },
     {
@@ -126,26 +126,26 @@
     {
       "collector": "TrueCar search fallback",
       "area": "New York NY",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar search fallback",
+      "area": "Long Island NY",
+      "results": 0,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar search fallback",
+      "area": "Long Island NY",
       "results": 1,
       "direct": 1,
       "accepted": 0
     },
     {
       "collector": "TrueCar search fallback",
-      "area": "Long Island NY",
-      "results": 0,
-      "direct": 0,
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar search fallback",
-      "area": "Long Island NY",
-      "results": 0,
-      "direct": 0,
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar search fallback",
       "area": "North Jersey",
       "results": 0,
       "direct": 0,
@@ -154,13 +154,6 @@
     {
       "collector": "TrueCar search fallback",
       "area": "North Jersey",
-      "results": 0,
-      "direct": 0,
-      "accepted": 0
-    },
-    {
-      "collector": "TrueCar search fallback",
-      "area": "Westchester NY",
       "results": 1,
       "direct": 1,
       "accepted": 0
@@ -168,6 +161,13 @@
     {
       "collector": "TrueCar search fallback",
       "area": "Westchester NY",
+      "results": 1,
+      "direct": 1,
+      "accepted": 0
+    },
+    {
+      "collector": "TrueCar search fallback",
+      "area": "Westchester NY",
       "results": 0,
       "direct": 0,
       "accepted": 0
@@ -177,73 +177,73 @@
       "area": "Long Island NY",
       "results": 10,
       "direct": 10,
-      "accepted": 6
+      "accepted": 7
     },
     {
       "collector": "Facebook Marketplace",
       "area": "Long Island NY",
-      "results": 10,
-      "direct": 10,
-      "accepted": 1
-    },
-    {
-      "collector": "Autotrader",
-      "area": "Long Island NY",
-      "results": 0,
-      "direct": 0,
-      "accepted": 0
-    },
-    {
-      "collector": "CarGurus",
-      "area": "Long Island NY",
-      "results": 7,
-      "direct": 0,
-      "accepted": 0
-    },
-    {
-      "collector": "Craigslist",
-      "area": "Westchester NY",
-      "results": 10,
-      "direct": 10,
-      "accepted": 3
-    },
-    {
-      "collector": "Facebook Marketplace",
-      "area": "Westchester NY",
-      "results": 5,
-      "direct": 5,
-      "accepted": 0
-    },
-    {
-      "collector": "Autotrader",
-      "area": "Westchester NY",
-      "results": 10,
-      "direct": 10,
-      "accepted": 0
-    },
-    {
-      "collector": "CarGurus",
-      "area": "Westchester NY",
-      "results": 10,
-      "direct": 0,
-      "accepted": 0
-    },
-    {
-      "collector": "Craigslist",
-      "area": "North Jersey",
-      "results": 10,
-      "direct": 10,
-      "accepted": 4
-    },
-    {
-      "collector": "Facebook Marketplace",
-      "area": "North Jersey",
       "results": 10,
       "direct": 10,
       "accepted": 2
     },
     {
       "collector": "Autotrader",
+      "area": "Long Island NY",
+      "results": 10,
+      "direct": 10,
+      "accepted": 0
+    },
+    {
+      "collector": "CarGurus",
+      "area": "Long Island NY",
+      "results": 10,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "Craigslist",
+      "area": "Westchester NY",
+      "results": 7,
+      "direct": 7,
+      "accepted": 0
+    },
+    {
+      "collector": "Facebook Marketplace",
+      "area": "Westchester NY",
+      "results": 10,
+      "direct": 10,
+      "accepted": 0
+    },
+    {
+      "collector": "Autotrader",
+      "area": "Westchester NY",
+      "results": 10,
+      "direct": 10,
+      "accepted": 0
+    },
+    {
+      "collector": "CarGurus",
+      "area": "Westchester NY",
+      "results": 10,
+      "direct": 0,
+      "accepted": 0
+    },
+    {
+      "collector": "Craigslist",
+      "area": "North Jersey",
+      "results": 7,
+      "direct": 7,
+      "accepted": 0
+    },
+    {
+      "collector": "Facebook Marketplace",
+      "area": "North Jersey",
+      "results": 10,
+      "direct": 10,
+      "accepted": 1
+    },
+    {
+      "collector": "Autotrader",
       "area": "North Jersey",
       "results": 0,
       "direct": 0,
@@ -266,8 +266,8 @@
     {
       "collector": "Facebook Marketplace",
       "area": "Hudson Valley NY",
-      "results": 10,
-      "direct": 10,
+      "results": 3,
+      "direct": 3,
       "accepted": 0
     },
     {
@@ -322,21 +322,21 @@
     {
       "collector": "Facebook Marketplace",
       "area": "Northeast Pennsylvania",
-      "results": 7,
-      "direct": 7,
-      "accepted": 0
+      "results": 10,
+      "direct": 10,
+      "accepted": 1
     },
     {
       "collector": "Autotrader",
       "area": "Northeast Pennsylvania",
-      "results": 0,
-      "direct": 0,
+      "results": 10,
+      "direct": 10,
       "accepted": 0
     },
     {
       "collector": "CarGurus",
       "area": "Northeast Pennsylvania",
-      "results": 10,
+      "results": 7,
       "direct": 0,
       "accepted": 0
     }
