@@ -84,7 +84,8 @@ function parse(x,area){
  if(xl){score+=8;reasons.push('7-seat signal')};
  if(risk==='high'){score-=45;reasons.push('Title red flag')}else if(risk==='medium'){score-=12;reasons.push('History warning')};
  score=Math.max(0,Math.min(100,score));
- return {id:crypto.createHash('sha1').update(x.link).digest('hex').slice(0,12),title:x.title||'',url:x.link,snippet:x.snippet||'',source:src,location:area,price,year,mileage,privateSellerLikely:privateSeller,titleRisk:risk,uberXL:xl&&year&&year>=cfg.minYear&&risk!=='high'?'likely':'verify',score,reasons,foundAt:new Date().toISOString()};
+ const inferredTitle=text.match(/\b(20[0-2][0-9]|19[89][0-9])\s+(?:Used\s+)?(?:Honda Pilot|Toyota Highlander|Ford Explorer|Kia Sorento|Nissan Pathfinder|Chevrolet Traverse|GMC Acadia|Dodge Durango|Acura MDX|Infiniti QX60|Buick Enclave|Mazda CX-9)[^\n$]{0,45}/i)?.[0]?.trim()||'';
+ return {id:crypto.createHash('sha1').update(x.link).digest('hex').slice(0,12),title:x.title||inferredTitle||'Vehicle listing',url:x.link,snippet:x.snippet||'',source:src,location:area,price,year,mileage,privateSellerLikely:privateSeller,titleRisk:risk,uberXL:xl&&year&&year>=cfg.minYear&&risk!=='high'?'likely':'verify',score,reasons,foundAt:new Date().toISOString()};
 }
 async function search(q){
  const r=await fetch('https://google.serper.dev/search',{method:'POST',headers:{'X-API-KEY':key,'Content-Type':'application/json'},body:JSON.stringify({q,num:10})});
@@ -130,8 +131,8 @@ async function hydrate(row){
 const all=[],log=[];
 for(const area of cfg.searchAreas){
  const queries=[
-  'Honda Pilot Toyota Highlander Ford Explorer Kia Sorento '+area+' used for sale price',
-  'Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 '+area+' used for sale price'
+  'Honda Pilot Toyota Highlander Ford Explorer Kia Sorento '+area+' used SUV under $15000 2011 or newer under 160000 miles',
+  'Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 '+area+' used SUV under $15000 2011 or newer under 160000 miles'
  ];
  for(const q of queries){
   try{
@@ -154,15 +155,22 @@ for(const area of cfg.searchAreas){
    }
    const uniqueRows=[...new Map(rows.map(r=>[r.link,r])).values()].slice(0,6);
    let accepted=0;
+   const rejected=[];
    for(const row of uniqueRows){
     const full=await hydrate(row);
     const p=parse(full,area);
     const txt=p.title+' '+p.snippet;
-    if(p.price!==null&&p.price>=cfg.minPrice&&p.price<=cfg.maxPrice&&p.year!==null&&p.year>=cfg.minYear-1&&seven.test(txt)){
+    const priceOk=p.price!==null&&p.price>=cfg.minPrice&&p.price<=cfg.maxPrice;
+    const yearOk=p.year!==null&&p.year>=cfg.minYear-1;
+    const milesOk=p.mileage===null||p.mileage<=cfg.maxMileage;
+    const modelOk=seven.test(txt)||seven.test(q);
+    if(priceOk&&yearOk&&milesOk&&modelOk){
      all.push(p); accepted++;
+    }else if(rejected.length<3){
+     rejected.push({url:p.url,title:p.title,price:p.price,year:p.year,mileage:p.mileage,priceOk,yearOk,milesOk,modelOk});
     }
    }
-   log.push({area,query:q,results:organic.length,directFound:uniqueRows.length,scrapedPages,accepted,sampleUrls:uniqueRows.slice(0,3).map(r=>r.link)});
+   log.push({area,query:q,results:organic.length,directFound:uniqueRows.length,scrapedPages,accepted,rejected,sampleUrls:uniqueRows.slice(0,3).map(r=>r.link)});
   }catch(e){log.push({area,query:q,error:e.message})}
  }
 }
