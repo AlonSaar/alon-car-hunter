@@ -113,26 +113,43 @@ async function scrapePage(url){
  if(!r.ok)throw new Error('Serper scrape '+r.status+' '+body.slice(0,120));
  return JSON.parse(body);
 }
+function canonicalUrl(raw){
+ try{
+  const u=new URL(raw);
+  if(u.hostname.includes('cars.com')&&/\/vehicledetail\//i.test(u.pathname)) return u.origin+u.pathname;
+  if(u.hostname.includes('truecar.com')&&/\/used-cars-for-sale\/listing\//i.test(u.pathname)) return u.origin+u.pathname;
+  return u.href;
+ }catch{return raw}
+}
 function extractedDirectRows(data,base){
- const blob=[data.markdown||'',data.text||'',JSON.stringify(data)].join('\n');
+ const markdown=data.markdown||'', blob=[markdown,data.text||'',JSON.stringify(data)].join('\n');
  const rows=[],seen=new Set();
- const add=(url,idx=0)=>{
+ const add=(url,title='',snippet='',idx=0)=>{
   try{
-   const u=new URL(url,base).href;
-   if(!seen.has(u)&&allowed.test(u)&&isDirectListing(u)){
-    seen.add(u);
-    rows.push({link:u,title:'',snippet:blob.slice(Math.max(0,idx-350),idx+650)});
+   const absolute=new URL(url,base).href, canonical=canonicalUrl(absolute);
+   if(!seen.has(canonical)&&allowed.test(canonical)&&isDirectListing(canonical)){
+    seen.add(canonical);
+    rows.push({link:canonical,title:title||'',snippet:snippet||blob.slice(Math.max(0,idx-220),idx+320)});
    }
   }catch{}
  };
- for(const m of blob.matchAll(/https?:\/\/[^\s)\]"'<>]+/g)) add(m[0].replace(/[.,;]+$/,''),m.index||0);
- for(const m of blob.matchAll(/(\/vehicledetail\/[A-Za-z0-9-]+\/?|\/cars-for-sale\/vehicle\/[A-Za-z0-9-]+[^\s)\]"'<>]*|\/marketplace\/item\/\d+[^\s)\]"'<>]*|\/view\/d\/[^\s)\]"'<>]+)/g)) add(m[1],m.index||0);
- for(const m of blob.matchAll(/"listing_id"\s*:\s*"([a-f0-9-]{20,})"/ig)) add('https://www.cars.com/vehicledetail/'+m[1]+'/',m.index||0);
- return rows.slice(0,10);
+ // Cars.com cards: bind the card's own title and price to its own vehicle URL.
+ for(const m of markdown.matchAll(/(?:!\[([^\]]+)\]\([^)]+\)\s*)?\$([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})\s*[\r\n# *-]*\[([^\]]+)\]\((https?:\/\/(?:www\.)?cars\.com\/vehicledetail\/[^)\s]+)\)/gi)){
+  const title=(m[3]||m[1]||'').replace(/^Used\s+/i,'').trim();
+  add(m[4],title,title+' $'+m[2],m.index||0);
+ }
+ // Generic markdown direct links for other marketplaces.
+ for(const m of markdown.matchAll(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g)){
+  if(allowed.test(m[2])&&isDirectListing(m[2])) add(m[2],m[1],m[1],m.index||0);
+ }
+ for(const m of blob.matchAll(/https?:\/\/[^\s)\]"'<>]+/g)) add(m[0].replace(/[.,;]+$/,''),'','',m.index||0);
+ for(const m of blob.matchAll(/(\/vehicledetail\/[A-Za-z0-9-]+\/?|\/cars-for-sale\/vehicle\/[A-Za-z0-9-]+[^\s)\]"'<>]*|\/marketplace\/item\/\d+[^\s)\]"'<>]*|\/view\/d\/[^\s)\]"'<>]+)/g)) add(m[1],'','',m.index||0);
+ for(const m of blob.matchAll(/"listing_id"\s*:\s*"([a-f0-9-]{20,})"/ig)) add('https://www.cars.com/vehicledetail/'+m[1]+'/','','',m.index||0);
+ return rows.slice(0,12);
 }
 async function hydrate(row){
  const t=(row.title||'')+' '+(row.snippet||'');
- if(/\$\s?[0-9]/.test(t)&&/\b(19|20)\d{2}\b/.test(t))return row;
+ if(/\$\s?[0-9]/.test(t)&&/\b(19|20)\d{2}\b/.test(t)&&targetModel.test(t))return row;
  try{
   const d=await scrapePage(row.link);
   const text=(d.markdown||d.text||'').slice(0,7000);
@@ -151,10 +168,10 @@ for(const area of cfg.searchAreas){
    const j=await search(q), organic=(j.organic||[]);
    const rows=[];
    for(const r of organic){
-    if(r.link&&allowed.test(r.link)&&isDirectListing(r.link)) rows.push(r);
+    if(r.link&&allowed.test(r.link)&&isDirectListing(r.link)) rows.push({...r,link:canonicalUrl(r.link)});
     const sitelinks=[...(r.sitelinks||[]),...(r.sitelinks?.inline||[]),...(r.sitelinks?.expanded||[])];
     for(const s of sitelinks){
-     if(s?.link&&allowed.test(s.link)&&isDirectListing(s.link)) rows.push({title:s.title||r.title||'',snippet:r.snippet||'',link:s.link});
+     if(s?.link&&allowed.test(s.link)&&isDirectListing(s.link)) rows.push({title:s.title||r.title||'',snippet:r.snippet||'',link:canonicalUrl(s.link)});
     }
    }
    let scrapedPages=0;
