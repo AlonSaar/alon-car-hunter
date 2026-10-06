@@ -135,14 +135,14 @@ function extractedDirectRows(data,base){
  };
  for(const m of markdown.matchAll(/(?:!\[([^\]]+)\]\([^)]+\)\s*)?\$([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})\s*[\r\n# *-]*\[([^\]]+)\]\((https?:\/\/(?:www\.)?cars\.com\/vehicledetail\/[^)\s]+)\)/gi)){
   const title=(m[3]||m[1]||'').replace(/^Used\s+/i,'').trim();
-  add(m[4],title,title+' price '+m[2],m.index||0);
+  add(m[4],title,title+' price '+String.fromCharCode(36)+m[2],m.index||0);
  }
  for(const m of markdown.matchAll(/##\s+((?:19|20)\d{2}\s+[^\n]{2,90})\n([\s\S]{0,2200}?)\bVIN[:\s]+([A-HJ-NPR-Z0-9]{17})\b/gi)){
   const title=m[1].trim(), block=(title+'\n'+m[2]).trim(), vin=m[3].toUpperCase();
   const pm=block.match(/(?:advertised price|list price|price)\s*[\r\n ]{0,30}\$([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})/i);
   const mm=block.match(/(?:used\s*[·-]\s*|mileage\s*)?([0-9]{1,3}(?:,[0-9]{3})+)\s*(?:mi|miles)/i);
   if(targetModel.test(title)&&pm){
-   const snippet=title+' price '+pm[1]+(mm?' mileage '+mm[1]+' miles':'')+' '+block.slice(0,1200);
+   const snippet=title+' price '+String.fromCharCode(36)+pm[1]+(mm?' mileage '+mm[1]+' miles':'')+' '+block.slice(0,1200);
    add('https://www.truecar.com/used-cars-for-sale/listing/'+vin+'/',title,snippet,m.index||0);
   }
  }
