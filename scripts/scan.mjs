@@ -10,7 +10,8 @@ const bad=/(salvage|rebuilt|flood|junk|parts only|certificate of destruction)/i;
 const mid=/(accident|damage|lien|title issue|total loss)/i;
 const dealer=/(dealer|dealership|financing|monthly payment)/i;
 const privateText=/(private seller|by owner|owner sale|selling my|my suv|my vehicle)/i;
-const seven=/(7 passenger|8 passenger|third row|3rd row|highlander|pilot|cx-9|mdx|explorer|sorento|traverse|acadia|durango|pathfinder|enclave|qx60|4runner)/i;
+const seven=/(7 passenger|8 passenger|third row|3rd row|highlander|pilot|cx-9|mdx|explorer|sorento|traverse|acadia|durango|pathfinder|enclave|qx60|4runner|santa fe xl)/i;
+const targetModel=/(Honda\s+Pilot|Toyota\s+Highlander|Ford\s+Explorer|Kia\s+Sorento|Nissan\s+Pathfinder|Chevrolet\s+Traverse|GMC\s+Acadia|Dodge\s+Durango|Acura\s+MDX|Infiniti\s+QX60|Buick\s+Enclave|Mazda\s+CX-9|Toyota\s+4Runner|Hyundai\s+Santa\s+Fe\s+XL)/i;
 const allowed=/(craigslist\.org|facebook\.com\/marketplace|privateauto\.com|offerup\.com|ebay\.com|cars\.com|autotrader\.com|cargurus\.com|truecar\.com)/i;
 
 const num=s=>s?Number(String(s).replace(/[^0-9]/g,''))||null:null;
@@ -67,8 +68,19 @@ function isDirectListing(u=''){
 }
 function parse(x,area){
  const text=(x.title||'')+' '+(x.snippet||'');
- const prices=[...text.matchAll(/\$\s?([0-9]{4,5}|[0-9]{1,3}(?:,[0-9]{3})+)/g)].map(m=>num(m[1])).filter(v=>v>=2000&&v<=50000);
- const price=prices.length?Math.min(...prices):null;
+ const preferredPricePatterns=[
+  /(?:advertised price|sale price|asking price|list price|our price|price)\s*[:\n ]{0,20}\$\s?([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})/i,
+  /(?:reduced from|priced at|selling for)\s*\$\s?([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})/i
+ ];
+ let price=null;
+ for(const re of preferredPricePatterns){const m=text.match(re);const v=num(m?.[1]);if(v>=cfg.minPrice&&v<=50000){price=v;break}}
+ if(price===null){
+  const candidates=[...text.matchAll(/\$\s?([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})/g)]
+   .map(m=>({v:num(m[1]),i:m.index||0}))
+   .filter(x=>x.v>=cfg.minPrice&&x.v<=50000)
+   .filter(x=>!/(save|discount|rebate|down payment|monthly|per month|cash due|shipping|delivery|image|width|height)/i.test(text.slice(Math.max(0,x.i-45),x.i+45)));
+  price=candidates.length?candidates[0].v:null;
+ }
  const year=num(text.match(/\b(20[0-2][0-9]|19[89][0-9])\b/)?.[1]);
  const mm=text.match(/([0-9]{1,3}(?:,[0-9]{3})+)\s*(?:mi|miles)/i);
  const mileage=num(mm?.[1]);
@@ -163,7 +175,7 @@ for(const area of cfg.searchAreas){
     const priceOk=p.price!==null&&p.price>=cfg.minPrice&&p.price<=cfg.maxPrice;
     const yearOk=p.year!==null&&p.year>=cfg.minYear-1;
     const milesOk=p.mileage===null||p.mileage<=cfg.maxMileage;
-    const modelOk=seven.test(txt)||seven.test(q);
+    const modelOk=targetModel.test(txt);
     if(priceOk&&yearOk&&milesOk&&modelOk){
      all.push(p); accepted++;
     }else if(rejected.length<3){
@@ -175,7 +187,7 @@ for(const area of cfg.searchAreas){
  }
 }
 const uniq=[...new Map(all.map(x=>[x.url,x])).values()];
-const out=uniq.filter(x=>x.price!==null&&x.price>=cfg.minPrice&&x.price<=cfg.maxPrice&&x.year!==null&&x.year>=cfg.minYear-1).sort((a,b)=>b.score-a.score).slice(0,250);
+const out=uniq.filter(x=>x.price!==null&&x.price>=cfg.minPrice&&x.price<=cfg.maxPrice&&x.year!==null&&x.year>=cfg.minYear-1&&targetModel.test((x.title||'')+' '+(x.snippet||''))).sort((a,b)=>b.score-a.score).slice(0,250);
 let finalOut=out;
 let status='ok';
 if(out.length===0){
