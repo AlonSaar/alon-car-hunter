@@ -144,7 +144,170 @@ function extractedDirectRows(data,base){
   const pm=block.match(/(?:advertised price|list price|price)\s*[\r\n ]{0,30}\$([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})/i);
   const mm=block.match(/(?:used\s*[·-]\s*|mileage\s*)?([0-9]{1,3}(?:,[0-9]{3})+)\s*(?:mi|miles)/i);
   if(targetModel.test(title)&&pm){
-   const snippet=title+' Advertised price $'+pm[1]+(mm?' Mileage '+mm[1]+' miles':'')+' '+block.slice(0,1200);
+   const snippet=title+' Advertised price 
+  if(allowed.test(m[2])&&isDirectListing(m[2])) add(m[2],m[1],m[1],m.index||0);
+ }
+ for(const m of blob.matchAll(/https?:\/\/[^\s)\]"'<>]+/g)) add(m[0].replace(/[.,;]+$/,''),'','',m.index||0);
+ for(const m of blob.matchAll(/(\/vehicledetail\/[A-Za-z0-9-]+\/?|\/cars-for-sale\/vehicle\/[A-Za-z0-9-]+[^\s)\]"'<>]*|\/marketplace\/item\/\d+[^\s)\]"'<>]*|\/view\/d\/[^\s)\]"'<>]+)/g)) add(m[1],'','',m.index||0);
+ for(const m of blob.matchAll(/"listing_id"\s*:\s*"([a-f0-9-]{20,})"/ig)) add('https://www.cars.com/vehicledetail/'+m[1]+'/','','',m.index||0);
+ return rows.slice(0,12);
+}
+async function hydrate(row){
+ const t=(row.title||'')+' '+(row.snippet||'');
+ if(/\$\s?[0-9]/.test(t)&&/\b(19|20)\d{2}\b/.test(t)&&targetModel.test(t))return row;
+ try{
+  const d=await scrapePage(row.link);
+  const text=(d.markdown||d.text||'').slice(0,7000);
+  return {...row,title:d.metadata?.title||row.title||'',snippet:text};
+ }catch{return row}
+}
+
+const all=[],log=[];
+for(const area of cfg.searchAreas){
+ const queries=[
+  'Honda Pilot Toyota Highlander Ford Explorer Kia Sorento '+area+' used SUV under $15000 2011 or newer under 160000 miles',
+  'Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 '+area+' used SUV under $15000 2011 or newer under 160000 miles'
+ ];
+ for(const q of queries){
+  try{
+   const j=await search(q), organic=(j.organic||[]);
+   const rows=[];
+   for(const r of organic){
+    if(r.link&&allowed.test(r.link)&&isDirectListing(r.link)) rows.push({...r,link:canonicalUrl(r.link)});
+    const sitelinks=[...(r.sitelinks||[]),...(r.sitelinks?.inline||[]),...(r.sitelinks?.expanded||[])];
+    for(const s of sitelinks){
+     if(s?.link&&allowed.test(s.link)&&isDirectListing(s.link)) rows.push({title:s.title||r.title||'',snippet:r.snippet||'',link:canonicalUrl(s.link)});
+    }
+   }
+   let scrapedPages=0;
+   const generic=organic.filter(r=>r.link&&allowed.test(r.link)&&!isDirectListing(r.link)).slice(0,2);
+   for(const g of generic){
+    try{
+     const d=await scrapePage(g.link); scrapedPages++;
+     rows.push(...extractedDirectRows(d,g.link));
+    }catch{}
+   }
+   const uniqueRows=[...new Map(rows.map(r=>[r.link,r])).values()].slice(0,6);
+   let accepted=0;
+   const rejected=[];
+   for(const row of uniqueRows){
+    const full=await hydrate(row);
+    const p=parse(full,area);
+    const txt=p.title+' '+p.snippet;
+    const priceOk=p.price!==null&&p.price>=cfg.minPrice&&p.price<=cfg.maxPrice;
+    const yearOk=p.year!==null&&p.year>=cfg.minYear-1;
+    const milesOk=p.mileage===null||p.mileage<=cfg.maxMileage;
+    const modelOk=targetModel.test(txt);
+    if(priceOk&&yearOk&&milesOk&&modelOk){
+     all.push(p); accepted++;
+    }else if(rejected.length<3){
+     rejected.push({url:p.url,title:p.title,price:p.price,year:p.year,mileage:p.mileage,priceOk,yearOk,milesOk,modelOk});
+    }
+   }
+   log.push({area,query:q,results:organic.length,directFound:uniqueRows.length,scrapedPages,accepted,rejected,sampleUrls:uniqueRows.slice(0,3).map(r=>r.link)});
+  }catch(e){log.push({area,query:q,error:e.message})}
+ }
+}
+const uniq=[...new Map(all.map(x=>[x.url,x])).values()];
+const out=uniq.filter(x=>x.price!==null&&x.price>=cfg.minPrice&&x.price<=cfg.maxPrice&&x.year!==null&&x.year>=cfg.minYear-1&&targetModel.test((x.title||'')+' '+(x.snippet||''))).sort((a,b)=>b.score-a.score).slice(0,250);
+let finalOut=out;
+let status='ok';
+if(out.length===0){
+ try{
+  const previous=JSON.parse(await fs.readFile(new URL('data/listings.json',root),'utf8'));
+  if(Array.isArray(previous)&&previous.length){finalOut=previous;status='no-new-results-kept-previous';}
+ }catch(e){}
+}
+await fs.writeFile(new URL('data/listings.json',root),JSON.stringify(finalOut,null,2));
+await fs.writeFile(new URL('data/scan-meta.json',root),JSON.stringify({lastScan:new Date().toISOString(),status,count:finalOut.length,newCount:out.length,rawCount:all.length,uniqueCount:uniq.length,queriesRun:log.length,queryLog:log},null,2));
+console.log('Saved',finalOut.length,'listings,',out.length,'new');
++pm[1]+(mm?' Mileage '+mm[1]+' miles':'')+'\n'+block.slice(0,1200);
+   add('https://www.truecar.com/used-cars-for-sale/listing/'+vin+'/',title,snippet,m.index||0);
+  }
+ }
+ // Generic markdown direct links for other marketplaces.
+ for(const m of markdown.matchAll(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g)){
+  if(allowed.test(m[2])&&isDirectListing(m[2])) add(m[2],m[1],m[1],m.index||0);
+ }
+ for(const m of blob.matchAll(/https?:\/\/[^\s)\]"'<>]+/g)) add(m[0].replace(/[.,;]+$/,''),'','',m.index||0);
+ for(const m of blob.matchAll(/(\/vehicledetail\/[A-Za-z0-9-]+\/?|\/cars-for-sale\/vehicle\/[A-Za-z0-9-]+[^\s)\]"'<>]*|\/marketplace\/item\/\d+[^\s)\]"'<>]*|\/view\/d\/[^\s)\]"'<>]+)/g)) add(m[1],'','',m.index||0);
+ for(const m of blob.matchAll(/"listing_id"\s*:\s*"([a-f0-9-]{20,})"/ig)) add('https://www.cars.com/vehicledetail/'+m[1]+'/','','',m.index||0);
+ return rows.slice(0,12);
+}
+async function hydrate(row){
+ const t=(row.title||'')+' '+(row.snippet||'');
+ if(/\$\s?[0-9]/.test(t)&&/\b(19|20)\d{2}\b/.test(t)&&targetModel.test(t))return row;
+ try{
+  const d=await scrapePage(row.link);
+  const text=(d.markdown||d.text||'').slice(0,7000);
+  return {...row,title:d.metadata?.title||row.title||'',snippet:text};
+ }catch{return row}
+}
+
+const all=[],log=[];
+for(const area of cfg.searchAreas){
+ const queries=[
+  'Honda Pilot Toyota Highlander Ford Explorer Kia Sorento '+area+' used SUV under $15000 2011 or newer under 160000 miles',
+  'Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 '+area+' used SUV under $15000 2011 or newer under 160000 miles'
+ ];
+ for(const q of queries){
+  try{
+   const j=await search(q), organic=(j.organic||[]);
+   const rows=[];
+   for(const r of organic){
+    if(r.link&&allowed.test(r.link)&&isDirectListing(r.link)) rows.push({...r,link:canonicalUrl(r.link)});
+    const sitelinks=[...(r.sitelinks||[]),...(r.sitelinks?.inline||[]),...(r.sitelinks?.expanded||[])];
+    for(const s of sitelinks){
+     if(s?.link&&allowed.test(s.link)&&isDirectListing(s.link)) rows.push({title:s.title||r.title||'',snippet:r.snippet||'',link:canonicalUrl(s.link)});
+    }
+   }
+   let scrapedPages=0;
+   const generic=organic.filter(r=>r.link&&allowed.test(r.link)&&!isDirectListing(r.link)).slice(0,2);
+   for(const g of generic){
+    try{
+     const d=await scrapePage(g.link); scrapedPages++;
+     rows.push(...extractedDirectRows(d,g.link));
+    }catch{}
+   }
+   const uniqueRows=[...new Map(rows.map(r=>[r.link,r])).values()].slice(0,6);
+   let accepted=0;
+   const rejected=[];
+   for(const row of uniqueRows){
+    const full=await hydrate(row);
+    const p=parse(full,area);
+    const txt=p.title+' '+p.snippet;
+    const priceOk=p.price!==null&&p.price>=cfg.minPrice&&p.price<=cfg.maxPrice;
+    const yearOk=p.year!==null&&p.year>=cfg.minYear-1;
+    const milesOk=p.mileage===null||p.mileage<=cfg.maxMileage;
+    const modelOk=targetModel.test(txt);
+    if(priceOk&&yearOk&&milesOk&&modelOk){
+     all.push(p); accepted++;
+    }else if(rejected.length<3){
+     rejected.push({url:p.url,title:p.title,price:p.price,year:p.year,mileage:p.mileage,priceOk,yearOk,milesOk,modelOk});
+    }
+   }
+   log.push({area,query:q,results:organic.length,directFound:uniqueRows.length,scrapedPages,accepted,rejected,sampleUrls:uniqueRows.slice(0,3).map(r=>r.link)});
+  }catch(e){log.push({area,query:q,error:e.message})}
+ }
+}
+const uniq=[...new Map(all.map(x=>[x.url,x])).values()];
+const out=uniq.filter(x=>x.price!==null&&x.price>=cfg.minPrice&&x.price<=cfg.maxPrice&&x.year!==null&&x.year>=cfg.minYear-1&&targetModel.test((x.title||'')+' '+(x.snippet||''))).sort((a,b)=>b.score-a.score).slice(0,250);
+let finalOut=out;
+let status='ok';
+if(out.length===0){
+ try{
+  const previous=JSON.parse(await fs.readFile(new URL('data/listings.json',root),'utf8'));
+  if(Array.isArray(previous)&&previous.length){finalOut=previous;status='no-new-results-kept-previous';}
+ }catch(e){}
+}
+await fs.writeFile(new URL('data/listings.json',root),JSON.stringify(finalOut,null,2));
+await fs.writeFile(new URL('data/scan-meta.json',root),JSON.stringify({lastScan:new Date().toISOString(),status,count:finalOut.length,newCount:out.length,rawCount:all.length,uniqueCount:uniq.length,queriesRun:log.length,queryLog:log},null,2));
+console.log('Saved',finalOut.length,'listings,',out.length,'new');
++pm[1]+(mm?' Mileage '+mm[1]+' miles':'')+' '+block.slice(0,1200);
+   add('https://www.truecar.com/used-cars-for-sale/listing/'+vin+'/',title,snippet,m.index||0);
+  }
+ }
+ // Generic markdown direct links for other marketplaces.
  for(const m of markdown.matchAll(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g)){
   if(allowed.test(m[2])&&isDirectListing(m[2])) add(m[2],m[1],m[1],m.index||0);
  }
