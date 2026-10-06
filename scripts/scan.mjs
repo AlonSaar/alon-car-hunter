@@ -166,9 +166,10 @@ async function hydrate(row){
 
 const all=[],log=[];
 for(const area of cfg.searchAreas){
+ const models='Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60';
  const queries=[
-  'Honda Pilot Toyota Highlander Ford Explorer Kia Sorento '+area+' used SUV under $15000 2011 or newer under 160000 miles',
-  'Nissan Pathfinder Chevrolet Traverse GMC Acadia Dodge Durango Acura MDX Infiniti QX60 '+area+' used SUV under $15000 2011 or newer under 160000 miles'
+  'site:cars.com/shopping/ '+area+' '+models+' under 15000 used',
+  'site:truecar.com/used-cars-for-sale/listings/ '+area+' '+models+' under 15000 used'
  ];
  for(const q of queries){
   try{
