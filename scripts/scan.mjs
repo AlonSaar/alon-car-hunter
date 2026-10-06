@@ -165,137 +165,44 @@ async function hydrate(row){
 }
 
 const all=[],log=[];
-
-// Deterministic TrueCar collector.
-// TrueCar location pages use a 75-mile radius, so these three centers cover the NYC core,
-// Long Island/eastern CT side, and Hudson/North Jersey side without relying on Google ranking.
-const trueCarCenters=[
- {slug:'new-york-ny',label:'New York metro'},
- {slug:'central-islip-ny',label:'Long Island / Connecticut'},
- {slug:'nanuet-ny',label:'Hudson Valley / North Jersey'}
+const modelDefs=[
+ {make:'honda',model:'pilot',label:'Honda Pilot',body:'SUV'},{make:'toyota',model:'highlander',label:'Toyota Highlander',body:'SUV'},
+ {make:'ford',model:'explorer',label:'Ford Explorer',body:'SUV'},{make:'kia',model:'sorento',label:'Kia Sorento',body:'SUV'},
+ {make:'nissan',model:'pathfinder',label:'Nissan Pathfinder',body:'SUV'},{make:'chevrolet',model:'traverse',label:'Chevrolet Traverse',body:'SUV'},
+ {make:'gmc',model:'acadia',label:'GMC Acadia',body:'SUV'},{make:'dodge',model:'durango',label:'Dodge Durango',body:'SUV'},
+ {make:'acura',model:'mdx',label:'Acura MDX',body:'SUV'},{make:'infiniti',model:'qx60',label:'Infiniti QX60',body:'SUV'},
+ {make:'buick',model:'enclave',label:'Buick Enclave',body:'SUV'},{make:'mazda',model:'cx-9',label:'Mazda CX-9',body:'SUV'},
+ {make:'toyota',model:'4runner',label:'Toyota 4Runner',body:'SUV'},{make:'chrysler',model:'pacifica',label:'Chrysler Pacifica',body:'Minivan'},
+ {make:'honda',model:'odyssey',label:'Honda Odyssey',body:'Minivan'},{make:'toyota',model:'sienna',label:'Toyota Sienna',body:'Minivan'},
+ {make:'kia',model:'carnival',label:'Kia Carnival',body:'Minivan'}
 ];
-const groupA=[
- ['honda','pilot'],['toyota','highlander'],['ford','explorer'],['kia','sorento'],
- ['nissan','pathfinder'],['chevrolet','traverse'],['acura','mdx']
-];
-const groupB=[
- ['gmc','acadia'],['dodge','durango'],['infiniti','qx60'],['buick','enclave'],
- ['mazda','cx-9'],['toyota','4runner'],['hyundai','santa-fe']
-];
-// Scheduled scans alternate model groups so all models are refreshed daily while conserving Serper credits.
-const utcHour=new Date().getUTCHours();
-const activeModels=utcHour<6?groupB:groupA;
-
-function trueCarRows(data,area,inventoryUrl){
- const md=data.markdown||data.text||'';
- const rows=[];
- const re=/##\s+((?:19|20)\d{2}\s+[^\n]{2,100})\n([\s\S]{0,2600}?)\bVIN[:\s]+([A-HJ-NPR-Z0-9]{17})\b/gi;
- for(const m of md.matchAll(re)){
-  const title=m[1].trim();
-  const block=(title+'\n'+m[2]).trim();
-  const vin=m[3].toUpperCase();
-  const year=num(title.match(/\b(20[0-2][0-9]|19[89][0-9])\b/)?.[1]);
-  const pm=block.match(/(?:advertised price|list price|price)\s*[\r\n *]{0,80}\$([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})/i);
-  const price=num(pm?.[1]);
-  const mm=block.match(/Used\s*[·-]\s*([0-9]{1,3}(?:,[0-9]{3})+)\s*mi\b/i)||block.match(/([0-9]{1,3}(?:,[0-9]{3})+)\s*(?:mi|miles)\b/i);
-  const mileage=num(mm?.[1]);
-  const thirdRow=/Third Row Seating|7 passenger|8 passenger|3rd row/i.test(block);
-  const modelOk=targetModel.test(title) && (!/Hyundai\s+Santa\s+Fe/i.test(title)||/Santa\s+Fe\s+XL/i.test(title));
-  const priceOk=price!==null&&price>=cfg.minPrice&&price<=cfg.maxPrice;
-  const yearOk=year!==null&&year>=cfg.minYear;
-  const milesOk=mileage!==null&&mileage<=cfg.maxMileage;
-  const riskOk=!bad.test(block);
-  if(modelOk&&thirdRow&&priceOk&&yearOk&&milesOk&&riskOk){
-   const url='https://www.truecar.com/used-cars-for-sale/listing/'+vin+'/';
-   rows.push(parse({
-    link:url,
-    title,
-    snippet:''
-   },area));
-  }
- }
- return rows;
+const centers=[{truecar:'new-york-ny',cars:'new_york-ny',label:'New York metro'},{truecar:'central-islip-ny',cars:'central_islip-ny',label:'Long Island'},{truecar:'nanuet-ny',cars:'nanuet-ny',label:'Hudson / North Jersey'}];
+const half=new Date().getUTCHours()<6?modelDefs.slice(9):modelDefs.slice(0,9);
+const safeRe=s=>s.replace(/[.*+?^$()|[\]\\]/g,'\\$&');
+function blocks(md){const m=[...md.matchAll(/^##\s+(.+)$/gm)],o=[];for(let i=0;i<m.length;i++){const a=m[i].index+m[i][0].length,b=i+1<m.length?m[i+1].index:md.length;o.push({title:m[i][1].trim(),block:md.slice(a,b),before:md.slice(Math.max(0,m[i].index-1000),m[i].index+300)})}return o}
+function vehicle(title,block,src,area,url,body){
+ const year=num(title.match(/\b(20[0-2][0-9]|19[89][0-9])\b/)?.[1]);
+ const price=num((block.match(/(?:Advertised price|List price|Sale price|Our price|Price)\s*[\r\n *]{0,100}\$([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})/i)||block.match(/\$([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})/))?.[1]);
+ const mileage=num((block.match(/Used\s*[·-]\s*([0-9]{1,3}(?:,[0-9]{3})+)\s*mi\b/i)||block.match(/([0-9]{1,3}(?:,[0-9]{3})+)\s*(?:mi|miles)\b/i))?.[1]);
+ const third=/Third Row Seating|Third-Row|7 passenger|8 passenger|3rd row/i.test(block);
+ if(!year||!price||price<cfg.minPrice||price>cfg.maxPrice||year<cfg.minYear||!mileage||mileage>cfg.maxMileage||(body==='SUV'&&!third))return null;
+ const p=parse({link:url,title,snippet:title+' Advertised price $'+price+' '+mileage+' miles '+(third?'Third Row Seating ':'')+block.slice(0,900)},area);
+ Object.assign(p,{price,year,mileage,bodyStyle:body,source:src,uberXL:third?'likely':'verify',score:Math.max(p.score,body==='SUV'?90:82)});return p;
 }
-
-// Build TrueCar rows directly from each model inventory page.
-// We create the direct vehicle URL from the VIN, so "Open listing" never points to a category page.
-for(const center of trueCarCenters){
- for(const [make,model] of activeModels){
-  const inventoryUrl='https://www.truecar.com/used-cars-for-sale/listings/'+make+'/'+model+'/price-below-15000/location-'+center.slug+'/';
-  try{
-   const d=await scrapePage(inventoryUrl);
-   const md=d.markdown||d.text||'';
-   let accepted=0;
-   const re=/##\s+((?:19|20)\d{2}\s+[^\n]{2,100})\n([\s\S]{0,2600}?)\bVIN[:\s]+([A-HJ-NPR-Z0-9]{17})\b/gi;
-   for(const m of md.matchAll(re)){
-    const title=m[1].trim();
-    const block=(title+'\n'+m[2]).trim();
-    const vin=m[3].toUpperCase();
-    const year=num(title.match(/\b(20[0-2][0-9]|19[89][0-9])\b/)?.[1]);
-    const pm=block.match(/(?:advertised price|list price|price)\s*[\r\n *]{0,80}\$([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,5})/i);
-    const price=num(pm?.[1]);
-    const mm=block.match(/Used\s*[·-]\s*([0-9]{1,3}(?:,[0-9]{3})+)\s*mi\b/i)||block.match(/([0-9]{1,3}(?:,[0-9]{3})+)\s*(?:mi|miles)\b/i);
-    const mileage=num(mm?.[1]);
-    const thirdRow=/Third Row Seating|7 passenger|8 passenger|3rd row/i.test(block);
-    const modelOk=targetModel.test(title)&&(!/Hyundai\s+Santa\s+Fe/i.test(title)||/Santa\s+Fe\s+XL/i.test(title));
-    const priceOk=price!==null&&price>=cfg.minPrice&&price<=cfg.maxPrice;
-    const yearOk=year!==null&&year>=cfg.minYear;
-    const milesOk=mileage!==null&&mileage<=cfg.maxMileage;
-    const riskOk=!bad.test(block);
-    if(modelOk&&thirdRow&&priceOk&&yearOk&&milesOk&&riskOk){
-     const url='https://www.truecar.com/used-cars-for-sale/listing/'+vin+'/';
-     const p=parse({link:url,title,snippet:title+' Advertised price $'+price+' '+mileage+' miles Third Row Seating '+block.slice(0,1200)},center.label);
-     p.price=price;p.year=year;p.mileage=mileage;p.uberXL='likely';
-     p.score=Math.max(p.score,90);
-     all.push(p);accepted++;
-    }
-   }
-   log.push({collector:'TrueCar direct inventory',area:center.label,model:make+' '+model,url:inventoryUrl,accepted});
-  }catch(e){
-   log.push({collector:'TrueCar direct inventory',area:center.label,model:make+' '+model,url:inventoryUrl,error:e.message});
-  }
- }
+for(const center of centers)for(const def of half){
+ const tc='https://www.truecar.com/used-cars-for-sale/listings/'+def.make+'/'+def.model+'/price-below-15000/location-'+center.truecar+'/';
+ try{const d=await scrapePage(tc),md=d.markdown||d.text||'';let accepted=0;for(const b of blocks(md)){if(!new RegExp(safeRe(def.label),'i').test(b.title))continue;const vin=(b.block.match(/\bVIN[:\s]+([A-HJ-NPR-Z0-9]{17})\b/i)||[])[1];if(!vin)continue;const p=vehicle(b.title,b.block,'TrueCar',center.label,'https://www.truecar.com/used-cars-for-sale/listing/'+vin.toUpperCase()+'/',def.body);if(p){all.push(p);accepted++}}log.push({collector:'TrueCar',area:center.label,model:def.label,accepted})}catch(e){log.push({collector:'TrueCar',area:center.label,model:def.label,error:e.message})}
+ const cs='https://www.cars.com/shopping/'+def.make+'-'+def.model+'/'+center.cars+'/price-under-15000/';
+ try{const d=await scrapePage(cs),md=d.markdown||d.text||'';let accepted=0;for(const b of blocks(md)){if(!/Used\s+/i.test(b.title)||!new RegExp(safeRe(def.label),'i').test(b.title))continue;const lm=(b.before+b.block).match(/https?:\/\/(?:www\.)?cars\.com\/vehicledetail\/[A-Za-z0-9-]+\/?[^\s)"']*/i);if(!lm)continue;const direct=canonicalUrl(lm[0]);const p=vehicle(b.title,b.block,'Cars.com',center.label,direct,def.body);if(p){all.push(p);accepted++}}log.push({collector:'Cars.com',area:center.label,model:def.label,accepted})}catch(e){log.push({collector:'Cars.com',area:center.label,model:def.label,error:e.message})}
 }
-
-// Lightweight discovery for private-seller sources. These results are only accepted when
-// Serper returns an actual vehicle-detail URL with enough data on that exact result.
-for(const area of cfg.searchAreas){
- const q='site:craigslist.org/view/d OR site:facebook.com/marketplace/item '+area+' SUV "third row" "$"';
- try{
-  const j=await search(q);
-  let accepted=0;
-  for(const r of (j.organic||[])){
-   if(!r.link||!allowed.test(r.link)||!isDirectListing(r.link)) continue;
-   const p=parse({...r,link:canonicalUrl(r.link)},area);
-   const txt=p.title+' '+p.snippet;
-   if(p.price!==null&&p.price>=cfg.minPrice&&p.price<=cfg.maxPrice&&p.year!==null&&p.year>=cfg.minYear&&
-      (p.mileage===null||p.mileage<=cfg.maxMileage)&&targetModel.test(txt)&&seven.test(txt)){
-    all.push(p);accepted++;
-   }
-  }
-  log.push({collector:'Private seller discovery',area,query:q,results:(j.organic||[]).length,accepted});
- }catch(e){log.push({collector:'Private seller discovery',area,query:q,error:e.message})}
+for(const area of cfg.searchAreas)for(const src of [{name:'Craigslist',q:'site:craigslist.org/view/d'},{name:'Facebook Marketplace',q:'site:facebook.com/marketplace/item'}]){
+ const q=src.q+' '+area+' (Pilot OR Highlander OR Explorer OR Sorento OR Pathfinder OR Traverse OR Acadia OR Durango OR MDX OR QX60 OR Pacifica OR Odyssey OR Sienna) "$"';
+ try{const j=await search(q);let accepted=0;for(const r of (j.organic||[])){if(!r.link||!isDirectListing(r.link))continue;const p=parse({...r,link:canonicalUrl(r.link)},area),txt=p.title+' '+p.snippet,isVan=/pacifica|odyssey|sienna|carnival|minivan/i.test(txt);p.bodyStyle=isVan?'Minivan':'SUV';if(p.price!==null&&p.price>=cfg.minPrice&&p.price<=cfg.maxPrice&&p.year!==null&&p.year>=cfg.minYear&&(p.mileage===null||p.mileage<=cfg.maxMileage)&&(targetModel.test(txt)||isVan)){all.push(p);accepted++}}log.push({collector:src.name,area,results:(j.organic||[]).length,accepted})}catch(e){log.push({collector:src.name,area,error:e.message})}
 }
-
-const uniq=[...new Map(all.map(x=>[canonicalUrl(x.url),{...x,url:canonicalUrl(x.url)}])).values()];
-const out=uniq
- .filter(x=>x.price!==null&&x.price>=cfg.minPrice&&x.price<=cfg.maxPrice&&x.year!==null&&x.year>=cfg.minYear&&
-   (x.mileage===null||x.mileage<=cfg.maxMileage)&&targetModel.test((x.title||'')+' '+(x.snippet||'')))
- .sort((a,b)=>b.score-a.score)
- .slice(0,250);
-
-let finalOut=out;
-let status='ok';
-if(out.length===0){
- try{
-  const previous=JSON.parse(await fs.readFile(new URL('data/listings.json',root),'utf8'));
-  if(Array.isArray(previous)&&previous.length){finalOut=previous;status='no-new-results-kept-previous';}
- }catch{}
-}
-await fs.writeFile(new URL('data/listings.json',root),JSON.stringify(finalOut,null,2));
-await fs.writeFile(new URL('data/scan-meta.json',root),JSON.stringify({
- lastScan:new Date().toISOString(),status,count:finalOut.length,newCount:out.length,
- rawCount:all.length,uniqueCount:uniq.length,queriesRun:log.length,
- activeModelGroup:utcHour<6?'B':'A',queryLog:log
-},null,2));
-console.log('Saved',finalOut.length,'listings,',out.length,'new');
+let previous=[];try{previous=JSON.parse(await fs.readFile(new URL('data/listings.json',root),'utf8'));if(!Array.isArray(previous))previous=[]}catch{}
+const merged=[...all,...previous.filter(x=>x&&x.url&&x.price>=cfg.minPrice&&x.price<=cfg.maxPrice&&x.year>=cfg.minYear)];
+const uniq=[...new Map(merged.map(x=>[canonicalUrl(x.url),{...x,url:canonicalUrl(x.url)}])).values()];
+const out=uniq.filter(x=>x.price!==null&&x.price>=cfg.minPrice&&x.price<=cfg.maxPrice&&x.year!==null&&x.year>=cfg.minYear&&(x.mileage===null||x.mileage<=cfg.maxMileage)).sort((a,b)=>(b.score||0)-(a.score||0)).slice(0,300);
+await fs.writeFile(new URL('data/listings.json',root),JSON.stringify(out,null,2));
+await fs.writeFile(new URL('data/scan-meta.json',root),JSON.stringify({lastScan:new Date().toISOString(),status:'ok',count:out.length,newCount:all.length,uniqueCount:uniq.length,collectorsRun:log.length,activeModels:half.map(x=>x.label),sourceCounts:Object.fromEntries([...new Set(out.map(x=>x.source))].map(s=>[s,out.filter(x=>x.source===s).length])),queryLog:log},null,2));
+console.log('Saved',out.length,'listings,',all.length,'fresh');
