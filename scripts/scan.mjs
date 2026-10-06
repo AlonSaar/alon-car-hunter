@@ -82,7 +82,7 @@ function parse(x,area){
   price=candidates.length?candidates[0].v:null;
  }
  const year=num(text.match(/\b(20[0-2][0-9]|19[89][0-9])\b/)?.[1]);
- const mm=text.match(/([0-9]{1,3}(?:,[0-9]{3})+)\s*(?:mi|miles)/i);
+ const mm=text.match(/([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,6})\s*(?:mi|miles)/i)||text.match(/odometer\s*[:=-]?\s*([0-9]{1,3}(?:,[0-9]{3})+|[0-9]{4,6})/i);
  const mileage=num(mm?.[1]);
  const src=source(x.link||'');
  const privateSeller=(['Craigslist','Facebook Marketplace','PrivateAuto','OfferUp'].includes(src)||privateText.test(text))&&!dealer.test(text);
@@ -226,6 +226,33 @@ for(const [area,url] of carsPages){
  }catch(e){log.push({collector:'Cars.com',area,url,error:e.message})}
 }
 
+// Search-index fallback for dealer marketplaces when their inventory pages block scraping.
+// Direct listing URLs are hydrated individually before acceptance.
+for(const spec of [
+ {name:'Cars.com',domain:'cars.com/vehicledetail'},
+ {name:'TrueCar',domain:'truecar.com/used-cars-for-sale/listing'}
+]){
+ for(const area of ['New York NY','Long Island NY','North Jersey','Westchester NY']){
+  for(const group of [
+   'Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Nissan Pathfinder Chevrolet Traverse',
+   'GMC Acadia Dodge Durango Acura MDX Infiniti QX60 Buick Enclave Mazda CX-9 Honda Odyssey Toyota Sienna Chrysler Pacifica'
+  ]){
+   const q='site:'+spec.domain+' '+area+' '+group+' "$" used';
+   try{
+    const j=await search(q);let direct=0,accepted=0;
+    for(const r of (j.organic||[]).slice(0,10)){
+     if(!r.link||!isDirectListing(r.link))continue;direct++;
+     const full=await hydrate({...r,link:canonicalUrl(r.link)});
+     const titleText=(full.title||'');
+     if(!wantedModel.test(titleText))continue;
+     if(addParsed(full,area,{bodyStyle:minivanModel.test(titleText)?'Minivan':'SUV'}))accepted++;
+    }
+    log.push({collector:spec.name+' search fallback',area,results:(j.organic||[]).length,direct,accepted});
+   }catch(e){log.push({collector:spec.name+' search fallback',area,error:e.message})}
+  }
+ }
+}
+
 // Private-party and Facebook discovery. Facebook is best-effort because Marketplace indexing is inconsistent.
 for(const area of cfg.searchAreas){
  for(const spec of [
@@ -238,7 +265,9 @@ for(const area of cfg.searchAreas){
    const j=await search(spec.q);let accepted=0,direct=0;
    for(const r of (j.organic||[])){
     if(!r.link||!isDirectListing(r.link))continue;direct++;
-    if(addParsed({...r,link:canonicalUrl(r.link)},area,{bodyStyle:minivanModel.test((r.title||'')+' '+(r.snippet||''))?'Minivan':'SUV'}))accepted++;
+    const titleOnly=r.title||'';
+    if(!wantedModel.test(titleOnly))continue;
+    if(addParsed({...r,link:canonicalUrl(r.link)},area,{bodyStyle:minivanModel.test(titleOnly)?'Minivan':'SUV'}))accepted++;
    }
    log.push({collector:spec.name,area,results:(j.organic||[]).length,direct,accepted});
   }catch(e){log.push({collector:spec.name,area,error:e.message})}
@@ -251,7 +280,7 @@ try{
  if(Array.isArray(previous)){
   for(const p of previous){
    const age=Date.now()-new Date(p.foundAt||0).getTime();
-   if(age<7*24*60*60*1000&&p.url&&p.price>=cfg.minPrice&&p.price<=cfg.maxPrice&&p.year>=cfg.minYear) all.push(p);
+   if(age<7*24*60*60*1000&&p.url&&p.price>=cfg.minPrice&&p.price<=cfg.maxPrice&&p.year>=cfg.minYear&&(p.mileage==null||p.mileage<=cfg.maxMileage)&&wantedModel.test(p.title||'')) all.push(p);
   }
  }
 }catch{}
