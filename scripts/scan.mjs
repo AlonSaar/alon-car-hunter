@@ -226,30 +226,26 @@ for(const [area,url] of carsPages){
  }catch(e){log.push({collector:'Cars.com',area,url,error:e.message})}
 }
 
-// Search-index fallback for dealer marketplaces when their inventory pages block scraping.
-// Direct listing URLs are hydrated individually before acceptance.
+// Search-index fallback for dealer marketplaces - model-specific queries are much more reliable than grouped model queries.
+const dealerModels=['Honda Pilot','Toyota Highlander','Ford Explorer','Kia Sorento','Nissan Pathfinder','Honda Odyssey','Toyota Sienna','Chrysler Pacifica'];
+const rotate=dealerModels.slice((new Date().getUTCHours()<12?0:4),(new Date().getUTCHours()<12?4:8));
 for(const spec of [
  {name:'Cars.com',domain:'cars.com/vehicledetail'},
  {name:'TrueCar',domain:'truecar.com/used-cars-for-sale/listing'}
 ]){
- for(const area of ['New York NY','Long Island NY','North Jersey','Westchester NY']){
-  for(const group of [
-   'Honda Pilot Toyota Highlander Ford Explorer Kia Sorento Nissan Pathfinder Chevrolet Traverse',
-   'GMC Acadia Dodge Durango Acura MDX Infiniti QX60 Buick Enclave Mazda CX-9 Honda Odyssey Toyota Sienna Chrysler Pacifica'
-  ]){
-   const q='site:'+spec.domain+' '+area+' '+group+' "$" used';
-   try{
-    const j=await search(q);let direct=0,accepted=0;
-    for(const r of (j.organic||[]).slice(0,10)){
-     if(!r.link||!isDirectListing(r.link))continue;direct++;
-     const full=await hydrate({...r,link:canonicalUrl(r.link)});
-     const titleText=(full.title||'');
-     if(!wantedModel.test(titleText))continue;
-     if(addParsed(full,area,{bodyStyle:minivanModel.test(titleText)?'Minivan':'SUV'}))accepted++;
-    }
-    log.push({collector:spec.name+' search fallback',area,results:(j.organic||[]).length,direct,accepted});
-   }catch(e){log.push({collector:spec.name+' search fallback',area,error:e.message})}
-  }
+ for(const model of rotate){
+  const q='site:'+spec.domain+' "'+model+'" "$" (NY OR NJ OR CT)';
+  try{
+   const j=await search(q);let direct=0,accepted=0;
+   for(const r of (j.organic||[]).slice(0,10)){
+    if(!r.link||!isDirectListing(r.link))continue;direct++;
+    const full=await hydrate({...r,link:canonicalUrl(r.link)});
+    const titleOnly=full.title||'';
+    if(!new RegExp(model.replace(/[.*+?^$()|[\]\\]/g,'\\$&'),'i').test(titleOnly))continue;
+    if(addParsed(full,'NY metro',{bodyStyle:minivanModel.test(titleOnly)?'Minivan':'SUV'}))accepted++;
+   }
+   log.push({collector:spec.name+' model fallback',model,results:(j.organic||[]).length,direct,accepted});
+  }catch(e){log.push({collector:spec.name+' model fallback',model,error:e.message})}
  }
 }
 
