@@ -1,6 +1,8 @@
 {
-  "lastScan": null,
-  "status": "awaiting_first_scan",
+  "lastScan": "2026-10-29T21:22:28.419Z",
+  "status": "ok",
   "count": 0,
-  "message": "Legacy inventory cleared. New Toyota XLE scan pending."
+  "verifiedLinks": 0,
+  "unverifiedOTD": 0,
+  "errors": []
 }
