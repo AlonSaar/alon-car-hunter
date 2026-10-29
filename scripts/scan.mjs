@@ -4,10 +4,10 @@ const root=new URL('../',import.meta.url);
 const cfg=JSON.parse(await fs.readFile(new URL('config.json',root),'utf8'));
 const apiKey=process.env.SERPER_API_KEY;
 if(!apiKey)throw Error('Missing SERPER_API_KEY');
-const sites=['cars.com','autotrader.com','truecar.com','cargurus.com','carmax.com'];
+const sites=[{domain:'cars.com',path:'vehicledetail'},{domain:'autotrader.com',path:'cars-for-sale/vehicle'},{domain:'truecar.com',path:'used-cars-for-sale/listing'},{domain:'cargurus.com',path:'listingId'},{domain:'carmax.com',path:'car/'}];
 const models=[{name:'Toyota Sienna XLE',re:/\bToyota\s+Sienna\b[\s\S]{0,40}\bXLE\b/i},{name:'Toyota RAV4 XLE',re:/\bToyota\s+RAV4\b[\s\S]{0,40}\bXLE\b/i}];
 const areas=['New York','Long Island','New Jersey','Connecticut'];
-const results=[],errors=[],seen=new Set(),diagnostics={queries:0,searchHits:0,directLinks:0,pagesRead:0,rejected:{},examples:[]};
+const results=[],errors=[],seen=new Set(),diagnostics={queries:0,searchHits:0,directLinks:0,pagesRead:0,rejected:{},examples:[],querySamples:[]};
 const reject=(reason,url)=>{diagnostics.rejected[reason]=(diagnostics.rejected[reason]||0)+1;if(diagnostics.examples.length<12)diagnostics.examples.push({reason,url})};
 const digits=s=>Number(String(s||'').replace(/[^0-9]/g,''))||null;
 const vinRe=/\b[A-HJ-NPR-Z0-9]{17}\b/g;
@@ -27,9 +27,10 @@ const source=new URL(row.link).hostname.replace(/^www\./,'');
 return {id:crypto.createHash('sha1').update(vin).digest('hex').slice(0,12),vin,model:model.name,title,year:yr,price,mileage:miles,source,location:area,url:row.link,snippet:String(row.snippet||'').slice(0,400),foundAt:new Date().toISOString(),lastVerifiedAt:new Date().toISOString(),linkVerified:true,priceVerified:'listing_only',titleVerified:false,accidentVerified:false,cashPriceVerified:false,otdVerified:false,estimatedOTD:Math.round(price*(1+cfg.estimatedTaxRate)+cfg.estimatedGovernmentFees),score:Math.max(0,100-Math.round((miles/100000)*35)-Math.round((price/15000)*15)),status:'needs_dealer_confirmation'};
 }
 for(const model of models)for(const area of areas)for(const site of sites){
- const q='site:'+site+' Toyota '+(model.name.includes('Sienna')?'Sienna':'RAV4')+' XLE '+area+' used 2015 2016 2017 2018 2019 under $15000';
+ const q='site:'+site.domain+' '+site.path+' "Toyota '+(model.name.includes('Sienna')?'Sienna':'RAV4')+'" "XLE" '+area+' "$" "miles"';
  try{
   diagnostics.queries++;
+  if(diagnostics.querySamples.length<5)diagnostics.querySamples.push(q);
   const rows=await search(q);diagnostics.searchHits+=rows.length;
   for(const row of rows.slice(0,10)){
    if(!row.link||!direct(row.link)){reject('not_direct',row.link||'');continue}
@@ -43,7 +44,7 @@ for(const model of models)for(const area of areas)for(const site of sites){
     if(listing)results.push(listing);
    }catch(e){errors.push({url:row.link,error:String(e.message).slice(0,120)})}
   }
- }catch(e){errors.push({site,area,model:model.name,error:String(e.message).slice(0,120)})}
+ }catch(e){errors.push({site:site.domain,area,model:model.name,error:String(e.message).slice(0,120)})}
 }
 const uniq=[...new Map(results.map(x=>[x.vin,x])).values()].sort((a,b)=>b.score-a.score);
 await fs.writeFile(new URL('data/listings.json',root),JSON.stringify(uniq,null,2)+'\n');
