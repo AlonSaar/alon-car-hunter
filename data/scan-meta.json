@@ -1,8 +1,67 @@
 {
-  "lastScan": "2026-10-29T21:22:28.419Z",
-  "status": "ok",
+  "lastScan": "2026-10-29T22:03:39.005Z",
+  "status": "no_matches",
   "count": 0,
   "verifiedLinks": 0,
   "unverifiedOTD": 0,
-  "errors": []
+  "errors": [],
+  "diagnostics": {
+    "queries": 40,
+    "searchHits": 400,
+    "directLinks": 0,
+    "pagesRead": 0,
+    "rejected": {
+      "not_direct": 400
+    },
+    "examples": [
+      {
+        "reason": "not_direct",
+        "url": "https://www.cars.com/shopping/toyota-sienna/new_york-ny/price-under-15000/"
+      },
+      {
+        "reason": "not_direct",
+        "url": "https://www.cars.com/shopping/toyota-sienna/farmingdale-ny/price-under-15000/"
+      },
+      {
+        "reason": "not_direct",
+        "url": "https://www.cars.com/shopping/toyota-sienna/haverstraw-ny/price-under-15000/$%7Bev_report_url%7D/"
+      },
+      {
+        "reason": "not_direct",
+        "url": "https://www.cars.com/shopping/toyota-sienna-2015/"
+      },
+      {
+        "reason": "not_direct",
+        "url": "https://www.cars.com/shopping/toyota-sienna/hastings_on_hudson-ny/price-under-15000/"
+      },
+      {
+        "reason": "not_direct",
+        "url": "https://www.cars.com/shopping/toyota-sienna/old_brookville-ny/price-under-30000/"
+      },
+      {
+        "reason": "not_direct",
+        "url": "https://www.cars.com/shopping/toyota/new_york-ny/price-under-15000/"
+      },
+      {
+        "reason": "not_direct",
+        "url": "https://www.cars.com/shopping/toyota-sienna-2015/brooklyn-ny/"
+      },
+      {
+        "reason": "not_direct",
+        "url": "https://www.cars.com/shopping/toyota-sienna/adams-ma/"
+      },
+      {
+        "reason": "not_direct",
+        "url": "https://www.cars.com/shopping/toyota-sienna/price-under-30000/"
+      },
+      {
+        "reason": "not_direct",
+        "url": "https://www.autotrader.com/cars-for-sale/cars-under-15000/toyota/sienna?page=10"
+      },
+      {
+        "reason": "not_direct",
+        "url": "https://www.autotrader.com/cars-for-sale/cars-under-15000/toyota/sienna"
+      }
+    ]
+  }
 }
