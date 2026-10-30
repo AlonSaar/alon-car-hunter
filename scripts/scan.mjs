@@ -27,7 +27,7 @@ const source=new URL(row.link).hostname.replace(/^www\./,'');
 return {id:crypto.createHash('sha1').update(vin).digest('hex').slice(0,12),vin,model:model.name,title,year:yr,price,mileage:miles,source,location:area,url:row.link,snippet:String(row.snippet||'').slice(0,400),foundAt:new Date().toISOString(),lastVerifiedAt:new Date().toISOString(),linkVerified:true,priceVerified:'listing_only',titleVerified:false,accidentVerified:false,cashPriceVerified:false,otdVerified:false,estimatedOTD:Math.round(price*(1+cfg.estimatedTaxRate)+cfg.estimatedGovernmentFees),score:Math.max(0,100-Math.round((miles/100000)*35)-Math.round((price/15000)*15)),status:'needs_dealer_confirmation'};
 }
 for(const model of models)for(const area of areas)for(const site of sites){
- const q='site:'+site.domain+' '+site.path+' "Toyota '+(model.name.includes('Sienna')?'Sienna':'RAV4')+'" "XLE" '+area+' "$" "miles"';
+ const q='site:'+site.domain+' inurl:'+site.path+' Toyota '+(model.name.includes('Sienna')?'Sienna':'RAV4')+' XLE '+area+' used';
  try{
   diagnostics.queries++;
   if(diagnostics.querySamples.length<5)diagnostics.querySamples.push(q);
