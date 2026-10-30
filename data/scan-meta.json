@@ -1,5 +1,5 @@
 {
-  "lastScan": "2026-10-30T00:35:26.990Z",
+  "lastScan": "2026-10-30T02:59:24.494Z",
   "status": "no_matches",
   "count": 0,
   "verifiedLinks": 0,
@@ -7,68 +7,68 @@
   "errors": [],
   "diagnostics": {
     "queries": 40,
-    "searchHits": 123,
+    "searchHits": 61,
     "directLinks": 0,
     "pagesRead": 0,
     "rejected": {
-      "not_direct": 123
+      "not_direct": 61
     },
     "examples": [
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/toyota-sienna-2018-xle_premium/"
+        "url": "https://samsclub.truecar.com/samsclub-landing/"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/cudahy-wi/"
+        "url": "https://www.truecar.com/compare/"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.autotrader.com/cars-for-sale/toyota/sienna/xle/endicott-ny"
+        "url": "https://www.carmax.com/stores/7192"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.autotrader.com/cars-for-sale/new-cars/toyota/sienna/xle-woodland-edition/syracuse-ny"
+        "url": "https://samsclub.truecar.com/samsclub-landing/"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.autotrader.com/cars-for-sale/toyota/sienna/xle/elmira-ny"
+        "url": "https://www.carmax.com/stores/7192"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-new-york-ny/"
+        "url": "https://samsclub.truecar.com/samsclub-landing/"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/price-below-6000/location-new-york-ny/"
+        "url": "https://www.truecar.com/compare/"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-staten-island-ny/?certifiedPreOwned[]=true&trim=xle"
+        "url": "https://www.truecar.com/compare/"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-new-york-ny/?certifiedPreOwned[]=true&trim=xse"
+        "url": "https://www.carmax.com/stores/7122"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-west-new-york-nj/"
+        "url": "https://www.carmax.com/car-financing"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-new-york-ny/?excludeExpandedDelivery=true&trim=se"
+        "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4/new-york-ny"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/new-cars-for-sale/listings/toyota/sienna/"
+        "url": "https://www.autotrader.com/cars-for-sale/cars-under-10000/toyota/rav4/queens-village-ny"
       }
     ],
     "querySamples": [
-      "site:cars.com vehicledetail \"Toyota Sienna\" \"XLE\" New York \"$\" \"miles\"",
-      "site:autotrader.com cars-for-sale/vehicle \"Toyota Sienna\" \"XLE\" New York \"$\" \"miles\"",
-      "site:truecar.com used-cars-for-sale/listing \"Toyota Sienna\" \"XLE\" New York \"$\" \"miles\"",
-      "site:cargurus.com listingId \"Toyota Sienna\" \"XLE\" New York \"$\" \"miles\"",
-      "site:carmax.com car/ \"Toyota Sienna\" \"XLE\" New York \"$\" \"miles\""
+      "site:cars.com inurl:vehicledetail Toyota Sienna XLE New York used",
+      "site:autotrader.com inurl:cars-for-sale/vehicle Toyota Sienna XLE New York used",
+      "site:truecar.com inurl:used-cars-for-sale/listing Toyota Sienna XLE New York used",
+      "site:cargurus.com inurl:listingId Toyota Sienna XLE New York used",
+      "site:carmax.com inurl:car/ Toyota Sienna XLE New York used"
     ]
   }
 }
