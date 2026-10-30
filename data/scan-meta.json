@@ -1,5 +1,5 @@
 {
-  "lastScan": "2026-10-29T22:03:39.005Z",
+  "lastScan": "2026-10-30T00:35:26.990Z",
   "status": "no_matches",
   "count": 0,
   "verifiedLinks": 0,
@@ -7,61 +7,68 @@
   "errors": [],
   "diagnostics": {
     "queries": 40,
-    "searchHits": 400,
+    "searchHits": 123,
     "directLinks": 0,
     "pagesRead": 0,
     "rejected": {
-      "not_direct": 400
+      "not_direct": 123
     },
     "examples": [
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/toyota-sienna/new_york-ny/price-under-15000/"
+        "url": "https://www.cars.com/shopping/toyota-sienna-2018-xle_premium/"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/toyota-sienna/farmingdale-ny/price-under-15000/"
+        "url": "https://www.cars.com/shopping/cudahy-wi/"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/toyota-sienna/haverstraw-ny/price-under-15000/$%7Bev_report_url%7D/"
+        "url": "https://www.autotrader.com/cars-for-sale/toyota/sienna/xle/endicott-ny"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/toyota-sienna-2015/"
+        "url": "https://www.autotrader.com/cars-for-sale/new-cars/toyota/sienna/xle-woodland-edition/syracuse-ny"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/toyota-sienna/hastings_on_hudson-ny/price-under-15000/"
+        "url": "https://www.autotrader.com/cars-for-sale/toyota/sienna/xle/elmira-ny"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/toyota-sienna/old_brookville-ny/price-under-30000/"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-new-york-ny/"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/toyota/new_york-ny/price-under-15000/"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/price-below-6000/location-new-york-ny/"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/toyota-sienna-2015/brooklyn-ny/"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-staten-island-ny/?certifiedPreOwned[]=true&trim=xle"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/toyota-sienna/adams-ma/"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-new-york-ny/?certifiedPreOwned[]=true&trim=xse"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/toyota-sienna/price-under-30000/"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-west-new-york-nj/"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.autotrader.com/cars-for-sale/cars-under-15000/toyota/sienna?page=10"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-new-york-ny/?excludeExpandedDelivery=true&trim=se"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.autotrader.com/cars-for-sale/cars-under-15000/toyota/sienna"
+        "url": "https://www.truecar.com/new-cars-for-sale/listings/toyota/sienna/"
       }
+    ],
+    "querySamples": [
+      "site:cars.com vehicledetail \"Toyota Sienna\" \"XLE\" New York \"$\" \"miles\"",
+      "site:autotrader.com cars-for-sale/vehicle \"Toyota Sienna\" \"XLE\" New York \"$\" \"miles\"",
+      "site:truecar.com used-cars-for-sale/listing \"Toyota Sienna\" \"XLE\" New York \"$\" \"miles\"",
+      "site:cargurus.com listingId \"Toyota Sienna\" \"XLE\" New York \"$\" \"miles\"",
+      "site:carmax.com car/ \"Toyota Sienna\" \"XLE\" New York \"$\" \"miles\""
     ]
   }
 }
