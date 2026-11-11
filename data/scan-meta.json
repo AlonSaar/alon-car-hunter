@@ -1,5 +1,5 @@
 {
-  "lastScan": "2026-11-10T19:11:08.646Z",
+  "lastScan": "2026-11-11T19:07:26.654Z",
   "status": "no_matches",
   "count": 0,
   "verifiedLinks": 0,
@@ -7,11 +7,11 @@
   "errors": [],
   "diagnostics": {
     "queries": 40,
-    "searchHits": 78,
+    "searchHits": 65,
     "directLinks": 0,
     "pagesRead": 0,
     "rejected": {
-      "not_direct": 78
+      "not_direct": 65
     },
     "examples": [
       {
@@ -44,23 +44,23 @@
       },
       {
         "reason": "not_direct",
-        "url": "https://www.carmax.com/cars/toyota/sienna?location=jersey+city+nj"
+        "url": "https://www.truecar.com/compare/"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.autotrader.com/cars-for-sale/toyota/sienna/xle-premium/linden-nj"
+        "url": "https://www.carmax.com/stores/7122"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.cargurus.com/Cars/l-Used-Toyota-Sienna-Trenton-d308_L22190"
+        "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4/new-york-ny"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-mays-landing-nj/?trim=xle"
+        "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4/adventure/new-york-ny"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/toyota-sienna/new_egypt-nj/"
+        "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4"
       }
     ],
     "querySamples": [
