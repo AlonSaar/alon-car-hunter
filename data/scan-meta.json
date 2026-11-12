@@ -1,5 +1,5 @@
 {
-  "lastScan": "2026-11-11T19:07:26.654Z",
+  "lastScan": "2026-11-12T19:24:44.651Z",
   "status": "no_matches",
   "count": 0,
   "verifiedLinks": 0,
@@ -7,11 +7,11 @@
   "errors": [],
   "diagnostics": {
     "queries": 40,
-    "searchHits": 65,
+    "searchHits": 68,
     "directLinks": 0,
     "pagesRead": 0,
     "rejected": {
-      "not_direct": 65
+      "not_direct": 68
     },
     "examples": [
       {
@@ -28,7 +28,7 @@
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/compare/"
+        "url": "https://samsclub.truecar.com/samsclub-landing/"
       },
       {
         "reason": "not_direct",
@@ -52,15 +52,15 @@
       },
       {
         "reason": "not_direct",
-        "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4/new-york-ny"
-      },
-      {
-        "reason": "not_direct",
-        "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4/adventure/new-york-ny"
+        "url": "https://www.autotrader.com/cars-for-sale/2023/toyota/rav4/xle-premium/new-york-ny"
       },
       {
         "reason": "not_direct",
         "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4"
+      },
+      {
+        "reason": "not_direct",
+        "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4/adventure/new-york-ny"
       }
     ],
     "querySamples": [
