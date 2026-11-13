@@ -1,5 +1,5 @@
 {
-  "lastScan": "2026-11-12T19:24:44.651Z",
+  "lastScan": "2026-11-13T19:02:48.852Z",
   "status": "no_matches",
   "count": 0,
   "verifiedLinks": 0,
@@ -7,11 +7,11 @@
   "errors": [],
   "diagnostics": {
     "queries": 40,
-    "searchHits": 68,
+    "searchHits": 63,
     "directLinks": 0,
     "pagesRead": 0,
     "rejected": {
-      "not_direct": 68
+      "not_direct": 63
     },
     "examples": [
       {
@@ -28,39 +28,39 @@
       },
       {
         "reason": "not_direct",
-        "url": "https://samsclub.truecar.com/samsclub-landing/"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-queens-village-ny/"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.carmax.com/stores/7192"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-college-point-ny/?page=2&trim=xle"
       },
       {
         "reason": "not_direct",
-        "url": "https://samsclub.truecar.com/samsclub-landing/"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-elmhurst-ny/?page=2&trim=xse"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/compare/"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-new-york-ny/?trim=se"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/compare/"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-kew-gardens-ny/?bodyStyleSlug=van"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.carmax.com/stores/7122"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-mount-vernon-ny/?certifiedPreOwned[]=true&trim=xle"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.autotrader.com/cars-for-sale/2023/toyota/rav4/xle-premium/new-york-ny"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/year-2026/location-saint-albans-ny/?trim=xle"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/fuel-all-hybrids/location-brooklyn-ny/?trim=le"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4/adventure/new-york-ny"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/year-2026/location-monsey-ny/?trim=xle"
       }
     ],
     "querySamples": [
