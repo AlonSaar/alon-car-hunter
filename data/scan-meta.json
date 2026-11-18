@@ -1,5 +1,5 @@
 {
-  "lastScan": "2026-11-13T19:02:48.852Z",
+  "lastScan": "2026-11-18T19:49:55.205Z",
   "status": "no_matches",
   "count": 0,
   "verifiedLinks": 0,
@@ -7,13 +7,25 @@
   "errors": [],
   "diagnostics": {
     "queries": 40,
-    "searchHits": 63,
+    "searchHits": 86,
     "directLinks": 0,
     "pagesRead": 0,
     "rejected": {
-      "not_direct": 63
+      "not_direct": 86
     },
     "examples": [
+      {
+        "reason": "not_direct",
+        "url": "https://www.cars.com/shopping/toyota-sienna/new_york-ny/"
+      },
+      {
+        "reason": "not_direct",
+        "url": "https://www.cars.com/shopping/toyota-sienna-2021/new_york-ny/"
+      },
+      {
+        "reason": "not_direct",
+        "url": "https://www.cars.com/shopping/toyota-sienna-2021-xle/new_york-ny/"
+      },
       {
         "reason": "not_direct",
         "url": "https://samsclub.truecar.com/samsclub-landing/"
@@ -32,19 +44,11 @@
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-college-point-ny/?page=2&trim=xle"
-      },
-      {
-        "reason": "not_direct",
         "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-elmhurst-ny/?page=2&trim=xse"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-new-york-ny/?trim=se"
-      },
-      {
-        "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-kew-gardens-ny/?bodyStyleSlug=van"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/?trim=xle"
       },
       {
         "reason": "not_direct",
@@ -52,11 +56,7 @@
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/year-2026/location-saint-albans-ny/?trim=xle"
-      },
-      {
-        "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/fuel-all-hybrids/location-brooklyn-ny/?trim=le"
+        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-clifton-park-ny/?trim=se"
       },
       {
         "reason": "not_direct",
