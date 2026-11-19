@@ -1,30 +1,53 @@
 {
-  "lastScan": "2026-11-18T19:49:55.205Z",
-  "status": "no_matches",
+  "lastScan": "2026-11-19T19:50:51.137Z",
+  "status": "partial",
   "count": 0,
   "verifiedLinks": 0,
   "unverifiedOTD": 0,
-  "errors": [],
+  "errors": [
+    {
+      "site": "carmax.com",
+      "area": "New Jersey",
+      "model": "Toyota RAV4 XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "truecar.com",
+      "area": "Connecticut",
+      "model": "Toyota RAV4 XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "cargurus.com",
+      "area": "Connecticut",
+      "model": "Toyota RAV4 XLE",
+      "error": "Search HTTP 400"
+    }
+  ],
   "diagnostics": {
     "queries": 40,
-    "searchHits": 86,
+    "searchHits": 49,
     "directLinks": 0,
     "pagesRead": 0,
     "rejected": {
-      "not_direct": 86
+      "not_direct": 49
     },
     "examples": [
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/toyota-sienna/new_york-ny/"
+        "url": "https://www.carmax.com/stores/7122"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/toyota-sienna-2021/new_york-ny/"
+        "url": "https://www.carmax.com/stores/7192"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.cars.com/shopping/toyota-sienna-2021-xle/new_york-ny/"
+        "url": "https://samsclub.truecar.com/samsclub-landing/"
+      },
+      {
+        "reason": "not_direct",
+        "url": "https://www.carmax.com/stores/7192"
       },
       {
         "reason": "not_direct",
@@ -36,31 +59,27 @@
       },
       {
         "reason": "not_direct",
-        "url": "https://www.carmax.com/stores/7192"
+        "url": "https://www.truecar.com/compare/"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-queens-village-ny/"
+        "url": "https://www.carmax.com/stores/7122"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-elmhurst-ny/?page=2&trim=xse"
+        "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4/new-york-ny"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/?trim=xle"
+        "url": "https://www.starchryslerjeepdodge.net/"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-mount-vernon-ny/?certifiedPreOwned[]=true&trim=xle"
+        "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4/xle/new-york-ny?page=4"
       },
       {
         "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/location-clifton-park-ny/?trim=se"
-      },
-      {
-        "reason": "not_direct",
-        "url": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/year-2026/location-monsey-ny/?trim=xle"
+        "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4/levittown-ny?page=8"
       }
     ],
     "querySamples": [
