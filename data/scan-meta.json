@@ -1,87 +1,198 @@
 {
-  "lastScan": "2026-11-19T19:50:51.137Z",
+  "lastScan": "2026-11-20T19:29:15.756Z",
   "status": "partial",
   "count": 0,
   "verifiedLinks": 0,
   "unverifiedOTD": 0,
   "errors": [
     {
+      "site": "cars.com",
+      "area": "New York",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "autotrader.com",
+      "area": "New York",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "truecar.com",
+      "area": "New York",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "cargurus.com",
+      "area": "New York",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "carmax.com",
+      "area": "New York",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "cars.com",
+      "area": "Long Island",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "autotrader.com",
+      "area": "Long Island",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "truecar.com",
+      "area": "Long Island",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "cargurus.com",
+      "area": "Long Island",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "carmax.com",
+      "area": "Long Island",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "cars.com",
+      "area": "New Jersey",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "autotrader.com",
+      "area": "New Jersey",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "truecar.com",
+      "area": "New Jersey",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "cargurus.com",
+      "area": "New Jersey",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
       "site": "carmax.com",
       "area": "New Jersey",
-      "model": "Toyota RAV4 XLE",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "cars.com",
+      "area": "Connecticut",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "autotrader.com",
+      "area": "Connecticut",
+      "model": "Toyota Sienna XLE",
       "error": "Search HTTP 400"
     },
     {
       "site": "truecar.com",
       "area": "Connecticut",
-      "model": "Toyota RAV4 XLE",
+      "model": "Toyota Sienna XLE",
       "error": "Search HTTP 400"
     },
     {
       "site": "cargurus.com",
       "area": "Connecticut",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "carmax.com",
+      "area": "Connecticut",
+      "model": "Toyota Sienna XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "cars.com",
+      "area": "New York",
+      "model": "Toyota RAV4 XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "autotrader.com",
+      "area": "New York",
+      "model": "Toyota RAV4 XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "truecar.com",
+      "area": "New York",
+      "model": "Toyota RAV4 XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "cargurus.com",
+      "area": "New York",
+      "model": "Toyota RAV4 XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "carmax.com",
+      "area": "New York",
+      "model": "Toyota RAV4 XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "cars.com",
+      "area": "Long Island",
+      "model": "Toyota RAV4 XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "autotrader.com",
+      "area": "Long Island",
+      "model": "Toyota RAV4 XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "truecar.com",
+      "area": "Long Island",
+      "model": "Toyota RAV4 XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "cargurus.com",
+      "area": "Long Island",
+      "model": "Toyota RAV4 XLE",
+      "error": "Search HTTP 400"
+    },
+    {
+      "site": "carmax.com",
+      "area": "Long Island",
       "model": "Toyota RAV4 XLE",
       "error": "Search HTTP 400"
     }
   ],
   "diagnostics": {
     "queries": 40,
-    "searchHits": 49,
+    "searchHits": 0,
     "directLinks": 0,
     "pagesRead": 0,
-    "rejected": {
-      "not_direct": 49
-    },
-    "examples": [
-      {
-        "reason": "not_direct",
-        "url": "https://www.carmax.com/stores/7122"
-      },
-      {
-        "reason": "not_direct",
-        "url": "https://www.carmax.com/stores/7192"
-      },
-      {
-        "reason": "not_direct",
-        "url": "https://samsclub.truecar.com/samsclub-landing/"
-      },
-      {
-        "reason": "not_direct",
-        "url": "https://www.carmax.com/stores/7192"
-      },
-      {
-        "reason": "not_direct",
-        "url": "https://samsclub.truecar.com/samsclub-landing/"
-      },
-      {
-        "reason": "not_direct",
-        "url": "https://www.truecar.com/compare/"
-      },
-      {
-        "reason": "not_direct",
-        "url": "https://www.truecar.com/compare/"
-      },
-      {
-        "reason": "not_direct",
-        "url": "https://www.carmax.com/stores/7122"
-      },
-      {
-        "reason": "not_direct",
-        "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4/new-york-ny"
-      },
-      {
-        "reason": "not_direct",
-        "url": "https://www.starchryslerjeepdodge.net/"
-      },
-      {
-        "reason": "not_direct",
-        "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4/xle/new-york-ny?page=4"
-      },
-      {
-        "reason": "not_direct",
-        "url": "https://www.autotrader.com/cars-for-sale/toyota/rav4/levittown-ny?page=8"
-      }
-    ],
+    "rejected": {},
+    "examples": [],
     "querySamples": [
       "site:cars.com inurl:vehicledetail Toyota Sienna XLE New York used",
       "site:autotrader.com inurl:cars-for-sale/vehicle Toyota Sienna XLE New York used",
